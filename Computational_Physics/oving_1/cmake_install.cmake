@@ -1,4 +1,4 @@
-# Install script for directory: /home/tkleiven/Documents/Skole/semester6/numfys/oving_1
+# Install script for directory: /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/tkleiven/Documents/Skole/semester6/numfys/oving_1/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

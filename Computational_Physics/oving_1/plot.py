@@ -14,7 +14,7 @@ x = range(0,len(y))
 
 plt.axhline(linewidth=1, color= 'r')
 
-plt.plot(x,y, label='Loaded from file!')
+plt.plot(x,y, label='x(t) = ∑s_n')
 plt.xlabel('x')
 plt.ylabel('y')
 plt.title('Interesting Graph\nCheck it out')
