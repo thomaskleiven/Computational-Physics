@@ -1,6 +1,8 @@
 import matplotlib.pyplot as plt
+import matplotlib.mlab as mlab
 import csv
 import numpy as np
+import math as mp
 
 x = []
 y = []
@@ -8,28 +10,29 @@ y = []
 with open('data.txt','r') as csvfile:
     plots = csv.reader(csvfile, delimiter=',')
     for row in plots:
+        if(np.float(row[0]) == 100000):
+            continue
         y.append(np.float(row[0]))
 
-x = range(0,len(y))
 
-'''
-values, base = np.histogram(y, bins = 40)
-
-cumulative = np.cumsum(values)
-
-# plot the cumulative function
-plt.plot(base[:-1], cumulative, c='blue')
-#plot the survival function
-plt.plot(base[:-1], len(y)-cumulative, c='green')
-
-plt.show()'''
+x = np.arange(len(y))
 
 
-plt.axhline(linewidth=1, color= 'r')
-
-plt.plot(x,y, label='x(t) = ∑s_n')
-plt.xlabel('x')
-plt.ylabel('y')
-plt.title('Interesting Graph\nCheck it out')
-plt.legend()
+#Plot cumultative distributin
+values, base = np.histogram(y, bins = 10000, normed=1)
+plt.yscale('log')
+plt.xscale('log')
+plt.plot(base[:-1], values, c='green', ls="dashdot")
+plt.xlim([0,100000])
 plt.show()
+
+
+
+
+#Calculate alpha
+#list_of_logs = []
+#for i in range(0,270):
+#    list_of_logs.append(np.float(-np.log(cumulative[i]) - np.float(np.log(base[i]))))
+#
+#alpha = sum(list_of_logs)/len(list_of_logs)
+#print (alpha)
