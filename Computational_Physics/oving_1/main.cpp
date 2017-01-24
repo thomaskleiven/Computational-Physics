@@ -11,11 +11,11 @@ using namespace std;
 vector<int> list;
 
 double fRand(double fMin, double fMax);
-int randomInteger();
+int randomWalk();
 void writeToFile();
 
 
-int randomInteger(){
+int randomWalk(){
   double position = 0.0;
   int sign = 1;
   int newsign;
@@ -48,7 +48,7 @@ void writeToFile(){
 int main() {
   srand((unsigned)time(0));
   for (int i = 0; i<1E6;i++){
-    list.push_back(randomInteger());
+    list.push_back(randomWalk());
   }
 
   writeToFile();
