@@ -8,9 +8,22 @@ y = []
 with open('data.txt','r') as csvfile:
     plots = csv.reader(csvfile, delimiter=',')
     for row in plots:
-        y.append((row))
+        y.append(np.float(row[0]))
 
 x = range(0,len(y))
+
+'''
+values, base = np.histogram(y, bins = 40)
+
+cumulative = np.cumsum(values)
+
+# plot the cumulative function
+plt.plot(base[:-1], cumulative, c='blue')
+#plot the survival function
+plt.plot(base[:-1], len(y)-cumulative, c='green')
+
+plt.show()'''
+
 
 plt.axhline(linewidth=1, color= 'r')
 

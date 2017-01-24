@@ -18,15 +18,13 @@ void writeToFile();
 int randomInteger(){
   double position = 0.0;
   int sign = 1;
+  int newsign;
   int maxIter = 1E7;
   for (int i =0; i < maxIter; i++){
     sign = position > 0.0 ? 1:-1;
     position += fRand(-1,1);
-    int newsign = position > 0.0 ? 1:-1;
-    if ( newsign != sign )
-    {
-      return i;
-    }
+    newsign = position > 0.0 ? 1:-1;
+    if ( newsign != sign ) {return i;}
   }
   return maxIter;
 }
