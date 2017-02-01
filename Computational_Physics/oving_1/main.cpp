@@ -1,61 +1,104 @@
 #include<iostream>
 #include<vector>
-#include<cstdlib>
-#include<iostream>
-#include<fstream>
-#include<iterator>
-#include<vector>
+#include<armadillo>
+extern "C" void dpttrf_(int* n, double* diag, double* e, int* info);
+extern "C" void dpttrs_(int* n, int* nrhs, double* diag, double* subdiag, double* rhs, int* nx, int* info);
 
 using namespace std;
 
-vector<int> list;
+void explicitEuler(int nt, int nx, bool reflective){
 
-double fRand(double fMin, double fMax);
-int randomWalk();
-void writeToFile();
+  double dx = 1.0/nx;
+  double dt = 0.1*dx*dx*1;
 
+  arma::vec u(nx);          //unknown u at new time level
+  arma::vec u_l(nx);        //u at previous time levelS
 
-int randomWalk(){
-  double position = 0.0;
-  int sign = 1;
-  int newsign;
-  int maxIter = 1E7;
-  for (int i =0; i < maxIter; i++){
-    sign = position > 0.0 ? 1:-1;
-    position += fRand(-1,1);
-    newsign = position > 0.0 ? 1:-1;
-    if ( newsign != sign ) {return i;}
+  int counter = 0;
+  arma::mat results(nx, 5);
+
+  u_l.fill(0);
+  u_l(nx/2) = 1;                 //Initial condition
+
+  double F = dt/(dx*dx);
+  for (int i=0; i<nt;i++){
+    for (int j=1; j<nx-1; j++){
+      if(!reflective){
+        u(j) = u_l[j] + F*(u_l[j-1] - 2*u_l[j] + u_l[j+1]);}
+    }
+
+    //Boundry conditions
+    u[0]  = 0;
+    u[nx-1] = 0;
+
+    if((i*5)%nt == 0){
+      results.col(counter++) = u;
+    }
+
+    //Update u_l before next step
+    u_l = u;
   }
-  return maxIter;
+  results.save("explicitEuler.csv", arma::csv_ascii);
 }
 
 
-
-double fRand(double fMin, double fMax)
-{
-    double f = (double)rand() / RAND_MAX;
-    return fMin + f * (fMax - fMin);
-}
-
-void writeToFile(){
-  ofstream output_file("./data.txt");
-  ostream_iterator<int> output_iterator(output_file, "\n");
-  copy(list.begin(), list.end(), output_iterator);
-}
+void implicitEuler(int nt, int nx){
+  double dx = 1.0/nx;
+  double dt = 0.1*dx*dx*1;
+  int info;
 
 
+  arma::vec u(nx);          //unknown u at new time level
 
-int main() {
-  srand((unsigned)time(0));
-  for (int i = 0; i<1E6;i++){
-    list.push_back(randomWalk());
+  arma::vec diagonal(nx);           //Diagonal
+  arma::vec subDiagonal(nx);        //SubDiagonal
+
+  u.fill(0);
+  u(nx/2) = 1;                 //Initial condition
+
+
+  int counter = 0;
+  arma::mat results(nx, 5);
+
+
+  double F = dt/(dx*dx);
+
+
+  //Set diagonal and subdiagonal
+  diagonal.fill(1 + 2*F);
+  subDiagonal.fill(-F);
+
+  dpttrf_(&nx, diagonal.memptr(), subDiagonal.memptr(), &info);
+
+
+  //Compute b
+  for(int i = 0; i<nt; i++){
+    int nrhs = 1;
+    dpttrs_(&nx, &nrhs, diagonal.memptr(), subDiagonal.memptr(), u.memptr(), &nx, &info);
+
+    if((i*5)%nt == 0){
+      results.col(counter++) = u;
+    }
+
   }
 
-  writeToFile();
-
-  //vector<int> v { 34,23 };
-
-  //cout << v[0] << endl;
 
 
+
+  results.save("implicitEuler.csv", arma::csv_ascii);
+  //Update u_l before next step
+  //u_l = u;
+}
+  //results.save("implicitEuler.csv", arma::csv_ascii);
+
+
+
+
+
+
+
+int main(){
+  //explicitEuler(100, 4000, false);
+  implicitEuler(100,40000);
+  return 0;
 }

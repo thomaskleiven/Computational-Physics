@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/main.cpp
+iostream
+-
+vector
+-
+cstdlib
+-
+iostream
+-
+fstream
+-
+iterator
+-
+vector
+-
+

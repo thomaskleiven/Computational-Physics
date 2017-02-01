@@ -28,28 +28,28 @@ The CXX compiler identification is GNU, found in "/home/tkleiven/Documents/Skole
 Determining if the C compiler works passed with the following output:
 Change Dir: /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_1430a/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_1430a.dir/build.make CMakeFiles/cmTC_1430a.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_3fa7b/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_3fa7b.dir/build.make CMakeFiles/cmTC_3fa7b.dir/build
 gmake[1]: Entering directory '/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_1430a.dir/testCCompiler.c.o
-/usr/bin/cc     -o CMakeFiles/cmTC_1430a.dir/testCCompiler.c.o   -c /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTC_1430a
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1430a.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_1430a.dir/testCCompiler.c.o  -o cmTC_1430a -rdynamic 
+Building C object CMakeFiles/cmTC_3fa7b.dir/testCCompiler.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_3fa7b.dir/testCCompiler.c.o   -c /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_3fa7b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3fa7b.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_3fa7b.dir/testCCompiler.c.o  -o cmTC_3fa7b -rdynamic 
 gmake[1]: Leaving directory '/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/CMakeTmp'
 
 
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_a475f/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_a475f.dir/build.make CMakeFiles/cmTC_a475f.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_db653/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_db653.dir/build.make CMakeFiles/cmTC_db653.dir/build
 gmake[1]: Entering directory '/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_a475f.dir/CMakeCCompilerABI.c.o
-/usr/bin/cc     -o CMakeFiles/cmTC_a475f.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake/Modules/CMakeCCompilerABI.c
-Linking C executable cmTC_a475f
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a475f.dir/link.txt --verbose=1
-/usr/bin/cc      -v CMakeFiles/cmTC_a475f.dir/CMakeCCompilerABI.c.o  -o cmTC_a475f -rdynamic  
+Building C object CMakeFiles/cmTC_db653.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_db653.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_db653
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_db653.dir/link.txt --verbose=1
+/usr/bin/cc      -v CMakeFiles/cmTC_db653.dir/CMakeCCompilerABI.c.o  -o cmTC_db653 -rdynamic  
 Using built-in specs.
 COLLECT_GCC=/usr/bin/cc
 COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/lto-wrapper
@@ -59,9 +59,9 @@ Thread model: posix
 gcc version 6.3.1 20161221 (Red Hat 6.3.1-1) (GCC) 
 COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/:/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/6.3.1/:/usr/lib/gcc/x86_64-redhat-linux/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/6.3.1/:/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_a475f' '-rdynamic' '-mtune=generic' '-march=x86-64'
- /usr/libexec/gcc/x86_64-redhat-linux/6.3.1/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/6.3.1/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/lto-wrapper -plugin-opt=-fresolution=/tmp/cc81cJ7S.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_a475f /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1 -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../.. CMakeFiles/cmTC_a475f.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-redhat-linux/6.3.1/crtend.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_a475f' '-rdynamic' '-mtune=generic' '-march=x86-64'
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_db653' '-rdynamic' '-mtune=generic' '-march=x86-64'
+ /usr/libexec/gcc/x86_64-redhat-linux/6.3.1/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/6.3.1/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccvTvJfC.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_db653 /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1 -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../.. CMakeFiles/cmTC_db653.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-redhat-linux/6.3.1/crtend.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_db653' '-rdynamic' '-mtune=generic' '-march=x86-64'
 gmake[1]: Leaving directory '/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/CMakeTmp'
 
 
@@ -69,14 +69,14 @@ Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/gmake" "cmTC_a475f/fast"]
-  ignore line: [/usr/bin/gmake -f CMakeFiles/cmTC_a475f.dir/build.make CMakeFiles/cmTC_a475f.dir/build]
+  ignore line: [Run Build Command:"/usr/bin/gmake" "cmTC_db653/fast"]
+  ignore line: [/usr/bin/gmake -f CMakeFiles/cmTC_db653.dir/build.make CMakeFiles/cmTC_db653.dir/build]
   ignore line: [gmake[1]: Entering directory '/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/CMakeTmp']
-  ignore line: [Building C object CMakeFiles/cmTC_a475f.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/usr/bin/cc     -o CMakeFiles/cmTC_a475f.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake/Modules/CMakeCCompilerABI.c]
-  ignore line: [Linking C executable cmTC_a475f]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a475f.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/cc      -v CMakeFiles/cmTC_a475f.dir/CMakeCCompilerABI.c.o  -o cmTC_a475f -rdynamic  ]
+  ignore line: [Building C object CMakeFiles/cmTC_db653.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc     -o CMakeFiles/cmTC_db653.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_db653]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_db653.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc      -v CMakeFiles/cmTC_db653.dir/CMakeCCompilerABI.c.o  -o cmTC_db653 -rdynamic  ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/cc]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/lto-wrapper]
@@ -86,13 +86,13 @@ Parsed C implicit link information from above output:
   ignore line: [gcc version 6.3.1 20161221 (Red Hat 6.3.1-1) (GCC) ]
   ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/:/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/6.3.1/:/usr/lib/gcc/x86_64-redhat-linux/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/6.3.1/:/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_a475f' '-rdynamic' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/libexec/gcc/x86_64-redhat-linux/6.3.1/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/6.3.1/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/lto-wrapper -plugin-opt=-fresolution=/tmp/cc81cJ7S.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_a475f /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1 -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../.. CMakeFiles/cmTC_a475f.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-redhat-linux/6.3.1/crtend.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_db653' '-rdynamic' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/libexec/gcc/x86_64-redhat-linux/6.3.1/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/6.3.1/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccvTvJfC.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_db653 /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1 -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../.. CMakeFiles/cmTC_db653.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-redhat-linux/6.3.1/crtend.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crtn.o]
     arg [/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/cc81cJ7S.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccvTvJfC.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -108,7 +108,7 @@ Parsed C implicit link information from above output:
     arg [-dynamic-linker] ==> ignore
     arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_a475f] ==> ignore
+    arg [cmTC_db653] ==> ignore
     arg [/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-redhat-linux/6.3.1/crtbegin.o] ==> ignore
@@ -117,7 +117,7 @@ Parsed C implicit link information from above output:
     arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
     arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
     arg [-L/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../..] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../..]
-    arg [CMakeFiles/cmTC_a475f.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_db653.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [--as-needed] ==> ignore
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -148,14 +148,14 @@ Parsed C implicit link information from above output:
 Detecting C [-std=c11] compiler features compiled with the following output:
 Change Dir: /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_e4ab3/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_e4ab3.dir/build.make CMakeFiles/cmTC_e4ab3.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_ceed1/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_ceed1.dir/build.make CMakeFiles/cmTC_ceed1.dir/build
 gmake[1]: Entering directory '/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_e4ab3.dir/feature_tests.c.o
-/usr/bin/cc    -std=c11 -o CMakeFiles/cmTC_e4ab3.dir/feature_tests.c.o   -c /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/feature_tests.c
-Linking C executable cmTC_e4ab3
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e4ab3.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_e4ab3.dir/feature_tests.c.o  -o cmTC_e4ab3 -rdynamic 
+Building C object CMakeFiles/cmTC_ceed1.dir/feature_tests.c.o
+/usr/bin/cc    -std=c11 -o CMakeFiles/cmTC_ceed1.dir/feature_tests.c.o   -c /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/feature_tests.c
+Linking C executable cmTC_ceed1
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ceed1.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_ceed1.dir/feature_tests.c.o  -o cmTC_ceed1 -rdynamic 
 gmake[1]: Leaving directory '/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/CMakeTmp'
 
 
@@ -168,14 +168,14 @@ gmake[1]: Leaving directory '/home/tkleiven/Documents/Skole/6_semester/Computati
 Detecting C [-std=c99] compiler features compiled with the following output:
 Change Dir: /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_9ecb0/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_9ecb0.dir/build.make CMakeFiles/cmTC_9ecb0.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_a8aca/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_a8aca.dir/build.make CMakeFiles/cmTC_a8aca.dir/build
 gmake[1]: Entering directory '/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_9ecb0.dir/feature_tests.c.o
-/usr/bin/cc    -std=c99 -o CMakeFiles/cmTC_9ecb0.dir/feature_tests.c.o   -c /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/feature_tests.c
-Linking C executable cmTC_9ecb0
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9ecb0.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_9ecb0.dir/feature_tests.c.o  -o cmTC_9ecb0 -rdynamic 
+Building C object CMakeFiles/cmTC_a8aca.dir/feature_tests.c.o
+/usr/bin/cc    -std=c99 -o CMakeFiles/cmTC_a8aca.dir/feature_tests.c.o   -c /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/feature_tests.c
+Linking C executable cmTC_a8aca
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a8aca.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_a8aca.dir/feature_tests.c.o  -o cmTC_a8aca -rdynamic 
 gmake[1]: Leaving directory '/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/CMakeTmp'
 
 
@@ -188,14 +188,14 @@ gmake[1]: Leaving directory '/home/tkleiven/Documents/Skole/6_semester/Computati
 Detecting C [-std=c90] compiler features compiled with the following output:
 Change Dir: /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_a2689/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_a2689.dir/build.make CMakeFiles/cmTC_a2689.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_a4b68/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_a4b68.dir/build.make CMakeFiles/cmTC_a4b68.dir/build
 gmake[1]: Entering directory '/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_a2689.dir/feature_tests.c.o
-/usr/bin/cc    -std=c90 -o CMakeFiles/cmTC_a2689.dir/feature_tests.c.o   -c /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/feature_tests.c
-Linking C executable cmTC_a2689
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a2689.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_a2689.dir/feature_tests.c.o  -o cmTC_a2689 -rdynamic 
+Building C object CMakeFiles/cmTC_a4b68.dir/feature_tests.c.o
+/usr/bin/cc    -std=c90 -o CMakeFiles/cmTC_a4b68.dir/feature_tests.c.o   -c /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/feature_tests.c
+Linking C executable cmTC_a4b68
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a4b68.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_a4b68.dir/feature_tests.c.o  -o cmTC_a4b68 -rdynamic 
 gmake[1]: Leaving directory '/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/CMakeTmp'
 
 
@@ -206,28 +206,28 @@ gmake[1]: Leaving directory '/home/tkleiven/Documents/Skole/6_semester/Computati
 Determining if the CXX compiler works passed with the following output:
 Change Dir: /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_c83bb/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_c83bb.dir/build.make CMakeFiles/cmTC_c83bb.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_e999c/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_e999c.dir/build.make CMakeFiles/cmTC_e999c.dir/build
 gmake[1]: Entering directory '/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_c83bb.dir/testCXXCompiler.cxx.o
-/usr/bin/c++      -o CMakeFiles/cmTC_c83bb.dir/testCXXCompiler.cxx.o -c /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTC_c83bb
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c83bb.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTC_c83bb.dir/testCXXCompiler.cxx.o  -o cmTC_c83bb -rdynamic 
+Building CXX object CMakeFiles/cmTC_e999c.dir/testCXXCompiler.cxx.o
+/usr/bin/c++      -o CMakeFiles/cmTC_e999c.dir/testCXXCompiler.cxx.o -c /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_e999c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e999c.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_e999c.dir/testCXXCompiler.cxx.o  -o cmTC_e999c -rdynamic 
 gmake[1]: Leaving directory '/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/CMakeTmp'
 
 
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_6e4b4/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_6e4b4.dir/build.make CMakeFiles/cmTC_6e4b4.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_aa9d2/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_aa9d2.dir/build.make CMakeFiles/cmTC_aa9d2.dir/build
 gmake[1]: Entering directory '/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_6e4b4.dir/CMakeCXXCompilerABI.cpp.o
-/usr/bin/c++      -o CMakeFiles/cmTC_6e4b4.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp
-Linking CXX executable cmTC_6e4b4
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6e4b4.dir/link.txt --verbose=1
-/usr/bin/c++       -v CMakeFiles/cmTC_6e4b4.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_6e4b4 -rdynamic  
+Building CXX object CMakeFiles/cmTC_aa9d2.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/c++      -o CMakeFiles/cmTC_aa9d2.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_aa9d2
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_aa9d2.dir/link.txt --verbose=1
+/usr/bin/c++       -v CMakeFiles/cmTC_aa9d2.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_aa9d2 -rdynamic  
 Using built-in specs.
 COLLECT_GCC=/usr/bin/c++
 COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/lto-wrapper
@@ -237,9 +237,9 @@ Thread model: posix
 gcc version 6.3.1 20161221 (Red Hat 6.3.1-1) (GCC) 
 COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/:/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/6.3.1/:/usr/lib/gcc/x86_64-redhat-linux/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/6.3.1/:/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_6e4b4' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
- /usr/libexec/gcc/x86_64-redhat-linux/6.3.1/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/6.3.1/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/lto-wrapper -plugin-opt=-fresolution=/tmp/cc7TpvLm.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_6e4b4 /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1 -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../.. CMakeFiles/cmTC_6e4b4.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-redhat-linux/6.3.1/crtend.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_6e4b4' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_aa9d2' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/libexec/gcc/x86_64-redhat-linux/6.3.1/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/6.3.1/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccymJV11.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_aa9d2 /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1 -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../.. CMakeFiles/cmTC_aa9d2.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-redhat-linux/6.3.1/crtend.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_aa9d2' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
 gmake[1]: Leaving directory '/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/CMakeTmp'
 
 
@@ -247,14 +247,14 @@ Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/gmake" "cmTC_6e4b4/fast"]
-  ignore line: [/usr/bin/gmake -f CMakeFiles/cmTC_6e4b4.dir/build.make CMakeFiles/cmTC_6e4b4.dir/build]
+  ignore line: [Run Build Command:"/usr/bin/gmake" "cmTC_aa9d2/fast"]
+  ignore line: [/usr/bin/gmake -f CMakeFiles/cmTC_aa9d2.dir/build.make CMakeFiles/cmTC_aa9d2.dir/build]
   ignore line: [gmake[1]: Entering directory '/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/CMakeTmp']
-  ignore line: [Building CXX object CMakeFiles/cmTC_6e4b4.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/usr/bin/c++      -o CMakeFiles/cmTC_6e4b4.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [Linking CXX executable cmTC_6e4b4]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6e4b4.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/c++       -v CMakeFiles/cmTC_6e4b4.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_6e4b4 -rdynamic  ]
+  ignore line: [Building CXX object CMakeFiles/cmTC_aa9d2.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/c++      -o CMakeFiles/cmTC_aa9d2.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_aa9d2]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_aa9d2.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/c++       -v CMakeFiles/cmTC_aa9d2.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_aa9d2 -rdynamic  ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/c++]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/lto-wrapper]
@@ -264,13 +264,13 @@ Parsed CXX implicit link information from above output:
   ignore line: [gcc version 6.3.1 20161221 (Red Hat 6.3.1-1) (GCC) ]
   ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/:/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/6.3.1/:/usr/lib/gcc/x86_64-redhat-linux/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/6.3.1/:/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_6e4b4' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/libexec/gcc/x86_64-redhat-linux/6.3.1/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/6.3.1/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/lto-wrapper -plugin-opt=-fresolution=/tmp/cc7TpvLm.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_6e4b4 /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1 -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../.. CMakeFiles/cmTC_6e4b4.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-redhat-linux/6.3.1/crtend.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_aa9d2' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/libexec/gcc/x86_64-redhat-linux/6.3.1/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/6.3.1/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccymJV11.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_aa9d2 /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1 -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../.. CMakeFiles/cmTC_aa9d2.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-redhat-linux/6.3.1/crtend.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crtn.o]
     arg [/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/cc7TpvLm.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccymJV11.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -286,7 +286,7 @@ Parsed CXX implicit link information from above output:
     arg [-dynamic-linker] ==> ignore
     arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_6e4b4] ==> ignore
+    arg [cmTC_aa9d2] ==> ignore
     arg [/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-redhat-linux/6.3.1/crtbegin.o] ==> ignore
@@ -295,7 +295,7 @@ Parsed CXX implicit link information from above output:
     arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
     arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
     arg [-L/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../..] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../..]
-    arg [CMakeFiles/cmTC_6e4b4.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_aa9d2.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -324,14 +324,14 @@ Parsed CXX implicit link information from above output:
 Detecting CXX [-std=c++14] compiler features compiled with the following output:
 Change Dir: /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_30302/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_30302.dir/build.make CMakeFiles/cmTC_30302.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_e9b1d/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_e9b1d.dir/build.make CMakeFiles/cmTC_e9b1d.dir/build
 gmake[1]: Entering directory '/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_30302.dir/feature_tests.cxx.o
-/usr/bin/c++     -std=c++14 -o CMakeFiles/cmTC_30302.dir/feature_tests.cxx.o -c /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_30302
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_30302.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTC_30302.dir/feature_tests.cxx.o  -o cmTC_30302 -rdynamic 
+Building CXX object CMakeFiles/cmTC_e9b1d.dir/feature_tests.cxx.o
+/usr/bin/c++     -std=c++14 -o CMakeFiles/cmTC_e9b1d.dir/feature_tests.cxx.o -c /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_e9b1d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e9b1d.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_e9b1d.dir/feature_tests.cxx.o  -o cmTC_e9b1d -rdynamic 
 gmake[1]: Leaving directory '/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/CMakeTmp'
 
 
@@ -397,14 +397,14 @@ gmake[1]: Leaving directory '/home/tkleiven/Documents/Skole/6_semester/Computati
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
 Change Dir: /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_7c31f/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_7c31f.dir/build.make CMakeFiles/cmTC_7c31f.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_c7b87/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_c7b87.dir/build.make CMakeFiles/cmTC_c7b87.dir/build
 gmake[1]: Entering directory '/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_7c31f.dir/feature_tests.cxx.o
-/usr/bin/c++     -std=c++11 -o CMakeFiles/cmTC_7c31f.dir/feature_tests.cxx.o -c /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_7c31f
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7c31f.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTC_7c31f.dir/feature_tests.cxx.o  -o cmTC_7c31f -rdynamic 
+Building CXX object CMakeFiles/cmTC_c7b87.dir/feature_tests.cxx.o
+/usr/bin/c++     -std=c++11 -o CMakeFiles/cmTC_c7b87.dir/feature_tests.cxx.o -c /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_c7b87
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c7b87.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_c7b87.dir/feature_tests.cxx.o  -o cmTC_c7b87 -rdynamic 
 gmake[1]: Leaving directory '/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/CMakeTmp'
 
 
@@ -470,14 +470,14 @@ gmake[1]: Leaving directory '/home/tkleiven/Documents/Skole/6_semester/Computati
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
 Change Dir: /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_58379/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_58379.dir/build.make CMakeFiles/cmTC_58379.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_dcbe9/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_dcbe9.dir/build.make CMakeFiles/cmTC_dcbe9.dir/build
 gmake[1]: Entering directory '/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_58379.dir/feature_tests.cxx.o
-/usr/bin/c++     -std=c++98 -o CMakeFiles/cmTC_58379.dir/feature_tests.cxx.o -c /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_58379
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_58379.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTC_58379.dir/feature_tests.cxx.o  -o cmTC_58379 -rdynamic 
+Building CXX object CMakeFiles/cmTC_dcbe9.dir/feature_tests.cxx.o
+/usr/bin/c++     -std=c++98 -o CMakeFiles/cmTC_dcbe9.dir/feature_tests.cxx.o -c /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_dcbe9
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dcbe9.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_dcbe9.dir/feature_tests.cxx.o  -o cmTC_dcbe9 -rdynamic 
 gmake[1]: Leaving directory '/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/CMakeFiles/CMakeTmp'
 
 
