@@ -93,12 +93,39 @@ void implicitEuler(int nt, int nx){
 
 
 
+void crankNicolson(int nx, int nt){
+
+  double dx = 1.0/nx;
+  double dt = 0.1*dx*dx*1;
+
+  double F = dt/(dx*dx);
+
+  arma::vec Adiag(nx);               //Diagonal
+  arma::vec AsubDiagonal(nx);        //SubDiagonal
+
+  arma::vec Bdiag(nx);               //Diagonal
+  arma::vec BsubDiagonal(nx);        //SubDiagonal
+
+  arma::vec u(nx);                   //unknown u at time level
+
+  u.fill(0);
+  u(nx/2) = 1;                       //Initial condition
+
+  Adiag.fill(1+F);
+  AsubDiagonal.fill(-F/2);
+  Bdiag.fill(1-F);
+  BsubDiagonal.fill(F/2);
+
+
+
+}
+
 
 
 
 
 int main(){
-  //explicitEuler(100, 4000, false);
-  implicitEuler(100,40000);
+  explicitEuler(100, 400000, false);
+  //implicitEuler(100,40000);
   return 0;
 }
