@@ -8,9 +8,6 @@ extern "C" void dpttrs_(int* n, int* nrhs, double* diag, double* subdiag, double
 
 using namespace std;
 
-arma::vec diag();          //unknown u at new time level
-arma::vec subdiag();        //u at previous time levelS
-
 
 enum class Scheme_t{
   FORWARD_EULER, BACKWARDS_EULER, CRANK_NICOLSON
@@ -28,9 +25,6 @@ void genA(arma::vec diag, arma::vec subdiag, Scheme_t scheme){
   switch (scheme) {
     case Scheme_t::BACKWARDS_EULER:
       cout << "Hei" << endl;
-      return;
-    case Scheme_t::FORWARD_EULER:
-
   }
 
 }
@@ -55,19 +49,21 @@ void explicitEuler(int nt, int nx, bool reflective){
   int counter = 0;
   arma::mat results(nx, 5);
 
-  subdiag.fill(0);
-  subdiag(nx/2) = 1;                 //Initial condition
+  genA(u,u, Scheme_t::BACKWARDS_EULER);
+
+  u_l.fill(0);
+  u_l(nx/2) = 1;                 //Initial condition
 
   double F = dt/(dx*dx);
   for (int i=0; i<nt;i++){
     for (int j=1; j<nx-1; j++){
       if(!reflective){
-        diag(j) = subdiag(j) + F*(subdiag(j-1) - 2*subdiag(j) + subdiag(j+1));}
+        u(j) = u_l(j) + F*(u_l(j-1) - 2*u_l(j) + u_l(j+1));}
     }
 
     //Boundry conditions
-    diag[0]  = 0;
-    diag[nx-1] = 0;
+    u[0]  = 0;
+    u[nx-1] = 0;
 
     //Write to file every 5th iteration
     if((i*5)%nt == 0){
@@ -75,7 +71,7 @@ void explicitEuler(int nt, int nx, bool reflective){
     }
 
     //Update u_l before next step
-    subdiag = diag;
+    u_l = u;
   }
   results.save("explicitEuler.csv", arma::csv_ascii);
 }
@@ -156,7 +152,7 @@ void implicitEuler(int nt, int nx){
       int nrhs = 1;
       for(int i=0; i < nx-2; ++i){
         //u(i+1)=(u(i)+u(i+2))*subDiagonalB(0)+u(i+1)*diagonalB(0);
-        u(i+1) = subDiagonalB(i)*u(i) + diagonalB(i+1)*u(i+1) + subDiagonalB(i)*u(i+2);
+        u(i) = subDiagonalB(i)*u(i) + diagonalB(i+1)*u(i+1) + subDiagonalB(i)*u(i+2);
       }
       u(0) = diagonalB(0)*u(0)+subDiagonalB(0)*u(1);
       u(nx-1) = diagonalB(0)*u(nx-1)+subDiagonalB(0)*u(nx-1);
@@ -180,9 +176,9 @@ void implicitEuler(int nt, int nx){
 
 
 int main(){
-  explicitEuler(100, 40000, false);
+  //explicitEuler(100, 40000, false);
   //implicitEuler(100,40000);
-  //crankNicolson(300,40000);
+  crankNicolson(300,40000);
   return 0;
 }
 ;
