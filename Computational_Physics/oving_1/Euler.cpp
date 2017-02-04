@@ -8,7 +8,7 @@ using namespace std;
 
 //Declare variables
 static int nx = 40;                       //Number of length steps
-static int nt = 10000;                     //Number of time steps
+static int nt = 5000;                     //Number of time steps
 
 static double dx = 1.0/nx;                //Size of length steps
 static double dt = 0.1*dx*dx*1;           //Size of time steps
@@ -98,27 +98,27 @@ void explicitEuler(bool reflective){
 
 
 void implicitEuler(bool reflective){
-  int info;                           //Needed for LAPACK
+  int info;                                                                                   //Has to be initialized in order to use LAPACK, returns SUCCESS or FAILURE
 
   generateA(Scheme_t::BACKWARDS_EULER);
 
-  arma::mat results(nx, 5);
+  arma::mat results(nx, nt);
 
-  dpttrf_(&nx, diagonal.memptr(), subDiagonal.memptr(), &info);
+  dpttrf_(&nx, diagonal.memptr(), subDiagonal.memptr(), &info);                               //Compute the symmetric system Ax = B using LAPACK
 
   //Solve the tridiag problem
   for(int i = 0; i<nt; i++){
     int nrhs = 1;
-    dpttrs_(&nx, &nrhs, diagonal.memptr(), subDiagonal.memptr(), u.memptr(), &nx, &info);
+    dpttrs_(&nx, &nrhs, diagonal.memptr(), subDiagonal.memptr(), u.memptr(), &nx, &info);     // Solve the system Ax
     if(reflective){
       u(0) = u(1);
       u(nx-1) = u(nx-2);
     }
 
 
-    if((i*5)%nt == 0){
+    //if((i*5)%nt == 0){
       results.col(counter++) = u;
-    }
+    //}
 
   }
 
@@ -167,8 +167,8 @@ void implicitEuler(bool reflective){
 
 int main(){
   //explicitEuler(true);
-  //implicitEuler(false);
-  crankNicolson(true);
+  implicitEuler(true);
+  //crankNicolson(true);
   return 0;
 }
 ;
