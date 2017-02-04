@@ -54,9 +54,9 @@ void explicitEuler(int nt, int nx, bool reflective){
     }
 
     //Write to file every 5th iteration
-    //if((i*5)%nt == 0){
+    if((i*5)%nt == 0){
       results.col(counter++) = u;
-    //}
+    }
 
     //Update u_l before next step
     u_l = u;
@@ -65,21 +65,21 @@ void explicitEuler(int nt, int nx, bool reflective){
 }
 
 
-void implicitEuler(int nt, int nx){
+void implicitEuler(int nt, int nx, bool reflective){
   double dx = 1.0/nx;
   double dt = 0.1*dx*dx*1;
-  int info;                           //Needed for LAPACK, not in use actually
+  int info;                           //Needed for LAPACK
 
   arma::vec u(nx);                    //unknown u at new time level
 
   arma::vec diagonal(nx);             //Diagonal
-  arma::vec subDiagonal(nx-1);        //SubDiagonal
+  arma::vec subDiagonal(nx);          //SubDiagonal
 
   u.fill(0);
   u(nx/2) = 1;                        //Initial condition
 
   int counter = 0;
-  arma::mat results(nx, nt);
+  arma::mat results(nx, 5);
 
   double F = dt/(dx*dx);
 
@@ -93,16 +93,20 @@ void implicitEuler(int nt, int nx){
   for(int i = 0; i<nt; i++){
     int nrhs = 1;
     dpttrs_(&nx, &nrhs, diagonal.memptr(), subDiagonal.memptr(), u.memptr(), &nx, &info);
+    if(reflective){
+      u(0) = u(1);
+      u(nx-1) = u(nx-2);
+    }
 
+
+    if((i*5)%nt == 0){
     results.col(counter++) = u;
+    }
 
   }
 
   results.save("implicitEuler.csv", arma::csv_ascii);
-  //Update u_l before next step
-  //u_l = u;
 }
-  //results.save("implicitEuler.csv", arma::csv_ascii);
 
 
 
@@ -163,9 +167,9 @@ void implicitEuler(int nt, int nx){
 
 
 int main(){
-  //explicitEuler(150, 15, false);
-  //implicitEuler(1000,20);
-  crankNicolson(600,15);
+  explicitEuler(1000, 20, true);
+  implicitEuler(300, 20, true);
+  //crankNicolson(500,15);
   return 0;
 }
 ;
