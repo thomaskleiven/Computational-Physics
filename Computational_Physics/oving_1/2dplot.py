@@ -21,13 +21,15 @@ def f1(t, x, x0):
 t = np.linspace(0, 0.01, 1000)
 x = np.linspace(0, L, 1000)
 
-#y1 = f1(1/16000, x, start)
+y1 = f1(1/16000, x, start)
 y2 = f1(0.001, x, start)
-#y3 = f1(0.01, x, start)
+y3 = f1(0.01, x, start)
 
-#plt.plot(x, y1, ".")
+print(y1)
+
+plt.plot(x, y1, "bo")
 plt.plot(x, y2)
-#plt.plot(x, y3, "ro")
+plt.plot(x, y3, "ro")
 
 #plt.xlabel(r'$\tau$')
 #plt.ylabel(r'P($\tau$)')
