@@ -1,43 +1,49 @@
 import numpy as np
 from matplotlib import pyplot as plt
 
+data = np.loadtxt("crankNicolson.csv", delimiter=",")
+#data = np.loadtxt("explicitEuler.csv", delimiter=",")
+#data = np.loadtxt("implicitEuler.csv", delimiter=",")
+
 
 u0 = 1
 D = 1
 L = 1
 start = L/2
+delX = 1.0/len(data)
 
 
-def f1(t, x, x0):
-    N = 6000
-    result = np.zeros(len(x))
+def f1(t, x, x0, reflective):
+    N = 60000
+    result = np.zeros(len(data))
     for n in range(N, 0, -1):
-        result += u0*np.exp(-(np.pi*n/L)**(2)*D*t)*np.sqrt(2/L)*np.sin(n*np.pi*x/L)*np.sqrt(2/L)*np.sin(n*x0*np.pi/L)
-    return result/N
+        if(reflective == False):
+            result += u0*np.exp(-(np.pi*n/L)**(2)*D*t)*np.sqrt(2/L)*np.sin(n*np.pi*x/L)*np.sqrt(2/L)*np.sin(n*x0*np.pi/L)
+        else:
+            if(n == 0):
+                results += np.sqrt(1/L)
+                continue
+            result += u0*np.exp(-(np.pi*n/L)**(2)*D*t)*np.sqrt(2/L)*np.cos(n*np.pi*x/L)*np.sqrt(2/L)*np.cos(n*x0*np.pi/L)
 
+    return result
 
+def error(exact, numerical):
+    return np.sum(np.abs(exact - numerical))
 
+x = np.linspace(delX, 1-delX, len(data[0:]))
+y1 = f1(0.07, x, start, False)
+y2 = f1(0.01, x, start, False)
+y3 = f1(0.04, x, start, False)
 
-t = np.linspace(0, 0.01, 1000)
-x = np.linspace(0, L, 1000)
-
-y1 = f1(1/16000, x, start)
-y2 = f1(0.001, x, start)
-y3 = f1(0.01, x, start)
+#error = error(y1, data)
 
 print(y1)
 
-plt.plot(x, y1, "bo")
+#Plot the functions
+#plt.plot(x, data)
+plt.plot(x,data,'o', mfc='none', markevery = 15)
+plt.plot(x, y1)
 plt.plot(x, y2)
-plt.plot(x, y3, "ro")
-
-#plt.xlabel(r'$\tau$')
-#plt.ylabel(r'P($\tau$)')
-#plt.axis([0.0, 1, 0.0, 2])
+plt.plot(x, y3)
 plt.grid(True)
 plt.show()
-
-
-#def func(x,t):
-#    #return (((u0/np.sqrt(4*np.pi*D*t))*np.exp(-(x-x0)*(x-x0)/(4*D*t))))
-#    return u0*(sum( (np.exp(-(n*np.pi/3)**(2)*D*t*np.sqrt(2/3)*np.sin(n*np.pi*x/3)*np.sqrt(2/3)*np.sin(n*np.pi*x0/3))) for n in range(0,1000)))
