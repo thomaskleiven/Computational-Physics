@@ -50,6 +50,8 @@ def error(exact, numerical):
 y1 = f1(0.002, x, start, True)
 
 
+
+#Error plots 
 if(explicitEuler):
     euler23 = np.loadtxt("explicitEuler_33.csv", delimiter=",")
     euler46 = np.loadtxt("explicitEuler_3.csv", delimiter=",")
