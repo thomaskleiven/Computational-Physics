@@ -1,0 +1,52 @@
+cmake_minimum_required (VERSION 2.6)
+project (Assignment_2)
+find_package(Armadillo REQUIRED)
+link_directories("/usr/lib64")
+
+include_directories(${ARMADILLO_INCLUDE_DIRS})
+set(LIB ${ARMADILLO_LIBRARIES})
+
+find_library( LAPACK lapack )
+if ( NOT LAPACK )
+  MESSAGE( FATAL_ERROR "Did not find lapack!")
+endif()
+MESSAGE( STATUS "Found lapack ${LAPACK}")
+set( LIB ${LIB} ${LAPACK} )
+
+
+find_library(PEI_LIB pei)
+if(NOT PEI_LIB)
+  MESSAGE(FATAL_ERROR "Did not find libpei")
+endif()
+set( LIB ${LIB} ${PEI_LIB} )
+
+set ( FLTK_SKIP_FLUID True )
+set( CMAKE_LIBRARY_PATH "/usr/lib/x86_64-linux-gnu")
+#find_package( FLTK REQUIRED )
+
+# Manual find the FLTK libraries
+find_library( FLTK_BASE_LIBRARY fltk )
+if( NOT FLTK_BASE_LIBRARY )
+  MESSAGE( FATAL_ERROR "Did not find the fltk library")
+endif()
+find_library( FLTK_GL_LIBRARY fltk_gl)
+if ( NOT FLTK_GL_LIBRARY )
+  MESSAGE( FATAL_ERROR "Did not find the fltk_gl library!")
+endif()
+find_library( FLTK_FORMS fltk_forms )
+if ( NOT FLTK_FORMS )
+  MESSAGE( FATAL_ERROR "Did not find the fltk_forms library!")
+endif()
+find_library( FLTK_IMAGE_LIBRARY fltk_images)
+if ( NOT FLTK_IMAGE_LIBRARY)
+  MESSAGE( FATAL_ERROR "Did not find the fltk_images library!")
+endif()
+find_package( OpenGL REQUIRED )
+
+include_directories( FLTK_INCLUDE_DIR )
+set( LIB ${LIB} ${FLTK_BASE_LIBRARY} )
+set( LIB ${LIB} ${FLTK_GL_LIBRARY} )
+set( LIB ${LIB} ${FLTK_FORMS_LIBRARY} )
+
+add_executable(main Spec.cpp HelmHoltz2D.cpp)
+target_link_libraries(main ${LIB})
