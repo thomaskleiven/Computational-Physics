@@ -50,3 +50,6 @@ set( LIB ${LIB} ${FLTK_FORMS_LIBRARY} )
 
 add_executable(main Spec.cpp HelmHoltz2D.cpp)
 target_link_libraries(main ${LIB})
+
+add_executable(animate Animation.cpp TimeEvolution.cpp)
+target_link_libraries(animate ${LIB})

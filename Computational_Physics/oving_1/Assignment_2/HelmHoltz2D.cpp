@@ -1,5 +1,6 @@
 #include "HelmHoltz2D.hpp"
 #include<iostream>
+#include<sstream>
 
 
 using namespace std;
@@ -98,15 +99,46 @@ void HelmHoltz2D::buildMatrix(){
   matrix = new arma::sp_mat(locations, values);
 }
 
+void HelmHoltz2D::solve(double numberOfEigenvalues){
+  arma::eigs_sym(eigval, eigvec, *matrix, numberOfEigenvalues, "sm");
+}
+
+void HelmHoltz2D::save(){
+  eigval *= (N*N);
+  eigval.save("data/eigenvalues.csv", arma::csv_ascii);
+  for (int i = 0; i < eigval.n_elem; i++){
+
+    cout << eigvec.n_rows << endl;
+    cout << eigvec.n_cols << endl;
+
+    arma::mat A = eigvec.col(i);
+    A.reshape(N,N);
+    stringstream fname;
+    fname << "data/eigenvector_" << static_cast<int>(i+1) << ".csv";
+    A.save(fname.str().c_str(), arma::csv_ascii);
+  }
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////
 void HelmHoltz2DDebug::printMatrix(){
   buildMatrix();
   arma::mat denseMatrix(*matrix);
   cout << denseMatrix << endl;
+
+  arma::eig_sym(eigval, eigvec, denseMatrix);
 }
 
 void HelmHoltz2DDebug::printLocations(){
   initDiagonals();
   cout << locations << endl;
+}
+
+void HelmHoltz2DDebug::checkOrtogonality(double numberOfEigenvalues){
+  solve(numberOfEigenvalues);
+  for (int i = 0; i<eigvec.n_cols;i++){
+    for (int j = 0; j<eigvec.n_cols; j++){
+      cout << i << " " << j << " " << arma::dot(eigvec.col(i), eigvec.col(j)) << endl;
+    }
+  }
 }

@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named animate
+
+# Build rule for target.
+animate: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 animate
+.PHONY : animate
+
+# fast build rule for target.
+animate/fast:
+	$(MAKE) -f CMakeFiles/animate.dir/build.make CMakeFiles/animate.dir/build
+.PHONY : animate/fast
+
+#=============================================================================
 # Target rules for targets named main
 
 # Build rule for target.
@@ -122,6 +135,33 @@ main: cmake_check_build_system
 main/fast:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
+
+Animation.o: Animation.cpp.o
+
+.PHONY : Animation.o
+
+# target to build an object file
+Animation.cpp.o:
+	$(MAKE) -f CMakeFiles/animate.dir/build.make CMakeFiles/animate.dir/Animation.cpp.o
+.PHONY : Animation.cpp.o
+
+Animation.i: Animation.cpp.i
+
+.PHONY : Animation.i
+
+# target to preprocess a source file
+Animation.cpp.i:
+	$(MAKE) -f CMakeFiles/animate.dir/build.make CMakeFiles/animate.dir/Animation.cpp.i
+.PHONY : Animation.cpp.i
+
+Animation.s: Animation.cpp.s
+
+.PHONY : Animation.s
+
+# target to generate assembly for a file
+Animation.cpp.s:
+	$(MAKE) -f CMakeFiles/animate.dir/build.make CMakeFiles/animate.dir/Animation.cpp.s
+.PHONY : Animation.cpp.s
 
 HelmHoltz2D.o: HelmHoltz2D.cpp.o
 
@@ -177,6 +217,33 @@ Spec.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Spec.cpp.s
 .PHONY : Spec.cpp.s
 
+TimeEvolution.o: TimeEvolution.cpp.o
+
+.PHONY : TimeEvolution.o
+
+# target to build an object file
+TimeEvolution.cpp.o:
+	$(MAKE) -f CMakeFiles/animate.dir/build.make CMakeFiles/animate.dir/TimeEvolution.cpp.o
+.PHONY : TimeEvolution.cpp.o
+
+TimeEvolution.i: TimeEvolution.cpp.i
+
+.PHONY : TimeEvolution.i
+
+# target to preprocess a source file
+TimeEvolution.cpp.i:
+	$(MAKE) -f CMakeFiles/animate.dir/build.make CMakeFiles/animate.dir/TimeEvolution.cpp.i
+.PHONY : TimeEvolution.cpp.i
+
+TimeEvolution.s: TimeEvolution.cpp.s
+
+.PHONY : TimeEvolution.s
+
+# target to generate assembly for a file
+TimeEvolution.cpp.s:
+	$(MAKE) -f CMakeFiles/animate.dir/build.make CMakeFiles/animate.dir/TimeEvolution.cpp.s
+.PHONY : TimeEvolution.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -184,14 +251,21 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
+	@echo "... animate"
 	@echo "... edit_cache"
 	@echo "... main"
+	@echo "... Animation.o"
+	@echo "... Animation.i"
+	@echo "... Animation.s"
 	@echo "... HelmHoltz2D.o"
 	@echo "... HelmHoltz2D.i"
 	@echo "... HelmHoltz2D.s"
 	@echo "... Spec.o"
 	@echo "... Spec.i"
 	@echo "... Spec.s"
+	@echo "... TimeEvolution.o"
+	@echo "... TimeEvolution.i"
+	@echo "... TimeEvolution.s"
 .PHONY : help
 
 

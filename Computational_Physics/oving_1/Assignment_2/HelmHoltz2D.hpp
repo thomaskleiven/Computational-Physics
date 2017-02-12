@@ -9,12 +9,19 @@ public:
   ~HelmHoltz2D();
   void buildMatrix();
 
+  void save();
+
+  void solve(double number_of_eigenvalues);
+
 protected:
   unsigned int N{0};                   //Number of discretication points in each direction
 
   arma::umat locations;
   arma::vec values;
   arma::sp_mat *matrix{NULL};
+  arma::vec eigval;
+  arma::mat eigvec;
+
 
   /** Sets the diagonal element */
   void diagonal();
@@ -43,6 +50,8 @@ public:
   void printMatrix();
 
   void printLocations();
+
+  void checkOrtogonality(double numberOfEigenvalues);
 
 };
 
