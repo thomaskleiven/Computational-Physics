@@ -6,5 +6,5 @@ CXX_FLAGS =
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/Assignment_2/FLTK_INCLUDE_DIR 
+CXX_INCLUDES = -I/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/Assignment_2/SFML_INCLUDE_DIR -I/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/Assignment_2/FLTK_INCLUDE_DIR 
 

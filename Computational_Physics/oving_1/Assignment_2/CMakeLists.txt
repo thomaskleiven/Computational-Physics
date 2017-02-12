@@ -14,6 +14,16 @@ MESSAGE( STATUS "Found lapack ${LAPACK}")
 set( LIB ${LIB} ${LAPACK} )
 
 
+find_package(SFML REQUIRED system window graphics network audio)
+set( LIB ${LIB} ${SFML_LIBRARIES})
+include_directories(SFML_INCLUDE_DIR)
+find_library(VISA_LIB visa)
+if(NOT VISA_LIB)
+  MESSAGE(FATAL_ERROR "Did not find VISA")
+endif()
+set( LIB ${LIB} ${VISA_LIB})
+
+
 find_library(PEI_LIB pei)
 if(NOT PEI_LIB)
   MESSAGE(FATAL_ERROR "Did not find libpei")

@@ -1,1 +1,1 @@
-/usr/bin/c++      CMakeFiles/main.dir/Spec.cpp.o CMakeFiles/main.dir/HelmHoltz2D.cpp.o  -o main -rdynamic -larmadillo -llapack /usr/local/lib/libpei.so -lfltk -lfltk_gl -lfltk_forms -Wl,-rpath,/usr/local/lib 
+/usr/bin/c++      CMakeFiles/main.dir/Spec.cpp.o CMakeFiles/main.dir/HelmHoltz2D.cpp.o  -o main -rdynamic -larmadillo -llapack -lsfml-system -lsfml-window -lsfml-graphics -lsfml-network -lsfml-audio /usr/local/lib/libvisa.so /usr/local/lib/libpei.so -lfltk -lfltk_gl -lfltk_forms -Wl,-rpath,/usr/local/lib 

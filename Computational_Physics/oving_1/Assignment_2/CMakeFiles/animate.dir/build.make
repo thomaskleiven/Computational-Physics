@@ -118,6 +118,12 @@ animate: CMakeFiles/animate.dir/TimeEvolution.cpp.o
 animate: CMakeFiles/animate.dir/build.make
 animate: /usr/lib64/libarmadillo.so
 animate: /usr/lib64/liblapack.so
+animate: /usr/lib64/libsfml-system.so
+animate: /usr/lib64/libsfml-window.so
+animate: /usr/lib64/libsfml-graphics.so
+animate: /usr/lib64/libsfml-network.so
+animate: /usr/lib64/libsfml-audio.so
+animate: /usr/local/lib/libvisa.so
 animate: /usr/local/lib/libpei.so
 animate: /usr/lib64/libfltk.so
 animate: /usr/lib64/libfltk_gl.so

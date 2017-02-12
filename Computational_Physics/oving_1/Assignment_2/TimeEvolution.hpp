@@ -3,6 +3,7 @@
 #include<armadillo>
 #include<string>
 #include<cmath>
+#include<sstream>
 
 
 class TimeEvolution{
@@ -12,11 +13,18 @@ public:
   void loadEigenvalue(const std::string &filename, unsigned int eigenmode);
   template<class Function>
   double project(Function &initialCondition);
+  void getMatrixWithTime(double time, arma::mat &matrix);
+  virtual double equationTime(double t) = 0;
 protected:
   arma::mat matrix;
   double eigenvalue;
   static double trap(const arma::vec &value);
 
+};
+
+class WaveEquation: public TimeEvolution{
+public:
+  virtual double equationTime(double t) override;
 };
 
 class GaussianSpike{
@@ -39,6 +47,7 @@ private:
 class TimeEvolutionDebug: public TimeEvolution{
 public:
   void checkIntegral();
+  virtual double equationTime(double t) override{};
 };
 
 #include "TimeEvolution.tpp"

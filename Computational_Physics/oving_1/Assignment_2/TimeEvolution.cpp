@@ -4,6 +4,7 @@
 #include<armadillo>
 #include<cassert>
 #include<iostream>
+#include<cmath>
 
 
 using namespace std;
@@ -32,6 +33,15 @@ double TimeEvolution::trap(const arma::vec &value){
   integral += value(value.n_elem-1);
 
   return integral/(2*N);
+}
+
+void TimeEvolution::getMatrixWithTime(double t, arma::mat &result){
+  result = matrix*equationTime(t);
+}
+
+////////////////////////////////////////////////////
+double WaveEquation::equationTime(double t){
+  return cos(sqrt(eigenvalue)*t);
 }
 
 

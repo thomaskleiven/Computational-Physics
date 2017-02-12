@@ -118,6 +118,12 @@ main: CMakeFiles/main.dir/HelmHoltz2D.cpp.o
 main: CMakeFiles/main.dir/build.make
 main: /usr/lib64/libarmadillo.so
 main: /usr/lib64/liblapack.so
+main: /usr/lib64/libsfml-system.so
+main: /usr/lib64/libsfml-window.so
+main: /usr/lib64/libsfml-graphics.so
+main: /usr/lib64/libsfml-network.so
+main: /usr/lib64/libsfml-audio.so
+main: /usr/local/lib/libvisa.so
 main: /usr/local/lib/libpei.so
 main: /usr/lib64/libfltk.so
 main: /usr/lib64/libfltk_gl.so

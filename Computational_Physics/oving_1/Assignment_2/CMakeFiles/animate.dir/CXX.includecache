@@ -13,6 +13,12 @@ string
 -
 iostream
 -
+vector
+-
+sstream
+-
+visa/visa.hpp
+-
 
 /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/Assignment_2/TimeEvolution.cpp
 TimeEvolution.hpp
@@ -27,6 +33,8 @@ cassert
 -
 iostream
 -
+cmath
+-
 
 /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/Assignment_2/TimeEvolution.hpp
 armadillo
@@ -34,6 +42,8 @@ armadillo
 string
 -
 cmath
+-
+sstream
 -
 TimeEvolution.tpp
 /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_1/Assignment_2/TimeEvolution.tpp
