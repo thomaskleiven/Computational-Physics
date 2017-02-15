@@ -23,17 +23,6 @@ def fwd(ev, pri):
         fv[0] = bayes1*alpha
         fv[1] = bayes2*alpha
 
-def bwd():
-    return
-
-
-
-
-
-
-
-
-
 evidence = np.array([True, True])
 prior = np.array([0.5, 0.5])
 fwd(evidence, prior)
