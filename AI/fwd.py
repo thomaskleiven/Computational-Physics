@@ -6,7 +6,7 @@ observationMatrix_false= np.matrix([[0.1, 0], [0, 0.8]])
 
 class fwd_bwd:
     def fwd(ev, pri):
-        fv = np.array([None]*(len(ev)+1)) #A vector of forward messages for teps 0,...,t
+        fv = np.array([None]*(len(ev)+1))          #A vector of forward messages for teps 0,...,t
         fv[0] = pri
         alphas = np.zeros(len(ev))
         print("Running forward: ")
