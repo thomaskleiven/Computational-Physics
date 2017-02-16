@@ -4,17 +4,15 @@ transition_probability = np.matrix([[0.7,0.3], [0.3, 0.7]])
 observationMatrix_true = np.matrix([[0.9, 0], [0,0.2]])
 observationMatrix_false= np.matrix([[0.1, 0], [0, 0.8]])
 
-initial_condition = np.array([0.5, 0.5])
-
 class fwd_bwd:
     def fwd(ev, pri):
-        fv = np.array([None]*len(ev)) #A vector of forward messages for teps 0,...,t
+        fv = np.array([None]*(len(ev)+1)) #A vector of forward messages for teps 0,...,t
         fv[0] = pri
         alphas = np.zeros(len(ev))
         print("Running forward: ")
         print("Message 0: ", fv[0])
-        for i in range(1,len(ev)):
-            if(ev[i] == True):
+        for i in range(1,len(ev)+1):
+            if(ev[i-1] == True):
                 fwd = np.dot(observationMatrix_true*np.transpose(transition_probability), fv[i-1])
             else:
                 fwd = np.dot(observationMatrix_false*np.transpose(transition_probability), fv[i-1])
@@ -32,8 +30,9 @@ class fwd_bwd:
         print("Running backwards: ")
         print("Message 0: ", b)
 
-        for i in range(len(ev), -1, -1):
-            sv[i] = fwd_bwd.normalize(fv[i-1] * b)
+        t = len(ev)+1
+        for i in range(t-1, -1, -1):
+            sv[i] = fwd_bwd.normalize(fv[i] * b)
             if(ev[i-1] == True):
                 b = np.ravel((np.dot(transition_probability*observationMatrix_true,b)).sum(axis=0))
             else:
@@ -48,7 +47,7 @@ def main():
     back = fwd_bwd.bwd(evidence, result)
     print("--------------------------")
     print("Results: ")
-    for i in range(1,len(back)):                     #Print results
+    for i in range(0,len(back)):                     #Print results
         print("%d: %s"%(i, back[i]))
 
 main()
