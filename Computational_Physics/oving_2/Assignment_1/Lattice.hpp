@@ -13,15 +13,16 @@ protected:
   void generateNeighbors();
   int N{0};
   arma::vec sites;
-  struct Bond{int startPos; int neighbor;};
-  void isCluster(Bond bond);
-  std::vector<Bond*> bonds;
+  bool checkIfLastRow(int position);
+  bool checkIfLastColumn(int position);
 
 };
 
 class SquareLattice: public Lattice{
 public:
   SquareLattice(int N): Lattice(N){};
+  struct Bond{int startPos; int neighbor; int neighbor1;};
+  std::vector<Bond*> bonds;
 private:
   void findNeighbor(int position);
 };
@@ -29,14 +30,16 @@ private:
 class TriangularLattice: public Lattice{
 public:
   TriangularLattice(int N): Lattice(N){};
-private:
+protected:
+  struct Bond{int startPos; int neighbor; int neighbor1;};
+  std::vector<Bond*> bonds;
   void findNeighbor(int position);
-}
+};
 
 
-class DebugLattice: public SquareLattice{
+class DebugLattice: public TriangularLattice{
 public:
-  DebugLattice(int N):SquareLattice(N){};
+  DebugLattice(int N):TriangularLattice(N){};
   void printBonds();
 };
 
