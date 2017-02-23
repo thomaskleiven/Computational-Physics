@@ -18,6 +18,11 @@ void Lattice::generateNeighbors(){
   for(int i = 0; i < sites.size(); i++){
     findNeighbor(i);
   }
+  //shuffleBonds();
+}
+
+void Lattice::shuffleBonds(){
+  std::random_shuffle ( bonds.begin(), bonds.end() );
 }
 
 
@@ -63,16 +68,15 @@ void TriangularLattice::findNeighbor(int position){
   bonds.push_back(bond2);
 }
 
-
 void SquareLattice::findNeighbor(int position){
   Bond *bond = new Bond;
   Bond *bond1 = new Bond;
   bond->startPos = position;
   bond1->startPos = position;
-  if((position > pow(N,2) - N - 1) && (position+1)%N == 0){
+  if(checkIfLastRow(position)&& checkIfLastColumn(position)){
     bond->neighbor = position - N + 1;
     bond1->neighbor = position - N*N + N;
-  }else if(position > pow(N,2) - N - 1){
+  }else if(checkIfLastColumn(position)){
     bond->neighbor = position - N*N + N;
     bond1->neighbor = position + 1;
   }else if((position+1)%N == 0){
@@ -100,8 +104,7 @@ void SquareLattice::findNeighbor(int position){
 
 /////////////////////////////////////////////////////////
 void DebugLattice::printBonds(){
-  generateNeighbors(); 
-  std::random_shuffle ( bonds.begin(), bonds.end() );
+  generateNeighbors();
   for (int i = 0; i<bonds.size(); i++){
     cout << "Startposition: " <<bonds[i]->startPos << " Bond-to: " << bonds[i]->neighbor << endl;
   }
