@@ -5,12 +5,14 @@
 #include<vector>
 #include<algorithm>
 #include<random>
+#include<iterator>
+#include <cstdint>
 
 
 using namespace std;
 
 Lattice::Lattice(int N):N(N), sites(N*N){
-
+  fill(sites.begin(), sites.end(), -1);
 }
 
 
@@ -18,8 +20,36 @@ void Lattice::generateNeighbors(){
   for(int i = 0; i < sites.size(); i++){
     findNeighbor(i);
   }
+  activateBond(bonds[0]);
+  activateBond(bonds[2]);
   //shuffleBonds();
 }
+
+void Lattice::activateBond(Bond &bond){
+  if(sites[bond.startPos] < 0 && sites[bond.neighbor] < 0){
+    int largest = max(bond.startPos, bond.neighbor);
+    int smallest = min(bond.startPos, bond.neighbor);
+    sites[largest] += sites[smallest];
+    sites[smallest] = getRootNode(largest);
+  }
+}
+
+int Lattice::getRootNode(int site){
+  if(sites[site] < 0){
+    return site;
+  }else{
+    getRootNode(sites[site]);
+  }
+}
+
+int Lattice::getBiggestCluster(int startPosition, int neighbor){
+  return (startPosition > neighbor) ? startPosition : neighbor;
+}
+
+int Lattice::getSmallesCluster(int startPosition, int neighbor){
+  return (startPosition < neighbor) ? startPosition : neighbor;
+}
+
 
 void Lattice::shuffleBonds(){
   std::random_shuffle ( bonds.begin(), bonds.end() );
@@ -133,8 +163,6 @@ bool HoneycombLattice::checkIfFirstRow(int position){if(position/N == 0){return 
 void DebugLattice::printBonds(){
   generateNeighbors();
   for (int i = 0; i<bonds.size(); i++){
-    cout << "Startposition: " <<bonds[i].startPos << " Bond-to: " << bonds[i].neighbor << endl;
+    //cout << "Startposition: " <<bonds[i].startPos << " Bond-to: " << bonds[i].neighbor << endl;
   }
-  cout << bonds.size() << endl;
-
 }

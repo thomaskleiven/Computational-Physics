@@ -22,6 +22,10 @@ protected:
   void generateNeighbors();
   bool checkIfLastRow(int position);
   bool checkIfLastColumn(int position);
+  int getRootNode(int site);
+  void activateBond(Bond &bond);
+  int getBiggestCluster(int position, int neighbor);
+  int getSmallesCluster(int position, int neighbor);
   std::vector<Bond> bonds;
   std::vector<int> sites;
 
