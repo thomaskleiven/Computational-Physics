@@ -4,6 +4,13 @@
 #include<armadillo>
 #include<vector>
 
+
+struct Bond{
+  int startPos;
+  int neighbor;
+};
+
+
 class Lattice{
 public:
   Lattice(int N);
@@ -15,16 +22,14 @@ protected:
   void generateNeighbors();
   bool checkIfLastRow(int position);
   bool checkIfLastColumn(int position);
-  struct Bond{int startPos; int neighbor; int neighbor1;};
-  std::vector<Bond*> bonds;
-  arma::vec sites;
+  std::vector<Bond> bonds;
+  std::vector<int> sites;
 
 };
 
 class SquareLattice: public Lattice{
 public:
   SquareLattice(int N): Lattice(N){};
-
 protected:
   void findNeighbor(int position);
 };
@@ -32,17 +37,28 @@ protected:
 class TriangularLattice: public Lattice{
 public:
   TriangularLattice(int N): Lattice(N){};
-
 protected:
   void findNeighbor(int position);
+};
+
+class HoneycombLattice: public Lattice{
+public:
+  HoneycombLattice(int N): Lattice(N){};
+protected:
+  void findNeighbor(int position);
+  bool checkIfEvenNumber(int position);
+  bool checkIfEvenRow(int position);
+  bool checkIfLastRow(int position);
+  bool checkIfLastColumn(int position);
+  bool checkIfFirstRow(int pos);
 };
 
 ////////////////////////////////////////////////////////////////////////////////
 
 
-class DebugLattice: public TriangularLattice{
+class DebugLattice: public HoneycombLattice{
 public:
-  DebugLattice(int N):TriangularLattice(N){};
+  DebugLattice(int N):HoneycombLattice(N){};
   void printBonds();
 };
 
