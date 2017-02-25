@@ -60,10 +60,11 @@ protected:
 ////////////////////////////////////////////////////////////////////////////////
 
 
-class DebugLattice: public HoneycombLattice{
+class DebugLattice: public SquareLattice{
 public:
-  DebugLattice(int N):HoneycombLattice(N){};
+  DebugLattice(int N):SquareLattice(N){};
   void printBonds();
+  void printSites();
 };
 
 #endif

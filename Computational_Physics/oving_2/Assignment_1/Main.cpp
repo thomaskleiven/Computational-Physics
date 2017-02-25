@@ -12,7 +12,8 @@ int main(){
   srand(time(0));
   //Lattice solver(3);
   #ifdef DEBUG
-    DebugLattice debug(6);
+    DebugLattice debug(3);
     debug.printBonds();
+    debug.printSites();
   #endif
 };

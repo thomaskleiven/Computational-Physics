@@ -20,20 +20,20 @@ void Lattice::generateNeighbors(){
   for(int i = 0; i < sites.size(); i++){
     findNeighbor(i);
   }
-  activateBond(bonds[0]);
-  activateBond(bonds[2]);
   //shuffleBonds();
 }
 
 void Lattice::activateBond(Bond &bond){
-  if(sites[bond.startPos] < 0 && sites[bond.neighbor] < 0){
-    int largest = max(bond.startPos, bond.neighbor);
-    int smallest = min(bond.startPos, bond.neighbor);
+  if(getRootNode(bond.neighbor) != getRootNode(bond.startPos)){
+    int largest = (sites[getRootNode(bond.neighbor)] < sites[getRootNode(bond.startPos)]) ? getRootNode(bond.neighbor) : getRootNode(bond.startPos) ;
+    int smallest = (sites[getRootNode(bond.neighbor)] > sites[getRootNode(bond.startPos)]) ? getRootNode(bond.neighbor) : getRootNode(bond.startPos);
+    if(smallest == largest){
+      smallest = getRootNode(bond.neighbor);
+    }
     sites[largest] += sites[smallest];
     sites[smallest] = getRootNode(largest);
   }
 }
-
 int Lattice::getRootNode(int site){
   if(sites[site] < 0){
     return site;
@@ -163,6 +163,12 @@ bool HoneycombLattice::checkIfFirstRow(int position){if(position/N == 0){return 
 void DebugLattice::printBonds(){
   generateNeighbors();
   for (int i = 0; i<bonds.size(); i++){
-    //cout << "Startposition: " <<bonds[i].startPos << " Bond-to: " << bonds[i].neighbor << endl;
+    cout << "Startposition: " <<bonds[i].startPos << " Bond-to: " << bonds[i].neighbor << endl;
+  }
+}
+
+void DebugLattice::printSites(){
+  for (int i = 0; i < sites.size(); i++){
+    cout << "Site " << i << ": " <<sites[i] << endl;
   }
 }
