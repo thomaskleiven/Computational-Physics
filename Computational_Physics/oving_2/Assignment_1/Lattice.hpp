@@ -16,19 +16,34 @@ public:
   Lattice(int N);
 
 protected:
-  int N{0};
   virtual void findNeighbor(int position) = 0;
   void shuffleBonds();
   void generateNeighbors();
-  bool checkIfLastRow(int position);
-  bool checkIfLastColumn(int position);
-  int getRootNode(int site);
+  void calculateAverageClusterSize(int i);
   void activateBond(Bond &bond);
-  int getBiggestCluster(int position, int neighbor);
-  int getSmallesCluster(int position, int neighbor);
+  void activateSites();
+  void save(std::vector<double> &vector);
+  void getMainCluster();
+  int getRootNode(int site);
+  int num_activatedBonds = 1;
+  int largestCluster{0};
+  int N{0};
+  double average_s{0};
+  double lastValue{0};
+  double getPvalue();
+  double getAverageClusterSize();
+  double getChi(int i);
+  double pValue;
+  double pValueSquared;
+  double chi;
+  int bondsActivated{0};
   std::vector<Bond> bonds;
   std::vector<int> sites;
-
+  std::vector<int> mainCluster;
+private:
+  arma::vec binomialCoeff;
+  double logBonds;
+  void pushBinomialCoeff();
 };
 
 class SquareLattice: public Lattice{
@@ -56,6 +71,7 @@ protected:
   bool checkIfLastColumn(int position);
   bool checkIfFirstRow(int pos);
 };
+
 
 ////////////////////////////////////////////////////////////////////////////////
 
