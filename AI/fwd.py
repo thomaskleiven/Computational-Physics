@@ -1,4 +1,5 @@
 import numpy as np
+import heapq
 
 transition_probability = np.matrix([[0.7,0.3], [0.3, 0.7]])
 observationMatrix_true = np.matrix([[0.9, 0], [0,0.2]])
@@ -32,13 +33,46 @@ class fwd_bwd:
 
         t = len(ev)+1
         for i in range(t-1, -1, -1):
+            print(fv[i])
+            print(b)
+
             sv[i] = fwd_bwd.normalize(fv[i] * b)
+            print(sv[i])
             if(ev[i-1] == True):
                 b = np.ravel((np.dot(transition_probability*observationMatrix_true,b)).sum(axis=0))
             else:
                 b = np.ravel((np.dot(transition_probability*observationMatrix_false,b)).sum(axis=0))
             print("Message %d: %s"%(i, b))
         return sv
+
+    def viterbi(fv, ev):
+        sequence = []
+        temporaryGuess = np.array([None]*(len(fv)+1))
+        temporaryGuess[0] = fv[0]
+        b = np.array(0)
+        for i in range(0,len(fv)):
+            if(ev[i] == True):
+                a = transition_probability*observationMatrix_true
+                b = (a[:,:1])
+                c = np.multiply(temporaryGuess[i],np.transpose(b))
+
+                d = (np.ravel(a)[1::2])
+                e = d.reshape(2,1)
+                f = np.multiply(temporaryGuess[i], np.transpose(e))
+
+                temporaryGuess[i+1] = max(np.ravel(c)), max(np.ravel(f))
+            else:
+                a = transition_probability*observationMatrix_false
+                b = (a[:,:1])
+                c = np.multiply(temporaryGuess[i],np.transpose(b))
+
+                d = (np.ravel(a)[1::2])
+                e = d.reshape(2,1)
+                f = np.multiply(temporaryGuess[i], np.transpose(e))
+
+                temporaryGuess[i+1] = max(np.ravel(c)), max(np.ravel(f))
+        return temporaryGuess
+
 
 def main():
     evidence = np.array([True, True, False, True, True])
@@ -49,5 +83,13 @@ def main():
     print("Results: ")
     for i in range(0,len(back)):                     #Print results
         print("%d: %s"%(i, back[i]))
+    print("--------------------------")
+    print("Results Viterbi: ")
+    vit = fwd_bwd.viterbi(result[1:], evidence)
+    for i in range(1,len(vit)):
+        if(vit[i][0] > vit[i][1]):
+            print("True")
+        else:
+            print("False")
 
 main()
