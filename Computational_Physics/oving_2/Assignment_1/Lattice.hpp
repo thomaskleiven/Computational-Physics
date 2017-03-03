@@ -42,7 +42,7 @@ protected:
   std::vector<int> mainCluster;
 private:
   arma::vec binomialCoeff;
-  double logBonds;
+  double lnFacBond;
   void pushBinomialCoeff();
 };
 

@@ -17,6 +17,7 @@ using namespace std;
 Lattice::Lattice(int N):N(N), sites(N*N){
   fill(sites.begin(), sites.end(), -1);
   binomialCoeff.set_size(2*N*N);
+  binomialCoeff.fill(0);
   pValue += getPvalue();
   pValueSquared += pow(getPvalue(),2);
   chi = getChi(0);
@@ -30,7 +31,7 @@ void Lattice::generateNeighbors(){
 }
 
 void Lattice::activateBond(Bond &bond){
-  if(num_activatedBonds != 1){pushBinomialCoeff();}
+  pushBinomialCoeff();
   if(getRootNode(bond.neighbor) != getRootNode(bond.startPos)){
     int largest = (sites[getRootNode(bond.neighbor)] < sites[getRootNode(bond.startPos)]) ? getRootNode(bond.neighbor) : getRootNode(bond.startPos);
     int smallest = (sites[getRootNode(bond.neighbor)] > sites[getRootNode(bond.startPos)]) ? getRootNode(bond.neighbor) : getRootNode(bond.startPos);
@@ -55,6 +56,7 @@ void Lattice::activateBond(Bond &bond){
 
 void Lattice::activateSites(){
   shuffleBonds();
+  lnFacBond = gsl_sf_lnfact(bonds.size());
   for(int i = 0; i<bonds.size(); i++){
     activateBond(bonds[i]);
   }
@@ -104,9 +106,10 @@ void Lattice::shuffleBonds(){
 }
 
 void Lattice::pushBinomialCoeff(){
-  if(bonds.size() - num_activatedBonds > 1){
-    binomialCoeff(num_activatedBonds) = exp((gsl_sf_lnfact(bonds.size())/(gsl_sf_lnfact(num_activatedBonds) * gsl_sf_lnfact(bonds.size()-num_activatedBonds))));
-  }
+  //cout << lnFacBond << endl;
+  //cout << lnFacBond - gsl_sf_lnfact(num_activatedBonds) - gsl_sf_lnfact(bonds.size()-num_activatedBonds) << endl;
+  double coeff =  lnFacBond - gsl_sf_lnfact(num_activatedBonds) - gsl_sf_lnfact(bonds.size()-num_activatedBonds);
+  cout << coeff << endl;
 }
 
 
@@ -215,14 +218,14 @@ void DebugLattice::printSites(){
   activateSites();
   ////cout << sites.size() << endl;
   ////cout << getAverageClusterSize() << endl;
-  //for (int i = 0; i < sites.size(); i++){
+  for (int i = 0; i < sites.size(); i++){
     ////cout << "Site " << i << ": " << sites[i] << endl;
     ////cout << "Pvalue: " << pValues(i) << endl;
     ////cout << "PValueSquared: " << pValuesSquared(i) << endl;
     ////cout << "Chi: " << chi(i) << endl;
     ////cout << averageClusterSize[i] << endl;
-  /*}
-  for (int i = 0; i < mainCluster.size(); i++){
+  }
+  /*for (int i = 0; i < mainCluster.size(); i++){
     ////cout << "MainSite " << i << ": " << mainCluster[i] << endl;
   }*/
 }
