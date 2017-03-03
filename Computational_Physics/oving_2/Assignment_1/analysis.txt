@@ -1,0 +1,1166 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls   s/call   s/call  name    
+ 42.08      0.61     0.61 11318625     0.00     0.00  Lattice::getRootNode(int)
+ 12.07      0.79     0.18 49569611     0.00     0.00  std::vector<int, std::allocator<int> >::operator[](unsigned long)
+ 10.35      0.94     0.15  2000000     0.00     0.00  Lattice::activateBond(Bond&)
+  9.66      1.08     0.14  1999987     0.00     0.00  std::enable_if<std::__and_<std::is_move_constructible<Bond>, std::is_move_assignable<Bond> >::value, void>::type std::swap<Bond>(Bond&, Bond&)
+  2.76      1.12     0.04  2000000     0.00     0.00  Lattice::pushBinomialCoeff()
+  2.07      1.15     0.03        1     0.03     0.03  arma::Mat<double>::init_warm(unsigned long long, unsigned long long)
+  2.07      1.18     0.03  1000000     0.00     0.00  Lattice::getChi(int)
+  1.38      1.20     0.02 11999998     0.00     0.00  __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >::base() const
+  1.38      1.22     0.02  4000022     0.00     0.00  Bond const& std::forward<Bond const&>(std::remove_reference<Bond const&>::type&)
+  1.38      1.24     0.02  4000000     0.00     0.00  bool __gnu_cxx::operator!=<Bond*, std::vector<Bond, std::allocator<Bond> > >(__gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > > const&, __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > > const&)
+  1.38      1.26     0.02  2999997     0.00     0.00  __gnu_cxx::__promote_2<int, int, __gnu_cxx::__promote<int, std::__is_integer<int>::__value>::__type, __gnu_cxx::__promote<int, std::__is_integer<int>::__value>::__type>::__type std::pow<int, int>(int, int)
+  1.38      1.28     0.02  2000000     0.00     0.00  void __gnu_cxx::new_allocator<Bond>::construct<Bond, Bond const&>(Bond*, Bond const&)
+  1.38      1.30     0.02  1999987     0.00     0.00  void std::iter_swap<__gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >, __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > > >(__gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >, __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >)
+  1.38      1.32     0.02  1000000     0.00     0.00  SquareLattice::findNeighbor(int)
+  1.38      1.34     0.02        1     0.02     1.33  DebugLattice::printSites()
+  1.38      1.36     0.02        1     0.02     0.23  Lattice::shuffleBonds()
+  1.38      1.38     0.02        1     0.02     1.31  Lattice::activateSites()
+  1.03      1.39     0.02  4000112     0.00     0.00  std::vector<Bond, std::allocator<Bond> >::size() const
+  0.69      1.40     0.01  5999961     0.00     0.00  std::remove_reference<Bond&>::type&& std::move<Bond&>(Bond&)
+  0.69      1.41     0.01  5000002     0.00     0.00  std::vector<int, std::allocator<int> >::size() const
+  0.69      1.42     0.01  2000000     0.00     0.00  Lattice::getPvalue()
+  0.69      1.43     0.01  2000000     0.00     0.00  std::vector<Bond, std::allocator<Bond> >::push_back(Bond const&)
+  0.69      1.44     0.01                             Lattice::getAverageClusterSize()
+  0.34      1.45     0.01  2000000     0.00     0.00  operator new(unsigned long, void*)
+  0.34      1.45     0.01        1     0.01     0.01  _GLOBAL__sub_I__ZN7LatticeC2Ei
+  0.00      1.45     0.00  4000000     0.00     0.00  void arma::arma_check<char [37]>(bool, char const (&) [37])
+  0.00      1.45     0.00  3999974     0.00     0.00  __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >::operator*() const
+  0.00      1.45     0.00  2000002     0.00     0.00  __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >::__normal_iterator(Bond* const&)
+  0.00      1.45     0.00  2000000     0.00     0.00  __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >::operator+(long) const
+  0.00      1.45     0.00  2000000     0.00     0.00  void std::allocator_traits<std::allocator<Bond> >::construct<Bond, Bond const&>(std::allocator<Bond>&, Bond*, Bond const&)
+  0.00      1.45     0.00  2000000     0.00     0.00  std::vector<Bond, std::allocator<Bond> >::operator[](unsigned long)
+  0.00      1.45     0.00  2000000     0.00     0.00  __gnu_cxx::__promote_2<double, int, __gnu_cxx::__promote<double, std::__is_integer<double>::__value>::__type, __gnu_cxx::__promote<int, std::__is_integer<int>::__value>::__type>::__type std::pow<double, int>(double, int)
+  0.00      1.45     0.00  1999999     0.00     0.00  __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >::operator++()
+  0.00      1.45     0.00  1999999     0.00     0.00  __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >::difference_type __gnu_cxx::operator-<Bond*, std::vector<Bond, std::allocator<Bond> > >(__gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > > const&, __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > > const&)
+  0.00      1.45     0.00       66     0.00     0.00  __gnu_cxx::new_allocator<Bond>::max_size() const
+  0.00      1.45     0.00       66     0.00     0.00  Bond* std::__niter_base<Bond*>(Bond*)
+  0.00      1.45     0.00       45     0.00     0.00  std::_Vector_base<Bond, std::allocator<Bond> >::_M_get_Tp_allocator()
+  0.00      1.45     0.00       44     0.00     0.00  std::_Vector_base<Bond, std::allocator<Bond> >::_M_get_Tp_allocator() const
+  0.00      1.45     0.00       44     0.00     0.00  std::move_iterator<Bond*>::base() const
+  0.00      1.45     0.00       44     0.00     0.00  std::vector<Bond, std::allocator<Bond> >::max_size() const
+  0.00      1.45     0.00       44     0.00     0.00  std::move_iterator<Bond*>::move_iterator(Bond*)
+  0.00      1.45     0.00       44     0.00     0.00  std::allocator_traits<std::allocator<Bond> >::max_size(std::allocator<Bond> const&)
+  0.00      1.45     0.00       44     0.00     0.00  decltype (__miter_base(({parm#1}.base)())) std::__miter_base<Bond*>(std::move_iterator<Bond*>)
+  0.00      1.45     0.00       44     0.00     0.00  Bond* std::__miter_base<Bond*>(Bond*)
+  0.00      1.45     0.00       44     0.00     0.00  std::move_iterator<Bond*> std::__make_move_if_noexcept_iterator<Bond, std::move_iterator<Bond*> >(Bond*)
+  0.00      1.45     0.00       36     0.00     0.00  arma::solve_opts::opts::opts(unsigned long long)
+  0.00      1.45     0.00       30     0.00     0.00  arma::gmm_seed_mode::gmm_seed_mode(unsigned long long)
+  0.00      1.45     0.00       23     0.00     0.00  void std::_Destroy_aux<true>::__destroy<Bond*>(Bond*, Bond*)
+  0.00      1.45     0.00       23     0.00     0.00  std::_Vector_base<Bond, std::allocator<Bond> >::_M_deallocate(Bond*, unsigned long)
+  0.00      1.45     0.00       23     0.00     0.00  void std::_Destroy<Bond*>(Bond*, Bond*)
+  0.00      1.45     0.00       23     0.00     0.00  void std::_Destroy<Bond*, Bond>(Bond*, Bond*, std::allocator<Bond>&)
+  0.00      1.45     0.00       22     0.00     0.00  __gnu_cxx::new_allocator<Bond>::deallocate(Bond*, unsigned long)
+  0.00      1.45     0.00       22     0.00     0.00  __gnu_cxx::new_allocator<Bond>::allocate(unsigned long, void const*)
+  0.00      1.45     0.00       22     0.00     0.00  std::vector<Bond, std::allocator<Bond> >::_M_check_len(unsigned long, char const*) const
+  0.00      1.45     0.00       22     0.00     0.00  Bond* std::__copy_move<true, true, std::random_access_iterator_tag>::__copy_m<Bond>(Bond const*, Bond const*, Bond*)
+  0.00      1.45     0.00       22     0.00     0.00  std::_Vector_base<Bond, std::allocator<Bond> >::_M_allocate(unsigned long)
+  0.00      1.45     0.00       22     0.00     0.00  std::allocator_traits<std::allocator<Bond> >::deallocate(std::allocator<Bond>&, Bond*, unsigned long)
+  0.00      1.45     0.00       22     0.00     0.00  std::allocator_traits<std::allocator<Bond> >::allocate(std::allocator<Bond>&, unsigned long)
+  0.00      1.45     0.00       22     0.00     0.00  Bond* std::__uninitialized_copy<true>::__uninit_copy<std::move_iterator<Bond*>, Bond*>(std::move_iterator<Bond*>, std::move_iterator<Bond*>, Bond*)
+  0.00      1.45     0.00       22     0.00     0.00  void std::vector<Bond, std::allocator<Bond> >::_M_emplace_back_aux<Bond const&>(Bond const&)
+  0.00      1.45     0.00       22     0.00     0.00  Bond* std::__copy_move_a<true, Bond*, Bond*>(Bond*, Bond*, Bond*)
+  0.00      1.45     0.00       22     0.00     0.00  Bond* std::__copy_move_a2<true, Bond*, Bond*>(Bond*, Bond*, Bond*)
+  0.00      1.45     0.00       22     0.00     0.00  Bond* std::uninitialized_copy<std::move_iterator<Bond*>, Bond*>(std::move_iterator<Bond*>, std::move_iterator<Bond*>, Bond*)
+  0.00      1.45     0.00       22     0.00     0.00  Bond* std::__uninitialized_copy_a<std::move_iterator<Bond*>, Bond*, Bond>(std::move_iterator<Bond*>, std::move_iterator<Bond*>, Bond*, std::allocator<Bond>&)
+  0.00      1.45     0.00       22     0.00     0.00  Bond* std::__uninitialized_move_if_noexcept_a<Bond*, Bond*, std::allocator<Bond> >(Bond*, Bond*, Bond*, std::allocator<Bond>&)
+  0.00      1.45     0.00       22     0.00     0.00  unsigned long const& std::max<unsigned long>(unsigned long const&, unsigned long const&)
+  0.00      1.45     0.00       22     0.00     0.00  Bond* std::copy<std::move_iterator<Bond*>, Bond*>(std::move_iterator<Bond*>, std::move_iterator<Bond*>, Bond*)
+  0.00      1.45     0.00       18     0.00     0.00  arma::gmm_dist_mode::gmm_dist_mode(unsigned long long)
+  0.00      1.45     0.00        3     0.00     0.00  __gnu_cxx::new_allocator<int>::~new_allocator()
+  0.00      1.45     0.00        3     0.00     0.00  std::allocator<int>::~allocator()
+  0.00      1.45     0.00        3     0.00     0.00  std::_Vector_base<int, std::allocator<int> >::_M_get_Tp_allocator()
+  0.00      1.45     0.00        2     0.00     0.00  arma::solve_opts::opts_no_approx::opts_no_approx()
+  0.00      1.45     0.00        2     0.00     0.00  arma::solve_opts::opts_equilibrate::opts_equilibrate()
+  0.00      1.45     0.00        2     0.00     0.00  arma::solve_opts::opts_fast::opts_fast()
+  0.00      1.45     0.00        2     0.00     0.00  arma::solve_opts::opts_none::opts_none()
+  0.00      1.45     0.00        2     0.00     0.00  arma::solve_opts::opts_tril::opts_tril()
+  0.00      1.45     0.00        2     0.00     0.00  arma::solve_opts::opts_triu::opts_triu()
+  0.00      1.45     0.00        2     0.00     0.00  arma::gmm_dist_eucl::gmm_dist_eucl()
+  0.00      1.45     0.00        2     0.00     0.00  arma::gmm_dist_maha::gmm_dist_maha()
+  0.00      1.45     0.00        2     0.00     0.00  arma::gmm_dist_prob::gmm_dist_prob()
+  0.00      1.45     0.00        2     0.00     0.00  arma::gmm_seed_keep_existing::gmm_seed_keep_existing()
+  0.00      1.45     0.00        2     0.00     0.00  arma::gmm_seed_random_spread::gmm_seed_random_spread()
+  0.00      1.45     0.00        2     0.00     0.00  arma::gmm_seed_random_subset::gmm_seed_random_subset()
+  0.00      1.45     0.00        2     0.00     0.00  arma::gmm_seed_static_spread::gmm_seed_static_spread()
+  0.00      1.45     0.00        2     0.00     0.00  arma::gmm_seed_static_subset::gmm_seed_static_subset()
+  0.00      1.45     0.00        2     0.00     0.00  arma::fill::fill_class<arma::fill::fill_randn>::fill_class()
+  0.00      1.45     0.00        2     0.00     0.00  arma::fill::fill_class<arma::fill::fill_randu>::fill_class()
+  0.00      1.45     0.00        2     0.00     0.00  arma::fill::fill_class<arma::fill::fill_zeros>::fill_class()
+  0.00      1.45     0.00        2     0.00     0.00  arma::fill::fill_class<arma::fill::fill_eye>::fill_class()
+  0.00      1.45     0.00        2     0.00     0.00  arma::fill::fill_class<arma::fill::fill_none>::fill_class()
+  0.00      1.45     0.00        2     0.00     0.00  arma::fill::fill_class<arma::fill::fill_ones>::fill_class()
+  0.00      1.45     0.00        2     0.00     0.00  __gnu_cxx::new_allocator<int>::new_allocator()
+  0.00      1.45     0.00        2     0.00     0.00  __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >::__normal_iterator(int* const&)
+  0.00      1.45     0.00        2     0.00     0.00  __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >::base() const
+  0.00      1.45     0.00        2     0.00     0.00  std::allocator<int>::allocator()
+  0.00      1.45     0.00        2     0.00     0.00  void std::_Destroy_aux<true>::__destroy<int*>(int*, int*)
+  0.00      1.45     0.00        2     0.00     0.00  std::_Vector_base<int, std::allocator<int> >::_Vector_impl::~_Vector_impl()
+  0.00      1.45     0.00        2     0.00     0.00  std::_Vector_base<int, std::allocator<int> >::_M_deallocate(int*, unsigned long)
+  0.00      1.45     0.00        2     0.00     0.00  std::_Vector_base<int, std::allocator<int> >::~_Vector_base()
+  0.00      1.45     0.00        2     0.00     0.00  std::vector<int, std::allocator<int> >::~vector()
+  0.00      1.45     0.00        2     0.00     0.00  int* std::__niter_base<int*, std::vector<int, std::allocator<int> > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >)
+  0.00      1.45     0.00        2     0.00     0.00  void std::_Destroy<int*>(int*, int*)
+  0.00      1.45     0.00        2     0.00     0.00  void std::_Destroy<int*, int>(int*, int*, std::allocator<int>&)
+  0.00      1.45     0.00        1     0.00     0.00  _GLOBAL__sub_I_main
+  0.00      1.45     0.00        1     0.00     0.00  __static_initialization_and_destruction_0(int, int)
+  0.00      1.45     0.00        1     0.00     0.00  __static_initialization_and_destruction_0(int, int)
+  0.00      1.45     0.00        1     0.00     0.08  DebugLattice::printBonds()
+  0.00      1.45     0.00        1     0.00     0.03  DebugLattice::DebugLattice(int)
+  0.00      1.45     0.00        1     0.00     0.00  DebugLattice::~DebugLattice()
+  0.00      1.45     0.00        1     0.00     0.03  SquareLattice::SquareLattice(int)
+  0.00      1.45     0.00        1     0.00     0.00  SquareLattice::~SquareLattice()
+  0.00      1.45     0.00        1     0.00     0.00  void arma::arma_check<char [53]>(bool, char const (&) [53])
+  0.00      1.45     0.00        1     0.00     0.00  void arma::arma_check<char [74]>(bool, char const (&) [74])
+  0.00      1.45     0.00        1     0.00     0.00  void arma::arma_check<char*>(bool, char* const&)
+  0.00      1.45     0.00        1     0.00     0.00  arma::Base_inv_yes<arma::Mat<double> >::Base_inv_yes()
+  0.00      1.45     0.00        1     0.00     0.00  arma::Base_eval_Mat<double, arma::Mat<double> >::Base_eval_Mat()
+  0.00      1.45     0.00        1     0.00     0.00  arma::Base_trans_default<arma::Mat<double> >::Base_trans_default()
+  0.00      1.45     0.00        1     0.00     0.00  void arma::arma_check_bad_alloc<char [39]>(bool, char const (&) [39])
+  0.00      1.45     0.00        1     0.00     0.00  arma::Col<double>::Col()
+  0.00      1.45     0.00        1     0.00     0.00  arma::Col<double>::~Col()
+  0.00      1.45     0.00        1     0.00     0.00  arma::Mat<double>::fill(double)
+  0.00      1.45     0.00        1     0.00     0.03  arma::Mat<double>::set_size(unsigned long long)
+  0.00      1.45     0.00        1     0.00     0.00  arma::Mat<double>::Mat(arma::arma_vec_indicator const&, unsigned int)
+  0.00      1.45     0.00        1     0.00     0.00  arma::Mat<double>::~Mat()
+  0.00      1.45     0.00        1     0.00     0.00  arma::Base<double, arma::Mat<double> >::Base()
+  0.00      1.45     0.00        1     0.00     0.00  double* arma::memory::acquire<double>(unsigned long long)
+  0.00      1.45     0.00        1     0.00     0.00  void arma::arrayops::inplace_set<double>(double*, double, unsigned long long)
+  0.00      1.45     0.00        1     0.00     0.08  Lattice::generateNeighbors()
+  0.00      1.45     0.00        1     0.00     0.03  Lattice::Lattice(int)
+  0.00      1.45     0.00        1     0.00     0.00  Lattice::~Lattice()
+  0.00      1.45     0.00        1     0.00     0.00  __gnu_cxx::new_allocator<Bond>::new_allocator()
+  0.00      1.45     0.00        1     0.00     0.00  __gnu_cxx::new_allocator<Bond>::~new_allocator()
+  0.00      1.45     0.00        1     0.00     0.00  __gnu_cxx::new_allocator<int>::deallocate(int*, unsigned long)
+  0.00      1.45     0.00        1     0.00     0.00  __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*)
+  0.00      1.45     0.00        1     0.00     0.00  __gnu_cxx::new_allocator<int>::new_allocator(__gnu_cxx::new_allocator<int> const&)
+  0.00      1.45     0.00        1     0.00     0.00  __gnu_cxx::new_allocator<int>::max_size() const
+  0.00      1.45     0.00        1     0.00     0.00  std::allocator<Bond>::allocator()
+  0.00      1.45     0.00        1     0.00     0.00  std::allocator<Bond>::~allocator()
+  0.00      1.45     0.00        1     0.00     0.00  std::allocator<int>::allocator(std::allocator<int> const&)
+  0.00      1.45     0.00        1     0.00     0.00  std::_Vector_base<Bond, std::allocator<Bond> >::_Vector_impl::_Vector_impl()
+  0.00      1.45     0.00        1     0.00     0.00  std::_Vector_base<Bond, std::allocator<Bond> >::_Vector_impl::~_Vector_impl()
+  0.00      1.45     0.00        1     0.00     0.00  std::_Vector_base<Bond, std::allocator<Bond> >::_Vector_base()
+  0.00      1.45     0.00        1     0.00     0.00  std::_Vector_base<Bond, std::allocator<Bond> >::~_Vector_base()
+  0.00      1.45     0.00        1     0.00     0.00  std::_Vector_base<int, std::allocator<int> >::_M_allocate(unsigned long)
+  0.00      1.45     0.00        1     0.00     0.00  std::_Vector_base<int, std::allocator<int> >::_Vector_impl::_Vector_impl()
+  0.00      1.45     0.00        1     0.00     0.00  std::_Vector_base<int, std::allocator<int> >::_Vector_impl::_Vector_impl(std::allocator<int> const&)
+  0.00      1.45     0.00        1     0.00     0.00  std::_Vector_base<int, std::allocator<int> >::_M_create_storage(unsigned long)
+  0.00      1.45     0.00        1     0.00     0.00  std::_Vector_base<int, std::allocator<int> >::_Vector_base(unsigned long, std::allocator<int> const&)
+  0.00      1.45     0.00        1     0.00     0.00  std::_Vector_base<int, std::allocator<int> >::_Vector_base()
+  0.00      1.45     0.00        1     0.00     0.00  std::numeric_limits<unsigned long>::max()
+  0.00      1.45     0.00        1     0.00     0.00  std::allocator_traits<std::allocator<int> >::deallocate(std::allocator<int>&, int*, unsigned long)
+  0.00      1.45     0.00        1     0.00     0.00  std::allocator_traits<std::allocator<int> >::allocate(std::allocator<int>&, unsigned long)
+  0.00      1.45     0.00        1     0.00     0.00  int* std::__uninitialized_default_n_1<true>::__uninit_default_n<int*, unsigned long>(int*, unsigned long)
+  0.00      1.45     0.00        1     0.00     0.00  std::vector<Bond, std::allocator<Bond> >::end()
+  0.00      1.45     0.00        1     0.00     0.00  std::vector<Bond, std::allocator<Bond> >::begin()
+  0.00      1.45     0.00        1     0.00     0.00  std::vector<Bond, std::allocator<Bond> >::vector()
+  0.00      1.45     0.00        1     0.00     0.00  std::vector<Bond, std::allocator<Bond> >::~vector()
+  0.00      1.45     0.00        1     0.00     0.00  std::vector<int, std::allocator<int> >::_M_default_initialize(unsigned long)
+  0.00      1.45     0.00        1     0.00     0.00  std::vector<int, std::allocator<int> >::end()
+  0.00      1.45     0.00        1     0.00     0.00  std::vector<int, std::allocator<int> >::begin()
+  0.00      1.45     0.00        1     0.00     0.00  std::vector<int, std::allocator<int> >::vector(unsigned long, std::allocator<int> const&)
+  0.00      1.45     0.00        1     0.00     0.00  std::vector<int, std::allocator<int> >::vector()
+  0.00      1.45     0.00        1     0.00     0.00  __gnu_cxx::__enable_if<std::__is_scalar<int>::__value, int*>::__type std::__fill_n_a<int*, unsigned long, int>(int*, unsigned long, int const&)
+  0.00      1.45     0.00        1     0.00     0.00  int* std::__niter_base<int*>(int*)
+  0.00      1.45     0.00        1     0.00     0.21  void std::random_shuffle<__gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > > >(__gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >, __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >)
+  0.00      1.45     0.00        1     0.00     0.00  int* std::__uninitialized_default_n<int*, unsigned long>(int*, unsigned long)
+  0.00      1.45     0.00        1     0.00     0.00  int* std::__uninitialized_default_n_a<int*, unsigned long, int>(int*, unsigned long, std::allocator<int>&)
+  0.00      1.45     0.00        1     0.00     0.00  void std::fill<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&)
+  0.00      1.45     0.00        1     0.00     0.00  int* std::fill_n<int*, unsigned long, int>(int*, unsigned long, int const&)
+  0.00      1.45     0.00        1     0.00     0.00  __gnu_cxx::__enable_if<std::__is_scalar<int>::__value, void>::__type std::__fill_a<int*, int>(int*, int*, int const&)
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012-2015 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 2 byte(s) for 0.69% of 1.45 seconds
+
+index % time    self  children    called     name
+                                                 <spontaneous>
+[1]     99.0    0.00    1.44                 main [1]
+                0.02    1.31       1/1           DebugLattice::printSites() [2]
+                0.00    0.08       1/1           DebugLattice::printBonds() [11]
+                0.00    0.03       1/1           DebugLattice::DebugLattice(int) [20]
+                0.00    0.00       1/1           DebugLattice::~DebugLattice() [122]
+-----------------------------------------------
+                0.02    1.31       1/1           main [1]
+[2]     91.6    0.02    1.31       1         DebugLattice::printSites() [2]
+                0.02    1.29       1/1           Lattice::activateSites() [3]
+                0.00    0.00 1000001/5000002     std::vector<int, std::allocator<int> >::size() const [31]
+-----------------------------------------------
+                0.02    1.29       1/1           DebugLattice::printSites() [2]
+[3]     90.1    0.02    1.29       1         Lattice::activateSites() [3]
+                0.15    0.90 2000000/2000000     Lattice::activateBond(Bond&) [4]
+                0.02    0.21       1/1           Lattice::shuffleBonds() [6]
+                0.01    0.00 2000002/4000112     std::vector<Bond, std::allocator<Bond> >::size() const [29]
+                0.00    0.00 2000000/2000000     std::vector<Bond, std::allocator<Bond> >::operator[](unsigned long) [49]
+                0.00    0.00 2000000/4000000     void arma::arma_check<char [37]>(bool, char const (&) [37]) [45]
+-----------------------------------------------
+                0.15    0.90 2000000/2000000     Lattice::activateSites() [3]
+[4]     72.3    0.15    0.90 2000000         Lattice::activateBond(Bond&) [4]
+                0.61    0.13 11318625/11318625     Lattice::getRootNode(int) [5]
+                0.04    0.01 2000000/2000000     Lattice::pushBinomialCoeff() [15]
+                0.04    0.00 11999988/49569611     std::vector<int, std::allocator<int> >::operator[](unsigned long) [8]
+                0.03    0.00  999999/1000000     Lattice::getChi(int) [19]
+                0.01    0.01 1999998/2000000     Lattice::getPvalue() [25]
+                0.02    0.00 2999997/2999997     __gnu_cxx::__promote_2<int, int, __gnu_cxx::__promote<int, std::__is_integer<int>::__value>::__type, __gnu_cxx::__promote<int, std::__is_integer<int>::__value>::__type>::__type std::pow<int, int>(int, int) [28]
+                0.00    0.00  999999/2000000     __gnu_cxx::__promote_2<double, int, __gnu_cxx::__promote<double, std::__is_integer<double>::__value>::__type, __gnu_cxx::__promote<int, std::__is_integer<int>::__value>::__type>::__type std::pow<double, int>(double, int) [50]
+-----------------------------------------------
+                             12125499             Lattice::getRootNode(int) [5]
+                0.61    0.13 11318625/11318625     Lattice::activateBond(Bond&) [4]
+[5]     50.7    0.61    0.13 11318625+12125499 Lattice::getRootNode(int) [5]
+                0.13    0.00 35569623/49569611     std::vector<int, std::allocator<int> >::operator[](unsigned long) [8]
+                             12125499             Lattice::getRootNode(int) [5]
+-----------------------------------------------
+                0.02    0.21       1/1           Lattice::activateSites() [3]
+[6]     15.9    0.02    0.21       1         Lattice::shuffleBonds() [6]
+                0.00    0.21       1/1           void std::random_shuffle<__gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > > >(__gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >, __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >) [7]
+                0.00    0.00       1/1           std::vector<Bond, std::allocator<Bond> >::end() [163]
+                0.00    0.00       1/1           std::vector<Bond, std::allocator<Bond> >::begin() [164]
+-----------------------------------------------
+                0.00    0.21       1/1           Lattice::shuffleBonds() [6]
+[7]     14.5    0.00    0.21       1         void std::random_shuffle<__gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > > >(__gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >, __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >) [7]
+                0.02    0.15 1999987/1999987     void std::iter_swap<__gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >, __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > > >(__gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >, __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >) [9]
+                0.02    0.01 4000000/4000000     bool __gnu_cxx::operator!=<Bond*, std::vector<Bond, std::allocator<Bond> > >(__gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > > const&, __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > > const&) [18]
+                0.00    0.01 1999999/1999999     __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >::difference_type __gnu_cxx::operator-<Bond*, std::vector<Bond, std::allocator<Bond> > >(__gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > > const&, __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > > const&) [33]
+                0.00    0.00 2000000/2000000     __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >::operator+(long) const [48]
+                0.00    0.00 1999999/1999999     __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >::operator++() [51]
+-----------------------------------------------
+                0.01    0.00 2000000/49569611     Lattice::getPvalue() [25]
+                0.04    0.00 11999988/49569611     Lattice::activateBond(Bond&) [4]
+                0.13    0.00 35569623/49569611     Lattice::getRootNode(int) [5]
+[8]     12.1    0.18    0.00 49569611         std::vector<int, std::allocator<int> >::operator[](unsigned long) [8]
+-----------------------------------------------
+                0.02    0.15 1999987/1999987     void std::random_shuffle<__gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > > >(__gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >, __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >) [7]
+[9]     11.7    0.02    0.15 1999987         void std::iter_swap<__gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >, __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > > >(__gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >, __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >) [9]
+                0.14    0.01 1999987/1999987     std::enable_if<std::__and_<std::is_move_constructible<Bond>, std::is_move_assignable<Bond> >::value, void>::type std::swap<Bond>(Bond&, Bond&) [10]
+                0.00    0.00 3999974/3999974     __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >::operator*() const [46]
+-----------------------------------------------
+                0.14    0.01 1999987/1999987     void std::iter_swap<__gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >, __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > > >(__gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >, __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >) [9]
+[10]    10.3    0.14    0.01 1999987         std::enable_if<std::__and_<std::is_move_constructible<Bond>, std::is_move_assignable<Bond> >::value, void>::type std::swap<Bond>(Bond&, Bond&) [10]
+                0.01    0.00 5999961/5999961     std::remove_reference<Bond&>::type&& std::move<Bond&>(Bond&) [30]
+-----------------------------------------------
+                0.00    0.08       1/1           main [1]
+[11]     5.3    0.00    0.08       1         DebugLattice::printBonds() [11]
+                0.00    0.08       1/1           Lattice::generateNeighbors() [12]
+-----------------------------------------------
+                0.00    0.08       1/1           DebugLattice::printBonds() [11]
+[12]     5.3    0.00    0.08       1         Lattice::generateNeighbors() [12]
+                0.02    0.06 1000000/1000000     SquareLattice::findNeighbor(int) [13]
+                0.00    0.00 1000001/5000002     std::vector<int, std::allocator<int> >::size() const [31]
+-----------------------------------------------
+                0.02    0.06 1000000/1000000     Lattice::generateNeighbors() [12]
+[13]     5.2    0.02    0.06 1000000         SquareLattice::findNeighbor(int) [13]
+                0.01    0.05 2000000/2000000     std::vector<Bond, std::allocator<Bond> >::push_back(Bond const&) [14]
+-----------------------------------------------
+                0.01    0.05 2000000/2000000     SquareLattice::findNeighbor(int) [13]
+[14]     3.8    0.01    0.05 2000000         std::vector<Bond, std::allocator<Bond> >::push_back(Bond const&) [14]
+                0.00    0.05 1999978/2000000     void std::allocator_traits<std::allocator<Bond> >::construct<Bond, Bond const&>(std::allocator<Bond>&, Bond*, Bond const&) [16]
+                0.00    0.00      22/22          void std::vector<Bond, std::allocator<Bond> >::_M_emplace_back_aux<Bond const&>(Bond const&) [37]
+-----------------------------------------------
+                0.04    0.01 2000000/2000000     Lattice::activateBond(Bond&) [4]
+[15]     3.3    0.04    0.01 2000000         Lattice::pushBinomialCoeff() [15]
+                0.01    0.00 2000000/4000112     std::vector<Bond, std::allocator<Bond> >::size() const [29]
+                0.00    0.00 2000000/4000000     void arma::arma_check<char [37]>(bool, char const (&) [37]) [45]
+-----------------------------------------------
+                0.00    0.00      22/2000000     void std::vector<Bond, std::allocator<Bond> >::_M_emplace_back_aux<Bond const&>(Bond const&) [37]
+                0.00    0.05 1999978/2000000     std::vector<Bond, std::allocator<Bond> >::push_back(Bond const&) [14]
+[16]     3.1    0.00    0.05 2000000         void std::allocator_traits<std::allocator<Bond> >::construct<Bond, Bond const&>(std::allocator<Bond>&, Bond*, Bond const&) [16]
+                0.02    0.02 2000000/2000000     void __gnu_cxx::new_allocator<Bond>::construct<Bond, Bond const&>(Bond*, Bond const&) [17]
+                0.01    0.00 2000000/4000022     Bond const& std::forward<Bond const&>(std::remove_reference<Bond const&>::type&) [27]
+-----------------------------------------------
+                0.02    0.02 2000000/2000000     void std::allocator_traits<std::allocator<Bond> >::construct<Bond, Bond const&>(std::allocator<Bond>&, Bond*, Bond const&) [16]
+[17]     2.4    0.02    0.02 2000000         void __gnu_cxx::new_allocator<Bond>::construct<Bond, Bond const&>(Bond*, Bond const&) [17]
+                0.01    0.00 2000000/4000022     Bond const& std::forward<Bond const&>(std::remove_reference<Bond const&>::type&) [27]
+                0.01    0.00 2000000/2000000     operator new(unsigned long, void*) [34]
+-----------------------------------------------
+                0.02    0.01 4000000/4000000     void std::random_shuffle<__gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > > >(__gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >, __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >) [7]
+[18]     2.3    0.02    0.01 4000000         bool __gnu_cxx::operator!=<Bond*, std::vector<Bond, std::allocator<Bond> > >(__gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > > const&, __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > > const&) [18]
+                0.01    0.00 8000000/11999998     __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >::base() const [26]
+-----------------------------------------------
+                0.00    0.00       1/1000000     Lattice::Lattice(int) [22]
+                0.03    0.00  999999/1000000     Lattice::activateBond(Bond&) [4]
+[19]     2.2    0.03    0.00 1000000         Lattice::getChi(int) [19]
+                0.00    0.00 1000000/5000002     std::vector<int, std::allocator<int> >::size() const [31]
+                0.00    0.00 1000000/2000000     __gnu_cxx::__promote_2<double, int, __gnu_cxx::__promote<double, std::__is_integer<double>::__value>::__type, __gnu_cxx::__promote<int, std::__is_integer<int>::__value>::__type>::__type std::pow<double, int>(double, int) [50]
+-----------------------------------------------
+                0.00    0.03       1/1           main [1]
+[20]     2.1    0.00    0.03       1         DebugLattice::DebugLattice(int) [20]
+                0.00    0.03       1/1           SquareLattice::SquareLattice(int) [21]
+-----------------------------------------------
+                0.00    0.03       1/1           DebugLattice::DebugLattice(int) [20]
+[21]     2.1    0.00    0.03       1         SquareLattice::SquareLattice(int) [21]
+                0.00    0.03       1/1           Lattice::Lattice(int) [22]
+-----------------------------------------------
+                0.00    0.03       1/1           SquareLattice::SquareLattice(int) [21]
+[22]     2.1    0.00    0.03       1         Lattice::Lattice(int) [22]
+                0.00    0.03       1/1           arma::Mat<double>::set_size(unsigned long long) [23]
+                0.00    0.00       1/1000000     Lattice::getChi(int) [19]
+                0.00    0.00       2/2000000     Lattice::getPvalue() [25]
+                0.00    0.00       1/1           std::vector<Bond, std::allocator<Bond> >::vector() [165]
+                0.00    0.00       1/2           std::allocator<int>::allocator() [110]
+                0.00    0.00       1/1           std::vector<int, std::allocator<int> >::vector(unsigned long, std::allocator<int> const&) [170]
+                0.00    0.00       1/3           std::allocator<int>::~allocator() [85]
+                0.00    0.00       1/1           std::vector<int, std::allocator<int> >::vector() [171]
+                0.00    0.00       1/1           arma::Col<double>::Col() [131]
+                0.00    0.00       1/1           std::vector<int, std::allocator<int> >::end() [168]
+                0.00    0.00       1/1           std::vector<int, std::allocator<int> >::begin() [169]
+                0.00    0.00       1/1           void std::fill<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&) [176]
+                0.00    0.00       1/1           arma::Mat<double>::fill(double) [133]
+                0.00    0.00       1/2000000     __gnu_cxx::__promote_2<double, int, __gnu_cxx::__promote<double, std::__is_integer<double>::__value>::__type, __gnu_cxx::__promote<int, std::__is_integer<int>::__value>::__type>::__type std::pow<double, int>(double, int) [50]
+-----------------------------------------------
+                0.00    0.03       1/1           Lattice::Lattice(int) [22]
+[23]     2.1    0.00    0.03       1         arma::Mat<double>::set_size(unsigned long long) [23]
+                0.03    0.00       1/1           arma::Mat<double>::init_warm(unsigned long long, unsigned long long) [24]
+-----------------------------------------------
+                0.03    0.00       1/1           arma::Mat<double>::set_size(unsigned long long) [23]
+[24]     2.1    0.03    0.00       1         arma::Mat<double>::init_warm(unsigned long long, unsigned long long) [24]
+                0.00    0.00       1/1           void arma::arma_check<char*>(bool, char* const&) [126]
+                0.00    0.00       1/1           void arma::arma_check<char [74]>(bool, char const (&) [74]) [125]
+                0.00    0.00       1/1           double* arma::memory::acquire<double>(unsigned long long) [137]
+-----------------------------------------------
+                0.00    0.00       2/2000000     Lattice::Lattice(int) [22]
+                0.01    0.01 1999998/2000000     Lattice::activateBond(Bond&) [4]
+[25]     1.5    0.01    0.01 2000000         Lattice::getPvalue() [25]
+                0.01    0.00 2000000/49569611     std::vector<int, std::allocator<int> >::operator[](unsigned long) [8]
+                0.00    0.00 2000000/5000002     std::vector<int, std::allocator<int> >::size() const [31]
+-----------------------------------------------
+                0.01    0.00 3999998/11999998     __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >::difference_type __gnu_cxx::operator-<Bond*, std::vector<Bond, std::allocator<Bond> > >(__gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > > const&, __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > > const&) [33]
+                0.01    0.00 8000000/11999998     bool __gnu_cxx::operator!=<Bond*, std::vector<Bond, std::allocator<Bond> > >(__gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > > const&, __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > > const&) [18]
+[26]     1.4    0.02    0.00 11999998         __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >::base() const [26]
+-----------------------------------------------
+                0.00    0.00      22/4000022     void std::vector<Bond, std::allocator<Bond> >::_M_emplace_back_aux<Bond const&>(Bond const&) [37]
+                0.01    0.00 2000000/4000022     void std::allocator_traits<std::allocator<Bond> >::construct<Bond, Bond const&>(std::allocator<Bond>&, Bond*, Bond const&) [16]
+                0.01    0.00 2000000/4000022     void __gnu_cxx::new_allocator<Bond>::construct<Bond, Bond const&>(Bond*, Bond const&) [17]
+[27]     1.4    0.02    0.00 4000022         Bond const& std::forward<Bond const&>(std::remove_reference<Bond const&>::type&) [27]
+-----------------------------------------------
+                0.02    0.00 2999997/2999997     Lattice::activateBond(Bond&) [4]
+[28]     1.4    0.02    0.00 2999997         __gnu_cxx::__promote_2<int, int, __gnu_cxx::__promote<int, std::__is_integer<int>::__value>::__type, __gnu_cxx::__promote<int, std::__is_integer<int>::__value>::__type>::__type std::pow<int, int>(int, int) [28]
+-----------------------------------------------
+                0.00    0.00      22/4000112     void std::vector<Bond, std::allocator<Bond> >::_M_emplace_back_aux<Bond const&>(Bond const&) [37]
+                0.00    0.00      88/4000112     std::vector<Bond, std::allocator<Bond> >::_M_check_len(unsigned long, char const*) const [38]
+                0.01    0.00 2000000/4000112     Lattice::pushBinomialCoeff() [15]
+                0.01    0.00 2000002/4000112     Lattice::activateSites() [3]
+[29]     1.0    0.02    0.00 4000112         std::vector<Bond, std::allocator<Bond> >::size() const [29]
+-----------------------------------------------
+                0.01    0.00 5999961/5999961     std::enable_if<std::__and_<std::is_move_constructible<Bond>, std::is_move_assignable<Bond> >::value, void>::type std::swap<Bond>(Bond&, Bond&) [10]
+[30]     0.7    0.01    0.00 5999961         std::remove_reference<Bond&>::type&& std::move<Bond&>(Bond&) [30]
+-----------------------------------------------
+                0.00    0.00 1000000/5000002     Lattice::getChi(int) [19]
+                0.00    0.00 1000001/5000002     Lattice::generateNeighbors() [12]
+                0.00    0.00 1000001/5000002     DebugLattice::printSites() [2]
+                0.00    0.00 2000000/5000002     Lattice::getPvalue() [25]
+[31]     0.7    0.01    0.00 5000002         std::vector<int, std::allocator<int> >::size() const [31]
+-----------------------------------------------
+                                                 <spontaneous>
+[32]     0.7    0.01    0.00                 Lattice::getAverageClusterSize() [32]
+-----------------------------------------------
+                0.00    0.01 1999999/1999999     void std::random_shuffle<__gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > > >(__gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >, __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >) [7]
+[33]     0.5    0.00    0.01 1999999         __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >::difference_type __gnu_cxx::operator-<Bond*, std::vector<Bond, std::allocator<Bond> > >(__gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > > const&, __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > > const&) [33]
+                0.01    0.00 3999998/11999998     __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >::base() const [26]
+-----------------------------------------------
+                0.01    0.00 2000000/2000000     void __gnu_cxx::new_allocator<Bond>::construct<Bond, Bond const&>(Bond*, Bond const&) [17]
+[34]     0.3    0.01    0.00 2000000         operator new(unsigned long, void*) [34]
+-----------------------------------------------
+                0.01    0.00       1/1           __libc_csu_init [36]
+[35]     0.3    0.01    0.00       1         _GLOBAL__sub_I__ZN7LatticeC2Ei [35]
+                0.00    0.00       1/1           __static_initialization_and_destruction_0(int, int) [121]
+-----------------------------------------------
+                                                 <spontaneous>
+[36]     0.3    0.00    0.01                 __libc_csu_init [36]
+                0.01    0.00       1/1           _GLOBAL__sub_I__ZN7LatticeC2Ei [35]
+                0.00    0.00       1/1           _GLOBAL__sub_I_main [119]
+-----------------------------------------------
+                0.00    0.00      22/22          std::vector<Bond, std::allocator<Bond> >::push_back(Bond const&) [14]
+[37]     0.0    0.00    0.00      22         void std::vector<Bond, std::allocator<Bond> >::_M_emplace_back_aux<Bond const&>(Bond const&) [37]
+                0.00    0.00      22/2000000     void std::allocator_traits<std::allocator<Bond> >::construct<Bond, Bond const&>(std::allocator<Bond>&, Bond*, Bond const&) [16]
+                0.00    0.00      22/22          std::vector<Bond, std::allocator<Bond> >::_M_check_len(unsigned long, char const*) const [38]
+                0.00    0.00      22/4000022     Bond const& std::forward<Bond const&>(std::remove_reference<Bond const&>::type&) [27]
+                0.00    0.00      22/4000112     std::vector<Bond, std::allocator<Bond> >::size() const [29]
+                0.00    0.00      44/45          std::_Vector_base<Bond, std::allocator<Bond> >::_M_get_Tp_allocator() [54]
+                0.00    0.00      22/22          std::_Vector_base<Bond, std::allocator<Bond> >::_M_allocate(unsigned long) [72]
+                0.00    0.00      22/22          Bond* std::__uninitialized_move_if_noexcept_a<Bond*, Bond*, std::allocator<Bond> >(Bond*, Bond*, Bond*, std::allocator<Bond>&) [80]
+                0.00    0.00      22/23          void std::_Destroy<Bond*, Bond>(Bond*, Bond*, std::allocator<Bond>&) [68]
+                0.00    0.00      22/23          std::_Vector_base<Bond, std::allocator<Bond> >::_M_deallocate(Bond*, unsigned long) [66]
+-----------------------------------------------
+                0.00    0.00      22/22          void std::vector<Bond, std::allocator<Bond> >::_M_emplace_back_aux<Bond const&>(Bond const&) [37]
+[38]     0.0    0.00    0.00      22         std::vector<Bond, std::allocator<Bond> >::_M_check_len(unsigned long, char const*) const [38]
+                0.00    0.00      88/4000112     std::vector<Bond, std::allocator<Bond> >::size() const [29]
+                0.00    0.00      44/44          std::vector<Bond, std::allocator<Bond> >::max_size() const [57]
+                0.00    0.00      22/22          unsigned long const& std::max<unsigned long>(unsigned long const&, unsigned long const&) [81]
+-----------------------------------------------
+                0.00    0.00 2000000/4000000     Lattice::activateSites() [3]
+                0.00    0.00 2000000/4000000     Lattice::pushBinomialCoeff() [15]
+[45]     0.0    0.00    0.00 4000000         void arma::arma_check<char [37]>(bool, char const (&) [37]) [45]
+-----------------------------------------------
+                0.00    0.00 3999974/3999974     void std::iter_swap<__gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >, __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > > >(__gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >, __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >) [9]
+[46]     0.0    0.00    0.00 3999974         __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >::operator*() const [46]
+-----------------------------------------------
+                0.00    0.00       1/2000002     std::vector<Bond, std::allocator<Bond> >::begin() [164]
+                0.00    0.00       1/2000002     std::vector<Bond, std::allocator<Bond> >::end() [163]
+                0.00    0.00 2000000/2000002     __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >::operator+(long) const [48]
+[47]     0.0    0.00    0.00 2000002         __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >::__normal_iterator(Bond* const&) [47]
+-----------------------------------------------
+                0.00    0.00 2000000/2000000     void std::random_shuffle<__gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > > >(__gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >, __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >) [7]
+[48]     0.0    0.00    0.00 2000000         __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >::operator+(long) const [48]
+                0.00    0.00 2000000/2000002     __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >::__normal_iterator(Bond* const&) [47]
+-----------------------------------------------
+                0.00    0.00 2000000/2000000     Lattice::activateSites() [3]
+[49]     0.0    0.00    0.00 2000000         std::vector<Bond, std::allocator<Bond> >::operator[](unsigned long) [49]
+-----------------------------------------------
+                0.00    0.00       1/2000000     Lattice::Lattice(int) [22]
+                0.00    0.00  999999/2000000     Lattice::activateBond(Bond&) [4]
+                0.00    0.00 1000000/2000000     Lattice::getChi(int) [19]
+[50]     0.0    0.00    0.00 2000000         __gnu_cxx::__promote_2<double, int, __gnu_cxx::__promote<double, std::__is_integer<double>::__value>::__type, __gnu_cxx::__promote<int, std::__is_integer<int>::__value>::__type>::__type std::pow<double, int>(double, int) [50]
+-----------------------------------------------
+                0.00    0.00 1999999/1999999     void std::random_shuffle<__gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > > >(__gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >, __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >) [7]
+[51]     0.0    0.00    0.00 1999999         __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >::operator++() [51]
+-----------------------------------------------
+                0.00    0.00      22/66          __gnu_cxx::new_allocator<Bond>::allocate(unsigned long, void const*) [70]
+                0.00    0.00      44/66          std::allocator_traits<std::allocator<Bond> >::max_size(std::allocator<Bond> const&) [59]
+[52]     0.0    0.00    0.00      66         __gnu_cxx::new_allocator<Bond>::max_size() const [52]
+-----------------------------------------------
+                0.00    0.00      66/66          Bond* std::__copy_move_a2<true, Bond*, Bond*>(Bond*, Bond*, Bond*) [77]
+[53]     0.0    0.00    0.00      66         Bond* std::__niter_base<Bond*>(Bond*) [53]
+-----------------------------------------------
+                0.00    0.00       1/45          std::vector<Bond, std::allocator<Bond> >::~vector() [166]
+                0.00    0.00      44/45          void std::vector<Bond, std::allocator<Bond> >::_M_emplace_back_aux<Bond const&>(Bond const&) [37]
+[54]     0.0    0.00    0.00      45         std::_Vector_base<Bond, std::allocator<Bond> >::_M_get_Tp_allocator() [54]
+-----------------------------------------------
+                0.00    0.00      44/44          std::vector<Bond, std::allocator<Bond> >::max_size() const [57]
+[55]     0.0    0.00    0.00      44         std::_Vector_base<Bond, std::allocator<Bond> >::_M_get_Tp_allocator() const [55]
+-----------------------------------------------
+                0.00    0.00      44/44          decltype (__miter_base(({parm#1}.base)())) std::__miter_base<Bond*>(std::move_iterator<Bond*>) [60]
+[56]     0.0    0.00    0.00      44         std::move_iterator<Bond*>::base() const [56]
+-----------------------------------------------
+                0.00    0.00      44/44          std::vector<Bond, std::allocator<Bond> >::_M_check_len(unsigned long, char const*) const [38]
+[57]     0.0    0.00    0.00      44         std::vector<Bond, std::allocator<Bond> >::max_size() const [57]
+                0.00    0.00      44/44          std::_Vector_base<Bond, std::allocator<Bond> >::_M_get_Tp_allocator() const [55]
+                0.00    0.00      44/44          std::allocator_traits<std::allocator<Bond> >::max_size(std::allocator<Bond> const&) [59]
+-----------------------------------------------
+                0.00    0.00      44/44          std::move_iterator<Bond*> std::__make_move_if_noexcept_iterator<Bond, std::move_iterator<Bond*> >(Bond*) [62]
+[58]     0.0    0.00    0.00      44         std::move_iterator<Bond*>::move_iterator(Bond*) [58]
+-----------------------------------------------
+                0.00    0.00      44/44          std::vector<Bond, std::allocator<Bond> >::max_size() const [57]
+[59]     0.0    0.00    0.00      44         std::allocator_traits<std::allocator<Bond> >::max_size(std::allocator<Bond> const&) [59]
+                0.00    0.00      44/66          __gnu_cxx::new_allocator<Bond>::max_size() const [52]
+-----------------------------------------------
+                0.00    0.00      44/44          Bond* std::copy<std::move_iterator<Bond*>, Bond*>(std::move_iterator<Bond*>, std::move_iterator<Bond*>, Bond*) [82]
+[60]     0.0    0.00    0.00      44         decltype (__miter_base(({parm#1}.base)())) std::__miter_base<Bond*>(std::move_iterator<Bond*>) [60]
+                0.00    0.00      44/44          Bond* std::__miter_base<Bond*>(Bond*) [61]
+                0.00    0.00      44/44          std::move_iterator<Bond*>::base() const [56]
+-----------------------------------------------
+                0.00    0.00      44/44          decltype (__miter_base(({parm#1}.base)())) std::__miter_base<Bond*>(std::move_iterator<Bond*>) [60]
+[61]     0.0    0.00    0.00      44         Bond* std::__miter_base<Bond*>(Bond*) [61]
+-----------------------------------------------
+                0.00    0.00      44/44          Bond* std::__uninitialized_move_if_noexcept_a<Bond*, Bond*, std::allocator<Bond> >(Bond*, Bond*, Bond*, std::allocator<Bond>&) [80]
+[62]     0.0    0.00    0.00      44         std::move_iterator<Bond*> std::__make_move_if_noexcept_iterator<Bond, std::move_iterator<Bond*> >(Bond*) [62]
+                0.00    0.00      44/44          std::move_iterator<Bond*>::move_iterator(Bond*) [58]
+-----------------------------------------------
+                0.00    0.00       6/36          arma::solve_opts::opts_none::opts_none() [90]
+                0.00    0.00       6/36          arma::solve_opts::opts_fast::opts_fast() [89]
+                0.00    0.00       6/36          arma::solve_opts::opts_equilibrate::opts_equilibrate() [88]
+                0.00    0.00       6/36          arma::solve_opts::opts_no_approx::opts_no_approx() [87]
+                0.00    0.00       6/36          arma::solve_opts::opts_triu::opts_triu() [92]
+                0.00    0.00       6/36          arma::solve_opts::opts_tril::opts_tril() [91]
+[63]     0.0    0.00    0.00      36         arma::solve_opts::opts::opts(unsigned long long) [63]
+-----------------------------------------------
+                0.00    0.00       6/30          arma::gmm_seed_keep_existing::gmm_seed_keep_existing() [96]
+                0.00    0.00       6/30          arma::gmm_seed_static_subset::gmm_seed_static_subset() [100]
+                0.00    0.00       6/30          arma::gmm_seed_static_spread::gmm_seed_static_spread() [99]
+                0.00    0.00       6/30          arma::gmm_seed_random_subset::gmm_seed_random_subset() [98]
+                0.00    0.00       6/30          arma::gmm_seed_random_spread::gmm_seed_random_spread() [97]
+[64]     0.0    0.00    0.00      30         arma::gmm_seed_mode::gmm_seed_mode(unsigned long long) [64]
+-----------------------------------------------
+                0.00    0.00      23/23          void std::_Destroy<Bond*>(Bond*, Bond*) [67]
+[65]     0.0    0.00    0.00      23         void std::_Destroy_aux<true>::__destroy<Bond*>(Bond*, Bond*) [65]
+-----------------------------------------------
+                0.00    0.00       1/23          std::_Vector_base<Bond, std::allocator<Bond> >::~_Vector_base() [152]
+                0.00    0.00      22/23          void std::vector<Bond, std::allocator<Bond> >::_M_emplace_back_aux<Bond const&>(Bond const&) [37]
+[66]     0.0    0.00    0.00      23         std::_Vector_base<Bond, std::allocator<Bond> >::_M_deallocate(Bond*, unsigned long) [66]
+                0.00    0.00      22/22          std::allocator_traits<std::allocator<Bond> >::deallocate(std::allocator<Bond>&, Bond*, unsigned long) [73]
+-----------------------------------------------
+                0.00    0.00      23/23          void std::_Destroy<Bond*, Bond>(Bond*, Bond*, std::allocator<Bond>&) [68]
+[67]     0.0    0.00    0.00      23         void std::_Destroy<Bond*>(Bond*, Bond*) [67]
+                0.00    0.00      23/23          void std::_Destroy_aux<true>::__destroy<Bond*>(Bond*, Bond*) [65]
+-----------------------------------------------
+                0.00    0.00       1/23          std::vector<Bond, std::allocator<Bond> >::~vector() [166]
+                0.00    0.00      22/23          void std::vector<Bond, std::allocator<Bond> >::_M_emplace_back_aux<Bond const&>(Bond const&) [37]
+[68]     0.0    0.00    0.00      23         void std::_Destroy<Bond*, Bond>(Bond*, Bond*, std::allocator<Bond>&) [68]
+                0.00    0.00      23/23          void std::_Destroy<Bond*>(Bond*, Bond*) [67]
+-----------------------------------------------
+                0.00    0.00      22/22          std::allocator_traits<std::allocator<Bond> >::deallocate(std::allocator<Bond>&, Bond*, unsigned long) [73]
+[69]     0.0    0.00    0.00      22         __gnu_cxx::new_allocator<Bond>::deallocate(Bond*, unsigned long) [69]
+-----------------------------------------------
+                0.00    0.00      22/22          std::allocator_traits<std::allocator<Bond> >::allocate(std::allocator<Bond>&, unsigned long) [74]
+[70]     0.0    0.00    0.00      22         __gnu_cxx::new_allocator<Bond>::allocate(unsigned long, void const*) [70]
+                0.00    0.00      22/66          __gnu_cxx::new_allocator<Bond>::max_size() const [52]
+-----------------------------------------------
+                0.00    0.00      22/22          Bond* std::__copy_move_a<true, Bond*, Bond*>(Bond*, Bond*, Bond*) [76]
+[71]     0.0    0.00    0.00      22         Bond* std::__copy_move<true, true, std::random_access_iterator_tag>::__copy_m<Bond>(Bond const*, Bond const*, Bond*) [71]
+-----------------------------------------------
+                0.00    0.00      22/22          void std::vector<Bond, std::allocator<Bond> >::_M_emplace_back_aux<Bond const&>(Bond const&) [37]
+[72]     0.0    0.00    0.00      22         std::_Vector_base<Bond, std::allocator<Bond> >::_M_allocate(unsigned long) [72]
+                0.00    0.00      22/22          std::allocator_traits<std::allocator<Bond> >::allocate(std::allocator<Bond>&, unsigned long) [74]
+-----------------------------------------------
+                0.00    0.00      22/22          std::_Vector_base<Bond, std::allocator<Bond> >::_M_deallocate(Bond*, unsigned long) [66]
+[73]     0.0    0.00    0.00      22         std::allocator_traits<std::allocator<Bond> >::deallocate(std::allocator<Bond>&, Bond*, unsigned long) [73]
+                0.00    0.00      22/22          __gnu_cxx::new_allocator<Bond>::deallocate(Bond*, unsigned long) [69]
+-----------------------------------------------
+                0.00    0.00      22/22          std::_Vector_base<Bond, std::allocator<Bond> >::_M_allocate(unsigned long) [72]
+[74]     0.0    0.00    0.00      22         std::allocator_traits<std::allocator<Bond> >::allocate(std::allocator<Bond>&, unsigned long) [74]
+                0.00    0.00      22/22          __gnu_cxx::new_allocator<Bond>::allocate(unsigned long, void const*) [70]
+-----------------------------------------------
+                0.00    0.00      22/22          Bond* std::uninitialized_copy<std::move_iterator<Bond*>, Bond*>(std::move_iterator<Bond*>, std::move_iterator<Bond*>, Bond*) [78]
+[75]     0.0    0.00    0.00      22         Bond* std::__uninitialized_copy<true>::__uninit_copy<std::move_iterator<Bond*>, Bond*>(std::move_iterator<Bond*>, std::move_iterator<Bond*>, Bond*) [75]
+                0.00    0.00      22/22          Bond* std::copy<std::move_iterator<Bond*>, Bond*>(std::move_iterator<Bond*>, std::move_iterator<Bond*>, Bond*) [82]
+-----------------------------------------------
+                0.00    0.00      22/22          Bond* std::__copy_move_a2<true, Bond*, Bond*>(Bond*, Bond*, Bond*) [77]
+[76]     0.0    0.00    0.00      22         Bond* std::__copy_move_a<true, Bond*, Bond*>(Bond*, Bond*, Bond*) [76]
+                0.00    0.00      22/22          Bond* std::__copy_move<true, true, std::random_access_iterator_tag>::__copy_m<Bond>(Bond const*, Bond const*, Bond*) [71]
+-----------------------------------------------
+                0.00    0.00      22/22          Bond* std::copy<std::move_iterator<Bond*>, Bond*>(std::move_iterator<Bond*>, std::move_iterator<Bond*>, Bond*) [82]
+[77]     0.0    0.00    0.00      22         Bond* std::__copy_move_a2<true, Bond*, Bond*>(Bond*, Bond*, Bond*) [77]
+                0.00    0.00      66/66          Bond* std::__niter_base<Bond*>(Bond*) [53]
+                0.00    0.00      22/22          Bond* std::__copy_move_a<true, Bond*, Bond*>(Bond*, Bond*, Bond*) [76]
+-----------------------------------------------
+                0.00    0.00      22/22          Bond* std::__uninitialized_copy_a<std::move_iterator<Bond*>, Bond*, Bond>(std::move_iterator<Bond*>, std::move_iterator<Bond*>, Bond*, std::allocator<Bond>&) [79]
+[78]     0.0    0.00    0.00      22         Bond* std::uninitialized_copy<std::move_iterator<Bond*>, Bond*>(std::move_iterator<Bond*>, std::move_iterator<Bond*>, Bond*) [78]
+                0.00    0.00      22/22          Bond* std::__uninitialized_copy<true>::__uninit_copy<std::move_iterator<Bond*>, Bond*>(std::move_iterator<Bond*>, std::move_iterator<Bond*>, Bond*) [75]
+-----------------------------------------------
+                0.00    0.00      22/22          Bond* std::__uninitialized_move_if_noexcept_a<Bond*, Bond*, std::allocator<Bond> >(Bond*, Bond*, Bond*, std::allocator<Bond>&) [80]
+[79]     0.0    0.00    0.00      22         Bond* std::__uninitialized_copy_a<std::move_iterator<Bond*>, Bond*, Bond>(std::move_iterator<Bond*>, std::move_iterator<Bond*>, Bond*, std::allocator<Bond>&) [79]
+                0.00    0.00      22/22          Bond* std::uninitialized_copy<std::move_iterator<Bond*>, Bond*>(std::move_iterator<Bond*>, std::move_iterator<Bond*>, Bond*) [78]
+-----------------------------------------------
+                0.00    0.00      22/22          void std::vector<Bond, std::allocator<Bond> >::_M_emplace_back_aux<Bond const&>(Bond const&) [37]
+[80]     0.0    0.00    0.00      22         Bond* std::__uninitialized_move_if_noexcept_a<Bond*, Bond*, std::allocator<Bond> >(Bond*, Bond*, Bond*, std::allocator<Bond>&) [80]
+                0.00    0.00      44/44          std::move_iterator<Bond*> std::__make_move_if_noexcept_iterator<Bond, std::move_iterator<Bond*> >(Bond*) [62]
+                0.00    0.00      22/22          Bond* std::__uninitialized_copy_a<std::move_iterator<Bond*>, Bond*, Bond>(std::move_iterator<Bond*>, std::move_iterator<Bond*>, Bond*, std::allocator<Bond>&) [79]
+-----------------------------------------------
+                0.00    0.00      22/22          std::vector<Bond, std::allocator<Bond> >::_M_check_len(unsigned long, char const*) const [38]
+[81]     0.0    0.00    0.00      22         unsigned long const& std::max<unsigned long>(unsigned long const&, unsigned long const&) [81]
+-----------------------------------------------
+                0.00    0.00      22/22          Bond* std::__uninitialized_copy<true>::__uninit_copy<std::move_iterator<Bond*>, Bond*>(std::move_iterator<Bond*>, std::move_iterator<Bond*>, Bond*) [75]
+[82]     0.0    0.00    0.00      22         Bond* std::copy<std::move_iterator<Bond*>, Bond*>(std::move_iterator<Bond*>, std::move_iterator<Bond*>, Bond*) [82]
+                0.00    0.00      44/44          decltype (__miter_base(({parm#1}.base)())) std::__miter_base<Bond*>(std::move_iterator<Bond*>) [60]
+                0.00    0.00      22/22          Bond* std::__copy_move_a2<true, Bond*, Bond*>(Bond*, Bond*, Bond*) [77]
+-----------------------------------------------
+                0.00    0.00       6/18          arma::gmm_dist_eucl::gmm_dist_eucl() [93]
+                0.00    0.00       6/18          arma::gmm_dist_maha::gmm_dist_maha() [94]
+                0.00    0.00       6/18          arma::gmm_dist_prob::gmm_dist_prob() [95]
+[83]     0.0    0.00    0.00      18         arma::gmm_dist_mode::gmm_dist_mode(unsigned long long) [83]
+-----------------------------------------------
+                0.00    0.00       3/3           std::allocator<int>::~allocator() [85]
+[84]     0.0    0.00    0.00       3         __gnu_cxx::new_allocator<int>::~new_allocator() [84]
+-----------------------------------------------
+                0.00    0.00       1/3           Lattice::Lattice(int) [22]
+                0.00    0.00       2/3           std::_Vector_base<int, std::allocator<int> >::_Vector_impl::~_Vector_impl() [112]
+[85]     0.0    0.00    0.00       3         std::allocator<int>::~allocator() [85]
+                0.00    0.00       3/3           __gnu_cxx::new_allocator<int>::~new_allocator() [84]
+-----------------------------------------------
+                0.00    0.00       1/3           std::vector<int, std::allocator<int> >::_M_default_initialize(unsigned long) [167]
+                0.00    0.00       2/3           std::vector<int, std::allocator<int> >::~vector() [115]
+[86]     0.0    0.00    0.00       3         std::_Vector_base<int, std::allocator<int> >::_M_get_Tp_allocator() [86]
+-----------------------------------------------
+                0.00    0.00       1/2           __static_initialization_and_destruction_0(int, int) [120]
+                0.00    0.00       1/2           __static_initialization_and_destruction_0(int, int) [121]
+[87]     0.0    0.00    0.00       2         arma::solve_opts::opts_no_approx::opts_no_approx() [87]
+                0.00    0.00       6/36          arma::solve_opts::opts::opts(unsigned long long) [63]
+-----------------------------------------------
+                0.00    0.00       1/2           __static_initialization_and_destruction_0(int, int) [120]
+                0.00    0.00       1/2           __static_initialization_and_destruction_0(int, int) [121]
+[88]     0.0    0.00    0.00       2         arma::solve_opts::opts_equilibrate::opts_equilibrate() [88]
+                0.00    0.00       6/36          arma::solve_opts::opts::opts(unsigned long long) [63]
+-----------------------------------------------
+                0.00    0.00       1/2           __static_initialization_and_destruction_0(int, int) [120]
+                0.00    0.00       1/2           __static_initialization_and_destruction_0(int, int) [121]
+[89]     0.0    0.00    0.00       2         arma::solve_opts::opts_fast::opts_fast() [89]
+                0.00    0.00       6/36          arma::solve_opts::opts::opts(unsigned long long) [63]
+-----------------------------------------------
+                0.00    0.00       1/2           __static_initialization_and_destruction_0(int, int) [120]
+                0.00    0.00       1/2           __static_initialization_and_destruction_0(int, int) [121]
+[90]     0.0    0.00    0.00       2         arma::solve_opts::opts_none::opts_none() [90]
+                0.00    0.00       6/36          arma::solve_opts::opts::opts(unsigned long long) [63]
+-----------------------------------------------
+                0.00    0.00       1/2           __static_initialization_and_destruction_0(int, int) [120]
+                0.00    0.00       1/2           __static_initialization_and_destruction_0(int, int) [121]
+[91]     0.0    0.00    0.00       2         arma::solve_opts::opts_tril::opts_tril() [91]
+                0.00    0.00       6/36          arma::solve_opts::opts::opts(unsigned long long) [63]
+-----------------------------------------------
+                0.00    0.00       1/2           __static_initialization_and_destruction_0(int, int) [120]
+                0.00    0.00       1/2           __static_initialization_and_destruction_0(int, int) [121]
+[92]     0.0    0.00    0.00       2         arma::solve_opts::opts_triu::opts_triu() [92]
+                0.00    0.00       6/36          arma::solve_opts::opts::opts(unsigned long long) [63]
+-----------------------------------------------
+                0.00    0.00       1/2           __static_initialization_and_destruction_0(int, int) [120]
+                0.00    0.00       1/2           __static_initialization_and_destruction_0(int, int) [121]
+[93]     0.0    0.00    0.00       2         arma::gmm_dist_eucl::gmm_dist_eucl() [93]
+                0.00    0.00       6/18          arma::gmm_dist_mode::gmm_dist_mode(unsigned long long) [83]
+-----------------------------------------------
+                0.00    0.00       1/2           __static_initialization_and_destruction_0(int, int) [120]
+                0.00    0.00       1/2           __static_initialization_and_destruction_0(int, int) [121]
+[94]     0.0    0.00    0.00       2         arma::gmm_dist_maha::gmm_dist_maha() [94]
+                0.00    0.00       6/18          arma::gmm_dist_mode::gmm_dist_mode(unsigned long long) [83]
+-----------------------------------------------
+                0.00    0.00       1/2           __static_initialization_and_destruction_0(int, int) [120]
+                0.00    0.00       1/2           __static_initialization_and_destruction_0(int, int) [121]
+[95]     0.0    0.00    0.00       2         arma::gmm_dist_prob::gmm_dist_prob() [95]
+                0.00    0.00       6/18          arma::gmm_dist_mode::gmm_dist_mode(unsigned long long) [83]
+-----------------------------------------------
+                0.00    0.00       1/2           __static_initialization_and_destruction_0(int, int) [120]
+                0.00    0.00       1/2           __static_initialization_and_destruction_0(int, int) [121]
+[96]     0.0    0.00    0.00       2         arma::gmm_seed_keep_existing::gmm_seed_keep_existing() [96]
+                0.00    0.00       6/30          arma::gmm_seed_mode::gmm_seed_mode(unsigned long long) [64]
+-----------------------------------------------
+                0.00    0.00       1/2           __static_initialization_and_destruction_0(int, int) [120]
+                0.00    0.00       1/2           __static_initialization_and_destruction_0(int, int) [121]
+[97]     0.0    0.00    0.00       2         arma::gmm_seed_random_spread::gmm_seed_random_spread() [97]
+                0.00    0.00       6/30          arma::gmm_seed_mode::gmm_seed_mode(unsigned long long) [64]
+-----------------------------------------------
+                0.00    0.00       1/2           __static_initialization_and_destruction_0(int, int) [120]
+                0.00    0.00       1/2           __static_initialization_and_destruction_0(int, int) [121]
+[98]     0.0    0.00    0.00       2         arma::gmm_seed_random_subset::gmm_seed_random_subset() [98]
+                0.00    0.00       6/30          arma::gmm_seed_mode::gmm_seed_mode(unsigned long long) [64]
+-----------------------------------------------
+                0.00    0.00       1/2           __static_initialization_and_destruction_0(int, int) [120]
+                0.00    0.00       1/2           __static_initialization_and_destruction_0(int, int) [121]
+[99]     0.0    0.00    0.00       2         arma::gmm_seed_static_spread::gmm_seed_static_spread() [99]
+                0.00    0.00       6/30          arma::gmm_seed_mode::gmm_seed_mode(unsigned long long) [64]
+-----------------------------------------------
+                0.00    0.00       1/2           __static_initialization_and_destruction_0(int, int) [120]
+                0.00    0.00       1/2           __static_initialization_and_destruction_0(int, int) [121]
+[100]    0.0    0.00    0.00       2         arma::gmm_seed_static_subset::gmm_seed_static_subset() [100]
+                0.00    0.00       6/30          arma::gmm_seed_mode::gmm_seed_mode(unsigned long long) [64]
+-----------------------------------------------
+                0.00    0.00       1/2           __static_initialization_and_destruction_0(int, int) [120]
+                0.00    0.00       1/2           __static_initialization_and_destruction_0(int, int) [121]
+[101]    0.0    0.00    0.00       2         arma::fill::fill_class<arma::fill::fill_randn>::fill_class() [101]
+-----------------------------------------------
+                0.00    0.00       1/2           __static_initialization_and_destruction_0(int, int) [120]
+                0.00    0.00       1/2           __static_initialization_and_destruction_0(int, int) [121]
+[102]    0.0    0.00    0.00       2         arma::fill::fill_class<arma::fill::fill_randu>::fill_class() [102]
+-----------------------------------------------
+                0.00    0.00       1/2           __static_initialization_and_destruction_0(int, int) [120]
+                0.00    0.00       1/2           __static_initialization_and_destruction_0(int, int) [121]
+[103]    0.0    0.00    0.00       2         arma::fill::fill_class<arma::fill::fill_zeros>::fill_class() [103]
+-----------------------------------------------
+                0.00    0.00       1/2           __static_initialization_and_destruction_0(int, int) [120]
+                0.00    0.00       1/2           __static_initialization_and_destruction_0(int, int) [121]
+[104]    0.0    0.00    0.00       2         arma::fill::fill_class<arma::fill::fill_eye>::fill_class() [104]
+-----------------------------------------------
+                0.00    0.00       1/2           __static_initialization_and_destruction_0(int, int) [120]
+                0.00    0.00       1/2           __static_initialization_and_destruction_0(int, int) [121]
+[105]    0.0    0.00    0.00       2         arma::fill::fill_class<arma::fill::fill_none>::fill_class() [105]
+-----------------------------------------------
+                0.00    0.00       1/2           __static_initialization_and_destruction_0(int, int) [120]
+                0.00    0.00       1/2           __static_initialization_and_destruction_0(int, int) [121]
+[106]    0.0    0.00    0.00       2         arma::fill::fill_class<arma::fill::fill_ones>::fill_class() [106]
+-----------------------------------------------
+                0.00    0.00       2/2           std::allocator<int>::allocator() [110]
+[107]    0.0    0.00    0.00       2         __gnu_cxx::new_allocator<int>::new_allocator() [107]
+-----------------------------------------------
+                0.00    0.00       1/2           std::vector<int, std::allocator<int> >::begin() [169]
+                0.00    0.00       1/2           std::vector<int, std::allocator<int> >::end() [168]
+[108]    0.0    0.00    0.00       2         __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >::__normal_iterator(int* const&) [108]
+-----------------------------------------------
+                0.00    0.00       2/2           int* std::__niter_base<int*, std::vector<int, std::allocator<int> > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >) [116]
+[109]    0.0    0.00    0.00       2         __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >::base() const [109]
+-----------------------------------------------
+                0.00    0.00       1/2           Lattice::Lattice(int) [22]
+                0.00    0.00       1/2           std::_Vector_base<int, std::allocator<int> >::_Vector_impl::_Vector_impl() [154]
+[110]    0.0    0.00    0.00       2         std::allocator<int>::allocator() [110]
+                0.00    0.00       2/2           __gnu_cxx::new_allocator<int>::new_allocator() [107]
+-----------------------------------------------
+                0.00    0.00       2/2           void std::_Destroy<int*>(int*, int*) [117]
+[111]    0.0    0.00    0.00       2         void std::_Destroy_aux<true>::__destroy<int*>(int*, int*) [111]
+-----------------------------------------------
+                0.00    0.00       2/2           std::_Vector_base<int, std::allocator<int> >::~_Vector_base() [114]
+[112]    0.0    0.00    0.00       2         std::_Vector_base<int, std::allocator<int> >::_Vector_impl::~_Vector_impl() [112]
+                0.00    0.00       2/3           std::allocator<int>::~allocator() [85]
+-----------------------------------------------
+                0.00    0.00       2/2           std::_Vector_base<int, std::allocator<int> >::~_Vector_base() [114]
+[113]    0.0    0.00    0.00       2         std::_Vector_base<int, std::allocator<int> >::_M_deallocate(int*, unsigned long) [113]
+                0.00    0.00       1/1           std::allocator_traits<std::allocator<int> >::deallocate(std::allocator<int>&, int*, unsigned long) [160]
+-----------------------------------------------
+                0.00    0.00       2/2           std::vector<int, std::allocator<int> >::~vector() [115]
+[114]    0.0    0.00    0.00       2         std::_Vector_base<int, std::allocator<int> >::~_Vector_base() [114]
+                0.00    0.00       2/2           std::_Vector_base<int, std::allocator<int> >::_M_deallocate(int*, unsigned long) [113]
+                0.00    0.00       2/2           std::_Vector_base<int, std::allocator<int> >::_Vector_impl::~_Vector_impl() [112]
+-----------------------------------------------
+                0.00    0.00       2/2           Lattice::~Lattice() [139]
+[115]    0.0    0.00    0.00       2         std::vector<int, std::allocator<int> >::~vector() [115]
+                0.00    0.00       2/3           std::_Vector_base<int, std::allocator<int> >::_M_get_Tp_allocator() [86]
+                0.00    0.00       2/2           void std::_Destroy<int*, int>(int*, int*, std::allocator<int>&) [118]
+                0.00    0.00       2/2           std::_Vector_base<int, std::allocator<int> >::~_Vector_base() [114]
+-----------------------------------------------
+                0.00    0.00       2/2           void std::fill<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&) [176]
+[116]    0.0    0.00    0.00       2         int* std::__niter_base<int*, std::vector<int, std::allocator<int> > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >) [116]
+                0.00    0.00       2/2           __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >::base() const [109]
+-----------------------------------------------
+                0.00    0.00       2/2           void std::_Destroy<int*, int>(int*, int*, std::allocator<int>&) [118]
+[117]    0.0    0.00    0.00       2         void std::_Destroy<int*>(int*, int*) [117]
+                0.00    0.00       2/2           void std::_Destroy_aux<true>::__destroy<int*>(int*, int*) [111]
+-----------------------------------------------
+                0.00    0.00       2/2           std::vector<int, std::allocator<int> >::~vector() [115]
+[118]    0.0    0.00    0.00       2         void std::_Destroy<int*, int>(int*, int*, std::allocator<int>&) [118]
+                0.00    0.00       2/2           void std::_Destroy<int*>(int*, int*) [117]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [36]
+[119]    0.0    0.00    0.00       1         _GLOBAL__sub_I_main [119]
+                0.00    0.00       1/1           __static_initialization_and_destruction_0(int, int) [120]
+-----------------------------------------------
+                0.00    0.00       1/1           _GLOBAL__sub_I_main [119]
+[120]    0.0    0.00    0.00       1         __static_initialization_and_destruction_0(int, int) [120]
+                0.00    0.00       1/2           arma::fill::fill_class<arma::fill::fill_none>::fill_class() [105]
+                0.00    0.00       1/2           arma::fill::fill_class<arma::fill::fill_ones>::fill_class() [106]
+                0.00    0.00       1/2           arma::fill::fill_class<arma::fill::fill_zeros>::fill_class() [103]
+                0.00    0.00       1/2           arma::fill::fill_class<arma::fill::fill_eye>::fill_class() [104]
+                0.00    0.00       1/2           arma::fill::fill_class<arma::fill::fill_randn>::fill_class() [101]
+                0.00    0.00       1/2           arma::fill::fill_class<arma::fill::fill_randu>::fill_class() [102]
+                0.00    0.00       1/2           arma::solve_opts::opts_fast::opts_fast() [89]
+                0.00    0.00       1/2           arma::solve_opts::opts_none::opts_none() [90]
+                0.00    0.00       1/2           arma::solve_opts::opts_equilibrate::opts_equilibrate() [88]
+                0.00    0.00       1/2           arma::solve_opts::opts_triu::opts_triu() [92]
+                0.00    0.00       1/2           arma::solve_opts::opts_no_approx::opts_no_approx() [87]
+                0.00    0.00       1/2           arma::solve_opts::opts_tril::opts_tril() [91]
+                0.00    0.00       1/2           arma::gmm_dist_maha::gmm_dist_maha() [94]
+                0.00    0.00       1/2           arma::gmm_dist_eucl::gmm_dist_eucl() [93]
+                0.00    0.00       1/2           arma::gmm_seed_keep_existing::gmm_seed_keep_existing() [96]
+                0.00    0.00       1/2           arma::gmm_dist_prob::gmm_dist_prob() [95]
+                0.00    0.00       1/2           arma::gmm_seed_static_subset::gmm_seed_static_subset() [100]
+                0.00    0.00       1/2           arma::gmm_seed_random_subset::gmm_seed_random_subset() [98]
+                0.00    0.00       1/2           arma::gmm_seed_static_spread::gmm_seed_static_spread() [99]
+                0.00    0.00       1/2           arma::gmm_seed_random_spread::gmm_seed_random_spread() [97]
+-----------------------------------------------
+                0.00    0.00       1/1           _GLOBAL__sub_I__ZN7LatticeC2Ei [35]
+[121]    0.0    0.00    0.00       1         __static_initialization_and_destruction_0(int, int) [121]
+                0.00    0.00       1/2           arma::fill::fill_class<arma::fill::fill_zeros>::fill_class() [103]
+                0.00    0.00       1/2           arma::fill::fill_class<arma::fill::fill_none>::fill_class() [105]
+                0.00    0.00       1/2           arma::fill::fill_class<arma::fill::fill_eye>::fill_class() [104]
+                0.00    0.00       1/2           arma::fill::fill_class<arma::fill::fill_ones>::fill_class() [106]
+                0.00    0.00       1/2           arma::fill::fill_class<arma::fill::fill_randu>::fill_class() [102]
+                0.00    0.00       1/2           arma::solve_opts::opts_none::opts_none() [90]
+                0.00    0.00       1/2           arma::fill::fill_class<arma::fill::fill_randn>::fill_class() [101]
+                0.00    0.00       1/2           arma::solve_opts::opts_fast::opts_fast() [89]
+                0.00    0.00       1/2           arma::solve_opts::opts_no_approx::opts_no_approx() [87]
+                0.00    0.00       1/2           arma::solve_opts::opts_equilibrate::opts_equilibrate() [88]
+                0.00    0.00       1/2           arma::solve_opts::opts_tril::opts_tril() [91]
+                0.00    0.00       1/2           arma::solve_opts::opts_triu::opts_triu() [92]
+                0.00    0.00       1/2           arma::gmm_dist_eucl::gmm_dist_eucl() [93]
+                0.00    0.00       1/2           arma::gmm_dist_prob::gmm_dist_prob() [95]
+                0.00    0.00       1/2           arma::gmm_dist_maha::gmm_dist_maha() [94]
+                0.00    0.00       1/2           arma::gmm_seed_keep_existing::gmm_seed_keep_existing() [96]
+                0.00    0.00       1/2           arma::gmm_seed_static_spread::gmm_seed_static_spread() [99]
+                0.00    0.00       1/2           arma::gmm_seed_static_subset::gmm_seed_static_subset() [100]
+                0.00    0.00       1/2           arma::gmm_seed_random_spread::gmm_seed_random_spread() [97]
+                0.00    0.00       1/2           arma::gmm_seed_random_subset::gmm_seed_random_subset() [98]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[122]    0.0    0.00    0.00       1         DebugLattice::~DebugLattice() [122]
+                0.00    0.00       1/1           SquareLattice::~SquareLattice() [123]
+-----------------------------------------------
+                0.00    0.00       1/1           DebugLattice::~DebugLattice() [122]
+[123]    0.0    0.00    0.00       1         SquareLattice::~SquareLattice() [123]
+                0.00    0.00       1/1           Lattice::~Lattice() [139]
+-----------------------------------------------
+                0.00    0.00       1/1           double* arma::memory::acquire<double>(unsigned long long) [137]
+[124]    0.0    0.00    0.00       1         void arma::arma_check<char [53]>(bool, char const (&) [53]) [124]
+-----------------------------------------------
+                0.00    0.00       1/1           arma::Mat<double>::init_warm(unsigned long long, unsigned long long) [24]
+[125]    0.0    0.00    0.00       1         void arma::arma_check<char [74]>(bool, char const (&) [74]) [125]
+-----------------------------------------------
+                0.00    0.00       1/1           arma::Mat<double>::init_warm(unsigned long long, unsigned long long) [24]
+[126]    0.0    0.00    0.00       1         void arma::arma_check<char*>(bool, char* const&) [126]
+-----------------------------------------------
+                0.00    0.00       1/1           arma::Base<double, arma::Mat<double> >::Base() [136]
+[127]    0.0    0.00    0.00       1         arma::Base_inv_yes<arma::Mat<double> >::Base_inv_yes() [127]
+-----------------------------------------------
+                0.00    0.00       1/1           arma::Base<double, arma::Mat<double> >::Base() [136]
+[128]    0.0    0.00    0.00       1         arma::Base_eval_Mat<double, arma::Mat<double> >::Base_eval_Mat() [128]
+-----------------------------------------------
+                0.00    0.00       1/1           arma::Base<double, arma::Mat<double> >::Base() [136]
+[129]    0.0    0.00    0.00       1         arma::Base_trans_default<arma::Mat<double> >::Base_trans_default() [129]
+-----------------------------------------------
+                0.00    0.00       1/1           double* arma::memory::acquire<double>(unsigned long long) [137]
+[130]    0.0    0.00    0.00       1         void arma::arma_check_bad_alloc<char [39]>(bool, char const (&) [39]) [130]
+-----------------------------------------------
+                0.00    0.00       1/1           Lattice::Lattice(int) [22]
+[131]    0.0    0.00    0.00       1         arma::Col<double>::Col() [131]
+                0.00    0.00       1/1           arma::Mat<double>::Mat(arma::arma_vec_indicator const&, unsigned int) [134]
+-----------------------------------------------
+                0.00    0.00       1/1           Lattice::~Lattice() [139]
+[132]    0.0    0.00    0.00       1         arma::Col<double>::~Col() [132]
+                0.00    0.00       1/1           arma::Mat<double>::~Mat() [135]
+-----------------------------------------------
+                0.00    0.00       1/1           Lattice::Lattice(int) [22]
+[133]    0.0    0.00    0.00       1         arma::Mat<double>::fill(double) [133]
+                0.00    0.00       1/1           void arma::arrayops::inplace_set<double>(double*, double, unsigned long long) [138]
+-----------------------------------------------
+                0.00    0.00       1/1           arma::Col<double>::Col() [131]
+[134]    0.0    0.00    0.00       1         arma::Mat<double>::Mat(arma::arma_vec_indicator const&, unsigned int) [134]
+                0.00    0.00       1/1           arma::Base<double, arma::Mat<double> >::Base() [136]
+-----------------------------------------------
+                0.00    0.00       1/1           arma::Col<double>::~Col() [132]
+[135]    0.0    0.00    0.00       1         arma::Mat<double>::~Mat() [135]
+-----------------------------------------------
+                0.00    0.00       1/1           arma::Mat<double>::Mat(arma::arma_vec_indicator const&, unsigned int) [134]
+[136]    0.0    0.00    0.00       1         arma::Base<double, arma::Mat<double> >::Base() [136]
+                0.00    0.00       1/1           arma::Base_eval_Mat<double, arma::Mat<double> >::Base_eval_Mat() [128]
+                0.00    0.00       1/1           arma::Base_inv_yes<arma::Mat<double> >::Base_inv_yes() [127]
+                0.00    0.00       1/1           arma::Base_trans_default<arma::Mat<double> >::Base_trans_default() [129]
+-----------------------------------------------
+                0.00    0.00       1/1           arma::Mat<double>::init_warm(unsigned long long, unsigned long long) [24]
+[137]    0.0    0.00    0.00       1         double* arma::memory::acquire<double>(unsigned long long) [137]
+                0.00    0.00       1/1           std::numeric_limits<unsigned long>::max() [159]
+                0.00    0.00       1/1           void arma::arma_check<char [53]>(bool, char const (&) [53]) [124]
+                0.00    0.00       1/1           void arma::arma_check_bad_alloc<char [39]>(bool, char const (&) [39]) [130]
+-----------------------------------------------
+                0.00    0.00       1/1           arma::Mat<double>::fill(double) [133]
+[138]    0.0    0.00    0.00       1         void arma::arrayops::inplace_set<double>(double*, double, unsigned long long) [138]
+-----------------------------------------------
+                0.00    0.00       1/1           SquareLattice::~SquareLattice() [123]
+[139]    0.0    0.00    0.00       1         Lattice::~Lattice() [139]
+                0.00    0.00       2/2           std::vector<int, std::allocator<int> >::~vector() [115]
+                0.00    0.00       1/1           arma::Col<double>::~Col() [132]
+                0.00    0.00       1/1           std::vector<Bond, std::allocator<Bond> >::~vector() [166]
+-----------------------------------------------
+                0.00    0.00       1/1           std::allocator<Bond>::allocator() [146]
+[140]    0.0    0.00    0.00       1         __gnu_cxx::new_allocator<Bond>::new_allocator() [140]
+-----------------------------------------------
+                0.00    0.00       1/1           std::allocator<Bond>::~allocator() [147]
+[141]    0.0    0.00    0.00       1         __gnu_cxx::new_allocator<Bond>::~new_allocator() [141]
+-----------------------------------------------
+                0.00    0.00       1/1           std::allocator_traits<std::allocator<int> >::deallocate(std::allocator<int>&, int*, unsigned long) [160]
+[142]    0.0    0.00    0.00       1         __gnu_cxx::new_allocator<int>::deallocate(int*, unsigned long) [142]
+-----------------------------------------------
+                0.00    0.00       1/1           std::allocator_traits<std::allocator<int> >::allocate(std::allocator<int>&, unsigned long) [161]
+[143]    0.0    0.00    0.00       1         __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) [143]
+                0.00    0.00       1/1           __gnu_cxx::new_allocator<int>::max_size() const [145]
+-----------------------------------------------
+                0.00    0.00       1/1           std::allocator<int>::allocator(std::allocator<int> const&) [148]
+[144]    0.0    0.00    0.00       1         __gnu_cxx::new_allocator<int>::new_allocator(__gnu_cxx::new_allocator<int> const&) [144]
+-----------------------------------------------
+                0.00    0.00       1/1           __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) [143]
+[145]    0.0    0.00    0.00       1         __gnu_cxx::new_allocator<int>::max_size() const [145]
+-----------------------------------------------
+                0.00    0.00       1/1           std::_Vector_base<Bond, std::allocator<Bond> >::_Vector_impl::_Vector_impl() [149]
+[146]    0.0    0.00    0.00       1         std::allocator<Bond>::allocator() [146]
+                0.00    0.00       1/1           __gnu_cxx::new_allocator<Bond>::new_allocator() [140]
+-----------------------------------------------
+                0.00    0.00       1/1           std::_Vector_base<Bond, std::allocator<Bond> >::_Vector_impl::~_Vector_impl() [150]
+[147]    0.0    0.00    0.00       1         std::allocator<Bond>::~allocator() [147]
+                0.00    0.00       1/1           __gnu_cxx::new_allocator<Bond>::~new_allocator() [141]
+-----------------------------------------------
+                0.00    0.00       1/1           std::_Vector_base<int, std::allocator<int> >::_Vector_impl::_Vector_impl(std::allocator<int> const&) [155]
+[148]    0.0    0.00    0.00       1         std::allocator<int>::allocator(std::allocator<int> const&) [148]
+                0.00    0.00       1/1           __gnu_cxx::new_allocator<int>::new_allocator(__gnu_cxx::new_allocator<int> const&) [144]
+-----------------------------------------------
+                0.00    0.00       1/1           std::_Vector_base<Bond, std::allocator<Bond> >::_Vector_base() [151]
+[149]    0.0    0.00    0.00       1         std::_Vector_base<Bond, std::allocator<Bond> >::_Vector_impl::_Vector_impl() [149]
+                0.00    0.00       1/1           std::allocator<Bond>::allocator() [146]
+-----------------------------------------------
+                0.00    0.00       1/1           std::_Vector_base<Bond, std::allocator<Bond> >::~_Vector_base() [152]
+[150]    0.0    0.00    0.00       1         std::_Vector_base<Bond, std::allocator<Bond> >::_Vector_impl::~_Vector_impl() [150]
+                0.00    0.00       1/1           std::allocator<Bond>::~allocator() [147]
+-----------------------------------------------
+                0.00    0.00       1/1           std::vector<Bond, std::allocator<Bond> >::vector() [165]
+[151]    0.0    0.00    0.00       1         std::_Vector_base<Bond, std::allocator<Bond> >::_Vector_base() [151]
+                0.00    0.00       1/1           std::_Vector_base<Bond, std::allocator<Bond> >::_Vector_impl::_Vector_impl() [149]
+-----------------------------------------------
+                0.00    0.00       1/1           std::vector<Bond, std::allocator<Bond> >::~vector() [166]
+[152]    0.0    0.00    0.00       1         std::_Vector_base<Bond, std::allocator<Bond> >::~_Vector_base() [152]
+                0.00    0.00       1/23          std::_Vector_base<Bond, std::allocator<Bond> >::_M_deallocate(Bond*, unsigned long) [66]
+                0.00    0.00       1/1           std::_Vector_base<Bond, std::allocator<Bond> >::_Vector_impl::~_Vector_impl() [150]
+-----------------------------------------------
+                0.00    0.00       1/1           std::_Vector_base<int, std::allocator<int> >::_M_create_storage(unsigned long) [156]
+[153]    0.0    0.00    0.00       1         std::_Vector_base<int, std::allocator<int> >::_M_allocate(unsigned long) [153]
+                0.00    0.00       1/1           std::allocator_traits<std::allocator<int> >::allocate(std::allocator<int>&, unsigned long) [161]
+-----------------------------------------------
+                0.00    0.00       1/1           std::_Vector_base<int, std::allocator<int> >::_Vector_base() [158]
+[154]    0.0    0.00    0.00       1         std::_Vector_base<int, std::allocator<int> >::_Vector_impl::_Vector_impl() [154]
+                0.00    0.00       1/2           std::allocator<int>::allocator() [110]
+-----------------------------------------------
+                0.00    0.00       1/1           std::_Vector_base<int, std::allocator<int> >::_Vector_base(unsigned long, std::allocator<int> const&) [157]
+[155]    0.0    0.00    0.00       1         std::_Vector_base<int, std::allocator<int> >::_Vector_impl::_Vector_impl(std::allocator<int> const&) [155]
+                0.00    0.00       1/1           std::allocator<int>::allocator(std::allocator<int> const&) [148]
+-----------------------------------------------
+                0.00    0.00       1/1           std::_Vector_base<int, std::allocator<int> >::_Vector_base(unsigned long, std::allocator<int> const&) [157]
+[156]    0.0    0.00    0.00       1         std::_Vector_base<int, std::allocator<int> >::_M_create_storage(unsigned long) [156]
+                0.00    0.00       1/1           std::_Vector_base<int, std::allocator<int> >::_M_allocate(unsigned long) [153]
+-----------------------------------------------
+                0.00    0.00       1/1           std::vector<int, std::allocator<int> >::vector(unsigned long, std::allocator<int> const&) [170]
+[157]    0.0    0.00    0.00       1         std::_Vector_base<int, std::allocator<int> >::_Vector_base(unsigned long, std::allocator<int> const&) [157]
+                0.00    0.00       1/1           std::_Vector_base<int, std::allocator<int> >::_Vector_impl::_Vector_impl(std::allocator<int> const&) [155]
+                0.00    0.00       1/1           std::_Vector_base<int, std::allocator<int> >::_M_create_storage(unsigned long) [156]
+-----------------------------------------------
+                0.00    0.00       1/1           std::vector<int, std::allocator<int> >::vector() [171]
+[158]    0.0    0.00    0.00       1         std::_Vector_base<int, std::allocator<int> >::_Vector_base() [158]
+                0.00    0.00       1/1           std::_Vector_base<int, std::allocator<int> >::_Vector_impl::_Vector_impl() [154]
+-----------------------------------------------
+                0.00    0.00       1/1           double* arma::memory::acquire<double>(unsigned long long) [137]
+[159]    0.0    0.00    0.00       1         std::numeric_limits<unsigned long>::max() [159]
+-----------------------------------------------
+                0.00    0.00       1/1           std::_Vector_base<int, std::allocator<int> >::_M_deallocate(int*, unsigned long) [113]
+[160]    0.0    0.00    0.00       1         std::allocator_traits<std::allocator<int> >::deallocate(std::allocator<int>&, int*, unsigned long) [160]
+                0.00    0.00       1/1           __gnu_cxx::new_allocator<int>::deallocate(int*, unsigned long) [142]
+-----------------------------------------------
+                0.00    0.00       1/1           std::_Vector_base<int, std::allocator<int> >::_M_allocate(unsigned long) [153]
+[161]    0.0    0.00    0.00       1         std::allocator_traits<std::allocator<int> >::allocate(std::allocator<int>&, unsigned long) [161]
+                0.00    0.00       1/1           __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) [143]
+-----------------------------------------------
+                0.00    0.00       1/1           int* std::__uninitialized_default_n<int*, unsigned long>(int*, unsigned long) [174]
+[162]    0.0    0.00    0.00       1         int* std::__uninitialized_default_n_1<true>::__uninit_default_n<int*, unsigned long>(int*, unsigned long) [162]
+                0.00    0.00       1/1           int* std::fill_n<int*, unsigned long, int>(int*, unsigned long, int const&) [177]
+-----------------------------------------------
+                0.00    0.00       1/1           Lattice::shuffleBonds() [6]
+[163]    0.0    0.00    0.00       1         std::vector<Bond, std::allocator<Bond> >::end() [163]
+                0.00    0.00       1/2000002     __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >::__normal_iterator(Bond* const&) [47]
+-----------------------------------------------
+                0.00    0.00       1/1           Lattice::shuffleBonds() [6]
+[164]    0.0    0.00    0.00       1         std::vector<Bond, std::allocator<Bond> >::begin() [164]
+                0.00    0.00       1/2000002     __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >::__normal_iterator(Bond* const&) [47]
+-----------------------------------------------
+                0.00    0.00       1/1           Lattice::Lattice(int) [22]
+[165]    0.0    0.00    0.00       1         std::vector<Bond, std::allocator<Bond> >::vector() [165]
+                0.00    0.00       1/1           std::_Vector_base<Bond, std::allocator<Bond> >::_Vector_base() [151]
+-----------------------------------------------
+                0.00    0.00       1/1           Lattice::~Lattice() [139]
+[166]    0.0    0.00    0.00       1         std::vector<Bond, std::allocator<Bond> >::~vector() [166]
+                0.00    0.00       1/45          std::_Vector_base<Bond, std::allocator<Bond> >::_M_get_Tp_allocator() [54]
+                0.00    0.00       1/23          void std::_Destroy<Bond*, Bond>(Bond*, Bond*, std::allocator<Bond>&) [68]
+                0.00    0.00       1/1           std::_Vector_base<Bond, std::allocator<Bond> >::~_Vector_base() [152]
+-----------------------------------------------
+                0.00    0.00       1/1           std::vector<int, std::allocator<int> >::vector(unsigned long, std::allocator<int> const&) [170]
+[167]    0.0    0.00    0.00       1         std::vector<int, std::allocator<int> >::_M_default_initialize(unsigned long) [167]
+                0.00    0.00       1/3           std::_Vector_base<int, std::allocator<int> >::_M_get_Tp_allocator() [86]
+                0.00    0.00       1/1           int* std::__uninitialized_default_n_a<int*, unsigned long, int>(int*, unsigned long, std::allocator<int>&) [175]
+-----------------------------------------------
+                0.00    0.00       1/1           Lattice::Lattice(int) [22]
+[168]    0.0    0.00    0.00       1         std::vector<int, std::allocator<int> >::end() [168]
+                0.00    0.00       1/2           __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >::__normal_iterator(int* const&) [108]
+-----------------------------------------------
+                0.00    0.00       1/1           Lattice::Lattice(int) [22]
+[169]    0.0    0.00    0.00       1         std::vector<int, std::allocator<int> >::begin() [169]
+                0.00    0.00       1/2           __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >::__normal_iterator(int* const&) [108]
+-----------------------------------------------
+                0.00    0.00       1/1           Lattice::Lattice(int) [22]
+[170]    0.0    0.00    0.00       1         std::vector<int, std::allocator<int> >::vector(unsigned long, std::allocator<int> const&) [170]
+                0.00    0.00       1/1           std::_Vector_base<int, std::allocator<int> >::_Vector_base(unsigned long, std::allocator<int> const&) [157]
+                0.00    0.00       1/1           std::vector<int, std::allocator<int> >::_M_default_initialize(unsigned long) [167]
+-----------------------------------------------
+                0.00    0.00       1/1           Lattice::Lattice(int) [22]
+[171]    0.0    0.00    0.00       1         std::vector<int, std::allocator<int> >::vector() [171]
+                0.00    0.00       1/1           std::_Vector_base<int, std::allocator<int> >::_Vector_base() [158]
+-----------------------------------------------
+                0.00    0.00       1/1           int* std::fill_n<int*, unsigned long, int>(int*, unsigned long, int const&) [177]
+[172]    0.0    0.00    0.00       1         __gnu_cxx::__enable_if<std::__is_scalar<int>::__value, int*>::__type std::__fill_n_a<int*, unsigned long, int>(int*, unsigned long, int const&) [172]
+-----------------------------------------------
+                0.00    0.00       1/1           int* std::fill_n<int*, unsigned long, int>(int*, unsigned long, int const&) [177]
+[173]    0.0    0.00    0.00       1         int* std::__niter_base<int*>(int*) [173]
+-----------------------------------------------
+                0.00    0.00       1/1           int* std::__uninitialized_default_n_a<int*, unsigned long, int>(int*, unsigned long, std::allocator<int>&) [175]
+[174]    0.0    0.00    0.00       1         int* std::__uninitialized_default_n<int*, unsigned long>(int*, unsigned long) [174]
+                0.00    0.00       1/1           int* std::__uninitialized_default_n_1<true>::__uninit_default_n<int*, unsigned long>(int*, unsigned long) [162]
+-----------------------------------------------
+                0.00    0.00       1/1           std::vector<int, std::allocator<int> >::_M_default_initialize(unsigned long) [167]
+[175]    0.0    0.00    0.00       1         int* std::__uninitialized_default_n_a<int*, unsigned long, int>(int*, unsigned long, std::allocator<int>&) [175]
+                0.00    0.00       1/1           int* std::__uninitialized_default_n<int*, unsigned long>(int*, unsigned long) [174]
+-----------------------------------------------
+                0.00    0.00       1/1           Lattice::Lattice(int) [22]
+[176]    0.0    0.00    0.00       1         void std::fill<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&) [176]
+                0.00    0.00       2/2           int* std::__niter_base<int*, std::vector<int, std::allocator<int> > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >) [116]
+                0.00    0.00       1/1           __gnu_cxx::__enable_if<std::__is_scalar<int>::__value, void>::__type std::__fill_a<int*, int>(int*, int*, int const&) [178]
+-----------------------------------------------
+                0.00    0.00       1/1           int* std::__uninitialized_default_n_1<true>::__uninit_default_n<int*, unsigned long>(int*, unsigned long) [162]
+[177]    0.0    0.00    0.00       1         int* std::fill_n<int*, unsigned long, int>(int*, unsigned long, int const&) [177]
+                0.00    0.00       1/1           int* std::__niter_base<int*>(int*) [173]
+                0.00    0.00       1/1           __gnu_cxx::__enable_if<std::__is_scalar<int>::__value, int*>::__type std::__fill_n_a<int*, unsigned long, int>(int*, unsigned long, int const&) [172]
+-----------------------------------------------
+                0.00    0.00       1/1           void std::fill<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&) [176]
+[178]    0.0    0.00    0.00       1         __gnu_cxx::__enable_if<std::__is_scalar<int>::__value, void>::__type std::__fill_a<int*, int>(int*, int*, int const&) [178]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012-2015 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
+
+  [35] _GLOBAL__sub_I__ZN7LatticeC2Ei [15] Lattice::pushBinomialCoeff() [114] std::_Vector_base<int, std::allocator<int> >::~_Vector_base()
+ [119] _GLOBAL__sub_I_main    [32] Lattice::getAverageClusterSize() [58] std::move_iterator<Bond*>::move_iterator(Bond*)
+ [120] __static_initialization_and_destruction_0(int, int) [19] Lattice::getChi(int) [159] std::numeric_limits<unsigned long>::max()
+ [121] __static_initialization_and_destruction_0(int, int) [25] Lattice::getPvalue() [73] std::allocator_traits<std::allocator<Bond> >::deallocate(std::allocator<Bond>&, Bond*, unsigned long)
+  [11] DebugLattice::printBonds() [22] Lattice::Lattice(int) [74] std::allocator_traits<std::allocator<Bond> >::allocate(std::allocator<Bond>&, unsigned long)
+   [2] DebugLattice::printSites() [139] Lattice::~Lattice() [59] std::allocator_traits<std::allocator<Bond> >::max_size(std::allocator<Bond> const&)
+  [20] DebugLattice::DebugLattice(int) [69] __gnu_cxx::new_allocator<Bond>::deallocate(Bond*, unsigned long) [16] void std::allocator_traits<std::allocator<Bond> >::construct<Bond, Bond const&>(std::allocator<Bond>&, Bond*, Bond const&)
+ [122] DebugLattice::~DebugLattice() [70] __gnu_cxx::new_allocator<Bond>::allocate(unsigned long, void const*) [160] std::allocator_traits<std::allocator<int> >::deallocate(std::allocator<int>&, int*, unsigned long)
+  [13] SquareLattice::findNeighbor(int) [17] void __gnu_cxx::new_allocator<Bond>::construct<Bond, Bond const&>(Bond*, Bond const&) [161] std::allocator_traits<std::allocator<int> >::allocate(std::allocator<int>&, unsigned long)
+  [21] SquareLattice::SquareLattice(int) [140] __gnu_cxx::new_allocator<Bond>::new_allocator() [75] Bond* std::__uninitialized_copy<true>::__uninit_copy<std::move_iterator<Bond*>, Bond*>(std::move_iterator<Bond*>, std::move_iterator<Bond*>, Bond*)
+ [123] SquareLattice::~SquareLattice() [141] __gnu_cxx::new_allocator<Bond>::~new_allocator() [162] int* std::__uninitialized_default_n_1<true>::__uninit_default_n<int*, unsigned long>(int*, unsigned long)
+  [45] void arma::arma_check<char [37]>(bool, char const (&) [37]) [142] __gnu_cxx::new_allocator<int>::deallocate(int*, unsigned long) [37] void std::vector<Bond, std::allocator<Bond> >::_M_emplace_back_aux<Bond const&>(Bond const&)
+ [124] void arma::arma_check<char [53]>(bool, char const (&) [53]) [143] __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) [163] std::vector<Bond, std::allocator<Bond> >::end()
+ [125] void arma::arma_check<char [74]>(bool, char const (&) [74]) [107] __gnu_cxx::new_allocator<int>::new_allocator() [164] std::vector<Bond, std::allocator<Bond> >::begin()
+ [126] void arma::arma_check<char*>(bool, char* const&) [144] __gnu_cxx::new_allocator<int>::new_allocator(__gnu_cxx::new_allocator<int> const&) [14] std::vector<Bond, std::allocator<Bond> >::push_back(Bond const&)
+  [87] arma::solve_opts::opts_no_approx::opts_no_approx() [84] __gnu_cxx::new_allocator<int>::~new_allocator() [165] std::vector<Bond, std::allocator<Bond> >::vector()
+  [88] arma::solve_opts::opts_equilibrate::opts_equilibrate() [47] __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >::__normal_iterator(Bond* const&) [166] std::vector<Bond, std::allocator<Bond> >::~vector()
+  [63] arma::solve_opts::opts::opts(unsigned long long) [51] __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >::operator++() [49] std::vector<Bond, std::allocator<Bond> >::operator[](unsigned long)
+  [89] arma::solve_opts::opts_fast::opts_fast() [108] __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >::__normal_iterator(int* const&) [167] std::vector<int, std::allocator<int> >::_M_default_initialize(unsigned long)
+  [90] arma::solve_opts::opts_none::opts_none() [33] __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >::difference_type __gnu_cxx::operator-<Bond*, std::vector<Bond, std::allocator<Bond> > >(__gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > > const&, __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > > const&) [168] std::vector<int, std::allocator<int> >::end()
+  [91] arma::solve_opts::opts_tril::opts_tril() [18] bool __gnu_cxx::operator!=<Bond*, std::vector<Bond, std::allocator<Bond> > >(__gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > > const&, __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > > const&) [169] std::vector<int, std::allocator<int> >::begin()
+  [92] arma::solve_opts::opts_triu::opts_triu() [52] __gnu_cxx::new_allocator<Bond>::max_size() const [170] std::vector<int, std::allocator<int> >::vector(unsigned long, std::allocator<int> const&)
+ [127] arma::Base_inv_yes<arma::Mat<double> >::Base_inv_yes() [145] __gnu_cxx::new_allocator<int>::max_size() const [171] std::vector<int, std::allocator<int> >::vector()
+ [128] arma::Base_eval_Mat<double, arma::Mat<double> >::Base_eval_Mat() [26] __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >::base() const [115] std::vector<int, std::allocator<int> >::~vector()
+  [93] arma::gmm_dist_eucl::gmm_dist_eucl() [46] __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >::operator*() const [8] std::vector<int, std::allocator<int> >::operator[](unsigned long)
+  [94] arma::gmm_dist_maha::gmm_dist_maha() [48] __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >::operator+(long) const [172] __gnu_cxx::__enable_if<std::__is_scalar<int>::__value, int*>::__type std::__fill_n_a<int*, unsigned long, int>(int*, unsigned long, int const&)
+  [83] arma::gmm_dist_mode::gmm_dist_mode(unsigned long long) [109] __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >::base() const [60] decltype (__miter_base(({parm#1}.base)())) std::__miter_base<Bond*>(std::move_iterator<Bond*>)
+  [95] arma::gmm_dist_prob::gmm_dist_prob() [55] std::_Vector_base<Bond, std::allocator<Bond> >::_M_get_Tp_allocator() const [61] Bond* std::__miter_base<Bond*>(Bond*)
+  [64] arma::gmm_seed_mode::gmm_seed_mode(unsigned long long) [56] std::move_iterator<Bond*>::base() const [53] Bond* std::__niter_base<Bond*>(Bond*)
+ [129] arma::Base_trans_default<arma::Mat<double> >::Base_trans_default() [38] std::vector<Bond, std::allocator<Bond> >::_M_check_len(unsigned long, char const*) const [173] int* std::__niter_base<int*>(int*)
+ [130] void arma::arma_check_bad_alloc<char [39]>(bool, char const (&) [39]) [29] std::vector<Bond, std::allocator<Bond> >::size() const [116] int* std::__niter_base<int*, std::vector<int, std::allocator<int> > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >)
+  [96] arma::gmm_seed_keep_existing::gmm_seed_keep_existing() [57] std::vector<Bond, std::allocator<Bond> >::max_size() const [76] Bond* std::__copy_move_a<true, Bond*, Bond*>(Bond*, Bond*, Bond*)
+  [97] arma::gmm_seed_random_spread::gmm_seed_random_spread() [31] std::vector<int, std::allocator<int> >::size() const [77] Bond* std::__copy_move_a2<true, Bond*, Bond*>(Bond*, Bond*, Bond*)
+  [98] arma::gmm_seed_random_subset::gmm_seed_random_subset() [146] std::allocator<Bond>::allocator() [7] void std::random_shuffle<__gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > > >(__gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >, __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >)
+  [99] arma::gmm_seed_static_spread::gmm_seed_static_spread() [147] std::allocator<Bond>::~allocator() [78] Bond* std::uninitialized_copy<std::move_iterator<Bond*>, Bond*>(std::move_iterator<Bond*>, std::move_iterator<Bond*>, Bond*)
+ [100] arma::gmm_seed_static_subset::gmm_seed_static_subset() [110] std::allocator<int>::allocator() [79] Bond* std::__uninitialized_copy_a<std::move_iterator<Bond*>, Bond*, Bond>(std::move_iterator<Bond*>, std::move_iterator<Bond*>, Bond*, std::allocator<Bond>&)
+ [131] arma::Col<double>::Col() [148] std::allocator<int>::allocator(std::allocator<int> const&) [174] int* std::__uninitialized_default_n<int*, unsigned long>(int*, unsigned long)
+ [132] arma::Col<double>::~Col() [85] std::allocator<int>::~allocator() [175] int* std::__uninitialized_default_n_a<int*, unsigned long, int>(int*, unsigned long, std::allocator<int>&)
+ [133] arma::Mat<double>::fill(double) [71] Bond* std::__copy_move<true, true, std::random_access_iterator_tag>::__copy_m<Bond>(Bond const*, Bond const*, Bond*) [62] std::move_iterator<Bond*> std::__make_move_if_noexcept_iterator<Bond, std::move_iterator<Bond*> >(Bond*)
+  [23] arma::Mat<double>::set_size(unsigned long long) [65] void std::_Destroy_aux<true>::__destroy<Bond*>(Bond*, Bond*) [80] Bond* std::__uninitialized_move_if_noexcept_a<Bond*, Bond*, std::allocator<Bond> >(Bond*, Bond*, Bond*, std::allocator<Bond>&)
+  [24] arma::Mat<double>::init_warm(unsigned long long, unsigned long long) [111] void std::_Destroy_aux<true>::__destroy<int*>(int*, int*) [81] unsigned long const& std::max<unsigned long>(unsigned long const&, unsigned long const&)
+ [134] arma::Mat<double>::Mat(arma::arma_vec_indicator const&, unsigned int) [72] std::_Vector_base<Bond, std::allocator<Bond> >::_M_allocate(unsigned long) [50] __gnu_cxx::__promote_2<double, int, __gnu_cxx::__promote<double, std::__is_integer<double>::__value>::__type, __gnu_cxx::__promote<int, std::__is_integer<int>::__value>::__type>::__type std::pow<double, int>(double, int)
+ [135] arma::Mat<double>::~Mat() [149] std::_Vector_base<Bond, std::allocator<Bond> >::_Vector_impl::_Vector_impl() [28] __gnu_cxx::__promote_2<int, int, __gnu_cxx::__promote<int, std::__is_integer<int>::__value>::__type, __gnu_cxx::__promote<int, std::__is_integer<int>::__value>::__type>::__type std::pow<int, int>(int, int)
+ [136] arma::Base<double, arma::Mat<double> >::Base() [150] std::_Vector_base<Bond, std::allocator<Bond> >::_Vector_impl::~_Vector_impl() [82] Bond* std::copy<std::move_iterator<Bond*>, Bond*>(std::move_iterator<Bond*>, std::move_iterator<Bond*>, Bond*)
+ [101] arma::fill::fill_class<arma::fill::fill_randn>::fill_class() [66] std::_Vector_base<Bond, std::allocator<Bond> >::_M_deallocate(Bond*, unsigned long) [176] void std::fill<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&)
+ [102] arma::fill::fill_class<arma::fill::fill_randu>::fill_class() [54] std::_Vector_base<Bond, std::allocator<Bond> >::_M_get_Tp_allocator() [30] std::remove_reference<Bond&>::type&& std::move<Bond&>(Bond&)
+ [103] arma::fill::fill_class<arma::fill::fill_zeros>::fill_class() [151] std::_Vector_base<Bond, std::allocator<Bond> >::_Vector_base() [10] std::enable_if<std::__and_<std::is_move_constructible<Bond>, std::is_move_assignable<Bond> >::value, void>::type std::swap<Bond>(Bond&, Bond&)
+ [104] arma::fill::fill_class<arma::fill::fill_eye>::fill_class() [152] std::_Vector_base<Bond, std::allocator<Bond> >::~_Vector_base() [177] int* std::fill_n<int*, unsigned long, int>(int*, unsigned long, int const&)
+ [105] arma::fill::fill_class<arma::fill::fill_none>::fill_class() [153] std::_Vector_base<int, std::allocator<int> >::_M_allocate(unsigned long) [27] Bond const& std::forward<Bond const&>(std::remove_reference<Bond const&>::type&)
+ [106] arma::fill::fill_class<arma::fill::fill_ones>::fill_class() [154] std::_Vector_base<int, std::allocator<int> >::_Vector_impl::_Vector_impl() [67] void std::_Destroy<Bond*>(Bond*, Bond*)
+ [137] double* arma::memory::acquire<double>(unsigned long long) [155] std::_Vector_base<int, std::allocator<int> >::_Vector_impl::_Vector_impl(std::allocator<int> const&) [68] void std::_Destroy<Bond*, Bond>(Bond*, Bond*, std::allocator<Bond>&)
+ [138] void arma::arrayops::inplace_set<double>(double*, double, unsigned long long) [112] std::_Vector_base<int, std::allocator<int> >::_Vector_impl::~_Vector_impl() [117] void std::_Destroy<int*>(int*, int*)
+   [5] Lattice::getRootNode(int) [113] std::_Vector_base<int, std::allocator<int> >::_M_deallocate(int*, unsigned long) [118] void std::_Destroy<int*, int>(int*, int*, std::allocator<int>&)
+   [4] Lattice::activateBond(Bond&) [156] std::_Vector_base<int, std::allocator<int> >::_M_create_storage(unsigned long) [178] __gnu_cxx::__enable_if<std::__is_scalar<int>::__value, void>::__type std::__fill_a<int*, int>(int*, int*, int const&)
+   [6] Lattice::shuffleBonds() [86] std::_Vector_base<int, std::allocator<int> >::_M_get_Tp_allocator() [9] void std::iter_swap<__gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >, __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > > >(__gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >, __gnu_cxx::__normal_iterator<Bond*, std::vector<Bond, std::allocator<Bond> > >)
+   [3] Lattice::activateSites() [157] std::_Vector_base<int, std::allocator<int> >::_Vector_base(unsigned long, std::allocator<int> const&) [34] operator new(unsigned long, void*)
+  [12] Lattice::generateNeighbors() [158] std::_Vector_base<int, std::allocator<int> >::_Vector_base()

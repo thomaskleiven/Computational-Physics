@@ -1,0 +1,1 @@
+/usr/bin/c++   -pg   CMakeFiles/main.dir/Main.cpp.o CMakeFiles/main.dir/Lattice.cpp.o  -o main -rdynamic -larmadillo -llapack -lgsl -lsfml-system -lsfml-window -lsfml-graphics -lsfml-network -lsfml-audio /usr/local/lib/libvisa.so /usr/local/lib/libpei.so -lfltk -lfltk_gl -Wl,-rpath,/usr/local/lib 

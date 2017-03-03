@@ -8,8 +8,8 @@ Ly = 1
 #Plot evolution matrix
 for i in range(1,100,3):
     matrix = np.loadtxt('data/matrix_%d.csv'%i, delimiter=",")
-    plt.imshow(matrix, cmap = "coolwarm")
-    plt.show()
+    #plt.imshow(matrix, cmap = "coolwarm")
+    #plt.show()
 
 
 #Plot eigenmode

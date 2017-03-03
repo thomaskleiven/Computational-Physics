@@ -13,7 +13,7 @@ int main(){
   visa::WindowHandler plots;
   plots.addPlot("Eigenmode");
   plots.get("Eigenmode").setCmap( visa::Colormaps::Colormap_t::NIPY_SPECTRAL );
-  plots.get("Eigenmode").setColorLim( -0.3, 0.3 );
+  plots.get("Eigenmode").setColorLim( 0, 100 );
 
   bool updateColorLimits = false;
 
@@ -21,11 +21,11 @@ int main(){
   vector<TimeEvolution*> modes;
   vector<double> projectionsCoeff;
   GaussianSpike spike;
-  spike.setSigma(10);
-  spike.setCenter(0.80,0.5);
+  spike.setSigma(0.1);
+  spike.setCenter(0.5,0.5);
 
-  for(int i = 1; i<10; i++){
-    WaveEquation *evolution = new WaveEquation;
+  for(int i = 1; i<30; i++){
+    DiffusionEquation *evolution = new DiffusionEquation;
     stringstream fname;
     fname << "data/eigenvector_" << static_cast<int>(i) << ".csv";
     evolution->loadMatrix(fname.str());
@@ -37,7 +37,7 @@ int main(){
   arma::mat totalSolution;
   arma::mat modeSolution;
   unsigned int nt = 7000;
-  double dt = 0.005;
+  double dt = 0.00005;
   for(int i = 0; i<nt; i++){
     double t = i*dt;
     for(int j = 0; j < modes.size(); j++){

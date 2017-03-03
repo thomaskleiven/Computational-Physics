@@ -44,6 +44,10 @@ double WaveEquation::equationTime(double t){
   return cos(sqrt(eigenvalue)*t);
 }
 
+double DiffusionEquation::equationTime(double t){
+  return exp(-eigenvalue*t);
+}
+
 
 
 

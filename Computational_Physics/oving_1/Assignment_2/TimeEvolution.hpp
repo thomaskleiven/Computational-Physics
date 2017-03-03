@@ -27,6 +27,11 @@ public:
   virtual double equationTime(double t) override;
 };
 
+class DiffusionEquation: public TimeEvolution{
+public:
+  virtual double equationTime(double t) override;
+};
+
 class GaussianSpike{
 public:
   double operator()(double x, double y){

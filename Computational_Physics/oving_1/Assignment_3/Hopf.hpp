@@ -26,7 +26,6 @@ protected:
   unsigned int n_save{5};
 
   arma::vec solution;
-  arma::mat exportSolution;
 
   std::string name;
 };
@@ -34,7 +33,7 @@ protected:
 class ImplicitCentered: public Hopf{
 public:
   explicit ImplicitCentered(int nx):Hopf(nx){};
-  void implicitCentered();
+  void applyScheme();
 private:
   arma::vec diagonal();
 
@@ -50,26 +49,26 @@ private:
 class Upwind: public Hopf{
 public:
   explicit Upwind(int nx):Hopf(nx){};
-  void upwind();
+  void applyScheme();
 
 };
 
 class Downwind: public Hopf{
 public:
   explicit Downwind(int nx):Hopf(nx){};
-  void downwind();
+  void applyScheme();
 };
 
 class ExplicitCentered: public Hopf{
 public:
   explicit ExplicitCentered(int nx):Hopf(nx){};
-  void explicitCentered();
+  void applyScheme();
 };
 
 class LaxFriedrich: public Hopf{
 public:
-  explicit LaxFriedrich(int nx):Hopf(nx){};
-  void laxFriedrich();
+  explicit LaxFriedrich(int nx):Hopf(nx, "LaxFriedrich"){};
+  void applyScheme() override;
 };
 
 class LaxWendroff: public Hopf{
@@ -77,6 +76,16 @@ public:
   explicit LaxWendroff(int nx):Hopf(nx, "laxWendroff"){};
   void applyScheme() override;
 };
+
+class ConservativeLaxWendroff: public Hopf{
+public:
+  explicit ConservativeLaxWendroff(int nx):Hopf(nx, "ConservativeLaxWendroff"){};
+  void applyScheme() override;
+};
+
+
+
+
 
 
 #endif
