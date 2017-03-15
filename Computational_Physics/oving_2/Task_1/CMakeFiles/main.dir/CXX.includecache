@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_2/Task_1/Lattice.cpp
+Lattice.hpp
+/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_2/Task_1/Lattice.hpp
+armadillo
+-
+cmath
+-
+iostream
+-
+vector
+-
+algorithm
+-
+random
+-
+iterator
+-
+cstdint
+-
+fstream
+-
+
+/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_2/Task_1/Lattice.hpp
+armadillo
+-
+vector
+-
+
+/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_2/Task_1/Main.cpp
+Lattice.hpp
+/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_2/Task_1/Lattice.hpp
+iostream
+-
+cstdlib
+-
+ctime
+-
+
