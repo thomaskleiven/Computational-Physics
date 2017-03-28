@@ -23,6 +23,8 @@ protected:
   void activateBond(Bond &bond);
   void activateSites();
   void save(std::vector<int> &vector);
+  void saveCoeff(std::vector<double> &vector);
+  void calcAverageClusterSize(Bond &bond);
   void getMainCluster();
   int getRootNode(int site);
   int num_activatedBonds = 1;
@@ -30,20 +32,32 @@ protected:
   int N{0};
   double average_s{0};
   double lastValue{0};
+  int num{0};
   double getPvalue();
   double getAverageClusterSize();
   double getChi(int i);
   double pValue;
   double pValueSquared;
   double chi;
+  double expected_s{0};
   int bondsActivated{0};
   std::vector<Bond> bonds;
   std::vector<int> sites;
   std::vector<int> mainCluster;
 private:
-  arma::vec binomialCoeff;
+  unsigned int count{0};
+  std::vector<double> binomialCoeff;
+  arma::vec p_inf_values;
+  arma::vec p_inf_sq_values;
+  arma::vec chi_values;
+  arma::vec avg_clusterSize;
+  //std::vector<double> p_inf_values;
+  //std::vector<double> p_inf_sq_values;
+  //std::vector<double> chi_values;
+  //std::vector<double> avg_clusterSize;
   double lnFacBond;
   void pushBinomialCoeff();
+  void calculateConvolution();
 };
 
 class SquareLattice: public Lattice{

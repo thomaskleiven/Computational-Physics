@@ -17,15 +17,7 @@ iostream
 -
 vector
 -
-algorithm
--
-random
--
 iterator
--
-cstdint
--
-fstream
 -
 
 /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_2/Task_1/Lattice.hpp

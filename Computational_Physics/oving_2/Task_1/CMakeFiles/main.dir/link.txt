@@ -1,1 +1,1 @@
-/usr/bin/c++      CMakeFiles/main.dir/Main.cpp.o CMakeFiles/main.dir/Lattice.cpp.o  -o main -rdynamic -larmadillo -llapack -lgsl 
+/usr/bin/c++    -fopenmp   CMakeFiles/main.dir/Main.cpp.o CMakeFiles/main.dir/Lattice.cpp.o  -o main -rdynamic -larmadillo -llapack -lgsl 
