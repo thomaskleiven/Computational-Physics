@@ -1,33 +1,14 @@
 import numpy as np
-import matplotlib as mpl
-import matplotlib.pyplot as plt
-from matplotlib import colors
+from matplotlib import pyplot as plt
+import sys
 
-data = np.loadtxt("res.csv", delimiter="\n")
-data.astype(int)
-#data = np.reshape(data, (3,3))
+filename = sys.argv[1]
 
-N = 10000
-positions = np.array([None]*len(data))
+data = np.loadtxt('results/'+filename+'.csv', delimiter='\t')
+data = data[:-20]
 
-mat = np.zeros((N,N), dtype=np.uint8)
+x = np.linspace(0.4,0.6,len(data))
 
-def makeLattice():
-    for i in range(0,len(data)):
-        x = int(data[i]/N)
-        y = int(data[i]%N)
-        mat[x,y] = 1
-makeLattice()
+plt.plot(x, data)
 
-
-
-color = ['black', '#7FFF00']
-
-cmap = mpl.colors.ListedColormap(color)
-plt.matshow(mat, cmap=cmap)
 plt.show()
-
-#plt.imshow(data)
-#plt.show()
-#plt.plot(data)
-#plt.show()

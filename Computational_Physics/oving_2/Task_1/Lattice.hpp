@@ -10,24 +10,33 @@ struct Bond{
   int neighbor;
 };
 
+struct Coordinate{
+  int x;
+  int y;
+};
+
 
 class Lattice{
 public:
   Lattice(int N);
+  void generateNeighbors();
+  void activateSites();
+  std::string uid;
+  void run_loops(int n_loops);
 
 protected:
   virtual void findNeighbor(int position) = 0;
   void shuffleBonds();
-  void generateNeighbors();
   void calculateAverageClusterSize(int i);
   void activateBond(Bond &bond);
-  void activateSites();
   void save(std::vector<int> &vector);
   void saveCoeff(std::vector<double> &vector);
   void calcAverageClusterSize(Bond &bond);
   void getMainCluster();
+  void buildNodeTable();
+  void saveGrid(const char* fname);
   int getRootNode(int site);
-  int num_activatedBonds = 1;
+  int num_activatedBonds{0};
   int largestCluster{0};
   int N{0};
   double average_s{0};
@@ -40,7 +49,9 @@ protected:
   double pValueSquared;
   double chi;
   double expected_s{0};
+  int n_sites{0};
   int bondsActivated{0};
+  std::vector<Coordinate> crd;
   std::vector<Bond> bonds;
   std::vector<int> sites;
   std::vector<int> mainCluster;
@@ -51,10 +62,6 @@ private:
   arma::vec p_inf_sq_values;
   arma::vec chi_values;
   arma::vec avg_clusterSize;
-  //std::vector<double> p_inf_values;
-  //std::vector<double> p_inf_sq_values;
-  //std::vector<double> chi_values;
-  //std::vector<double> avg_clusterSize;
   double lnFacBond;
   void pushBinomialCoeff();
   void calculateConvolution();
@@ -65,6 +72,7 @@ public:
   SquareLattice(int N): Lattice(N){};
 protected:
   void findNeighbor(int position);
+  void setCoordinates();
 };
 
 class TriangularLattice: public Lattice{
@@ -72,6 +80,7 @@ public:
   TriangularLattice(int N): Lattice(N){};
 protected:
   void findNeighbor(int position);
+  void setCoordinates();
 };
 
 class HoneycombLattice: public Lattice{
@@ -93,8 +102,9 @@ protected:
 class DebugLattice: public SquareLattice{
 public:
   DebugLattice(int N):SquareLattice(N){};
-  void printBonds();
+  void makeLattice();
   void printSites();
+  void checkIfLargestClusterFound();
 };
 
 #endif

@@ -10,7 +10,7 @@
 extern "C" double gsl_sf_lnfact(unsigned int n);
 extern "C" double gsl_sf_fact(unsigned int n);
 
-#define DEBUG
+//#define DEBUG
 
 using namespace std;
 
@@ -18,10 +18,14 @@ Lattice::Lattice(int N):N(N), sites(N*N){
   n_sites = sites.size();
   fill(sites.begin(), sites.end(), -1);
   p_inf_values.set_size(2*n_sites);
-  p_inf_values.fill(0);
   p_inf_sq_values.set_size(2*n_sites);
   avg_clusterSize.set_size(2*n_sites);
   chi_values.set_size(2*n_sites);
+
+  p_inf_values.fill(0);
+  avg_clusterSize.fill(0);
+  p_inf_sq_values.fill(0);
+  chi_values.fill(0);
   average_s = n_sites;
 }
 
@@ -35,8 +39,8 @@ void Lattice::activateBond(Bond &bond){
   pushBinomialCoeff();                                                        //Calculate binomial coefficient after activating a bond
   calcAverageClusterSize(bond);                                               //Calc avg cluster size
   p_inf_values(num_activatedBonds) += getPvalue();                            //Calc p_inf value
-  p_inf_sq_values(num_activatedBonds) = pow(getPvalue(), 2);                  //Calc p_inf squared value
-  chi_values(num_activatedBonds) = getChi(num_activatedBonds);                //Calc chi value
+  p_inf_sq_values(num_activatedBonds) += pow(getPvalue(), 2);                  //Calc p_inf squared value
+  chi_values(num_activatedBonds) += getChi(num_activatedBonds);                //Calc chi value
   num_activatedBonds++;
 }
 
@@ -75,16 +79,19 @@ void Lattice::calcAverageClusterSize(Bond &bond){
     if(getPvalue() < 1.0){expected_s = (double)(average_s - pow(n_sites*getPvalue(), 2))/(n_sites*(1-getPvalue()));}
     else{expected_s = 0;}
   }
-  avg_clusterSize(num_activatedBonds) = expected_s;
+  avg_clusterSize(num_activatedBonds) += expected_s;
 }
 
 void Lattice::run_loops(int n_loops){
   for (int i = 0; i < n_loops; i++){
     num_activatedBonds = 0;
+    average_s = n_sites;
     fill(sites.begin(), sites.end(), -1);
     activateSites();
   }
   p_inf_values /= n_loops;
+  avg_clusterSize /= n_loops;
+  chi_values /= n_loops;
   calculateConvolution();
 }
 
@@ -151,8 +158,6 @@ void Lattice::calculateConvolution(){
   unsigned int M = bonds.size();
   float percentage = 0;
 
-  cout << lnFacBond << endl;
-
   #pragma omp parallel for
   for(int i = 0; i<p.n_elem;i++){
     percentage += (1.0/(p.n_elem));
@@ -162,8 +167,8 @@ void Lattice::calculateConvolution(){
       double lnfac_M_n = gsl_sf_lnfact(M-n);
       //if(i == p.n_elem/10){binomialproba(n) = exp(lnFacBond - lnfac_n - lnfac_M_n + n*log(p(i))+(M - n)*log(1-p(i)));}
       convolution_p(i) += p_inf_values(n)*(exp(lnFacBond - lnfac_n - lnfac_M_n + n*log(p(i)) + (M - n)*log(1-p(i))));
-      //convolution_avg(i) += avg_clusterSize(n)*exp(lnFacBond - lnfac_n - lnfac_M_n + n*log(p(i))+(M - n)*log(1-p(i)));
-      //convolution_chi(i) += chi_values(n)*(exp(lnFacBond - lnfac_n - lnfac_M_n + n*log(p(i))+(M - n)*log(1-p(i))));
+      convolution_avg(i) += avg_clusterSize(n)*exp(lnFacBond - lnfac_n - lnfac_M_n + n*log(p(i))+(M - n)*log(1-p(i)));
+      convolution_chi(i) += chi_values(n)*(exp(lnFacBond - lnfac_n - lnfac_M_n + n*log(p(i))+(M - n)*log(1-p(i))));
     }
   }
   stringstream fname;
@@ -213,6 +218,16 @@ void TriangularLattice::findNeighbor(int position){
   bonds.push_back(bond1);
   bonds.push_back(bond2);
 }
+
+void TriangularLattice::setCoordinates(){
+  crd.resize(N*N);
+  for (int i = 0; i<N*N; i++){
+    crd[i].x = i%N;
+    crd[i].y = i/N;
+  }
+}
+
+
 
 void SquareLattice::findNeighbor(int position){
   setCoordinates();
