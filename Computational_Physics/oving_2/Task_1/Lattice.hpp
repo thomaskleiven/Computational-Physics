@@ -22,6 +22,7 @@ public:
   void generateNeighbors();
   void activateSites();
   std::string uid;
+  std::string folder;
   void run_loops(int n_loops);
 
 protected:
@@ -87,6 +88,7 @@ class HoneycombLattice: public Lattice{
 public:
   HoneycombLattice(int N): Lattice(N){};
 protected:
+  void setCoordinates();
   void findNeighbor(int position);
   bool checkIfEvenNumber(int position);
   bool checkIfEvenRow(int position);
@@ -99,12 +101,14 @@ protected:
 ////////////////////////////////////////////////////////////////////////////////
 
 
-class DebugLattice: public SquareLattice{
+class DebugLattice: public TriangularLattice{
 public:
-  DebugLattice(int N):SquareLattice(N){};
+  DebugLattice(int N):TriangularLattice(N){};
   void makeLattice();
-  void printSites();
-  void checkIfLargestClusterFound();
+  void printBonds();
+  void activate();
+  //void printSites();
+  //void checkIfLargestClusterFound();
 };
 
 #endif

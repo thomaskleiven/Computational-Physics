@@ -17,10 +17,10 @@ using namespace std;
 Lattice::Lattice(int N):N(N), sites(N*N){
   n_sites = sites.size();
   fill(sites.begin(), sites.end(), -1);
-  p_inf_values.set_size(2*n_sites);
-  p_inf_sq_values.set_size(2*n_sites);
-  avg_clusterSize.set_size(2*n_sites);
-  chi_values.set_size(2*n_sites);
+  p_inf_values.set_size(3*n_sites);
+  p_inf_sq_values.set_size(3*n_sites);
+  avg_clusterSize.set_size(3*n_sites);
+  chi_values.set_size(3*n_sites);
 
   p_inf_values.fill(0);
   avg_clusterSize.fill(0);
@@ -172,22 +172,14 @@ void Lattice::calculateConvolution(){
     }
   }
   stringstream fname;
-  fname << "results/p" << uid << ".csv";
+  fname <<folder << "p" << uid << ".csv";
   convolution_p.save(fname.str().c_str(), arma::csv_ascii);
   fname.str("");
-  fname << "results/chi" << uid << ".csv";
+  fname << folder<< "chi" << uid << ".csv";
   convolution_chi.save(fname.str().c_str(), arma::csv_ascii);
   fname.str("");
-  fname << "results/avg" << uid << ".csv";
+  fname <<folder<< "avg" << uid << ".csv";
   convolution_avg.save(fname.str().c_str(), arma::csv_ascii);
-
-
-
-  std::ofstream outfile;
-  outfile.open("smax.csv", std::ios_base::app);
-  outfile << avg_clusterSize.max();
-  outfile << "\n";
-  outfile.close();
 }
 
 
@@ -195,6 +187,7 @@ void Lattice::calculateConvolution(){
 
 
 void TriangularLattice::findNeighbor(int position){
+  setCoordinates();
   Bond bond;
   Bond bond1;
   Bond bond2;
@@ -222,9 +215,10 @@ void TriangularLattice::findNeighbor(int position){
 void TriangularLattice::setCoordinates(){
   crd.resize(N*N);
   for (int i = 0; i<N*N; i++){
-    crd[i].x = i%N;
-    crd[i].y = i/N;
-  }
+        crd[i].x = i%N;
+        crd[i].y = i/N;
+        cout << crd[i].x << " " << crd[i].y << endl;
+    }
 }
 
 
@@ -257,7 +251,11 @@ void Lattice::saveGrid(const char* fname){
     throw runtime_error("Could not open file in saveGrid");
   }
   for (int i= 0; i<bonds.size(); i++){
-    out << crd[bonds[i].startPos].x << "," << crd[bonds[i].startPos].y << "," << crd[bonds[i].neighbor].x << "," << crd[bonds[i].neighbor].y << "\n";
+    out << crd[bonds[i].startPos].x << "," << crd[bonds[i].startPos].y << "," << crd[bonds[i].neighbor].x << "," << crd[bonds[i].neighbor].y <<"\n";
+
+
+    //Square
+    //out << crd[bonds[i].startPos].x << "," << crd[bonds[i].startPos].y << "," << crd[bonds[i].neighbor].x << "," << crd[bonds[i].neighbor].y << "\n";
   }
   out.close();
   cout << "Grid saved to file " << fname << endl;
@@ -266,6 +264,7 @@ void Lattice::saveGrid(const char* fname){
 
 
 void HoneycombLattice::findNeighbor(int position){
+  setCoordinates();
   Bond bond;
   Bond bond1;
   bond.startPos = position;
@@ -305,6 +304,14 @@ void HoneycombLattice::findNeighbor(int position){
   }
 }
 
+void HoneycombLattice::setCoordinates(){
+  crd.resize(N*N);
+  for (int i = 0; i<N*N; i++){
+    crd[i].x = i%N;
+    crd[i].y = i/N;
+  }
+}
+
 bool HoneycombLattice::checkIfEvenNumber(int position){if(position%2 == 0){return true;} return false;}
 bool HoneycombLattice::checkIfEvenRow(int position){if((position/N)%2 == 0){return true;} return false;}
 bool HoneycombLattice::checkIfLastRow(int position){if((position/N) == N-1){return true;} return false;}
@@ -320,6 +327,16 @@ bool HoneycombLattice::checkIfFirstRow(int position){if(position/N == 0){return 
 /////////////////////////////////////////////////////////
 void DebugLattice::makeLattice(){
   generateNeighbors();
-  saveGrid("SquareLattice.csv");
-  activateSites();
+  saveGrid("HoneyLattice.csv");
+}
+
+void DebugLattice::activate(){
+    activateSites();
+}
+
+
+void DebugLattice::printBonds(){
+  for (int i=0; i<bonds.size(); i++){
+    cout << bonds[i].startPos << " " << bonds[i].neighbor << endl;
+  }
 }

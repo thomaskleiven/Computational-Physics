@@ -4,10 +4,10 @@ import sys
 
 filename = sys.argv[1]
 
-data = np.loadtxt('results/'+filename+'.csv', delimiter='\t')
+data = np.loadtxt(filename+'.csv', delimiter='\t')
 data = data[:-20]
 
-x = np.linspace(0.4,0.6,len(data))
+x = np.linspace(0.0,1.0,len(data))
 
 plt.plot(x, data)
 
