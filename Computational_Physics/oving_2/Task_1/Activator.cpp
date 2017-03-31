@@ -14,6 +14,7 @@ Activator::Activator(int N):N(N){
   chi_values.set_size(2*n_sites);
   avg_clusterSize.set_size(2*n_sites);
   p_inf_sq_values.set_size(2*n_sites);
+  binomial.set_size(2*n_sites);
 
   p_inf_values.fill(0);
 }
@@ -21,11 +22,13 @@ Activator::Activator(int N):N(N){
 
 void Activator::run_loops(int n_loops){
   #pragma omp parallel for
-  for (int i = 0; i < n_loops; i++){
+  for (int k = 0; k < n_loops; k++){
     SquareLattice* sq = new SquareLattice(N);
     sq->generateNeighbors();
+    num_of_bonds = sq->bonds.size();
     sq->shuffleBonds();
     for(int i= 0; i<sq->bonds.size(); i++){
+      if(k==0){binomial(i) = sq->binomial_coeff(i);};
       avg_clusterSize(i) += sq->calcAverageClusterSize(sq->bonds[i]);
       p_inf_values(i) += sq->getPvalue();
       p_inf_sq_values(i) += pow(sq->getPvalue(), 2);
@@ -48,21 +51,15 @@ void Activator::calculateConvolution(){
   convolution_p.fill(0);
   convolution_avg.fill(0);
   convolution_chi.fill(0);
-  unsigned int M = p_inf_values.n_elem;
-  double lnFacBond = gsl_sf_lnfact(M);
   float percentage = 0;
-
   #pragma omp parallel for
   for(int i = 0; i<p.n_elem;i++){
     percentage += (1.0/(p.n_elem));
     if(omp_get_thread_num() == 0){cout << "\r Percentage: " << percentage;}
-    for(int n=0;n<M; n++){
-      double lnfac_n = gsl_sf_lnfact(n);
-      double lnfac_M_n = gsl_sf_lnfact(M-n);
-      //if(i == p.n_elem/10){binomialproba(n) = exp(lnFacBond - lnfac_n - lnfac_M_n + n*log(p(i))+(M - n)*log(1-p(i)));}
-      convolution_p(i) += p_inf_values(n)*(exp(lnFacBond - lnfac_n - lnfac_M_n + n*log(p(i)) + (M - n)*log(1-p(i))));
-      convolution_avg(i) += avg_clusterSize(n)*exp(lnFacBond - lnfac_n - lnfac_M_n + n*log(p(i))+(M - n)*log(1-p(i)));
-      convolution_chi(i) += chi_values(n)*(exp(lnFacBond - lnfac_n - lnfac_M_n + n*log(p(i))+(M - n)*log(1-p(i))));
+    for(int n=0;n<num_of_bonds; n++){
+      convolution_p(i) += p_inf_values(n)*(exp(binomial(n) + n*log(p(i)) + (num_of_bonds - n)*log(1-p(i))));
+      convolution_avg(i) += avg_clusterSize(n)*exp(binomial(n) + n*log(p(i))+(num_of_bonds - n)*log(1-p(i)));
+      convolution_chi(i) += chi_values(n)*(exp(binomial(n) + n*log(p(i))+(num_of_bonds - n)*log(1-p(i))));
     }
   }
   stringstream fname;

@@ -11,6 +11,8 @@ public:
   arma::vec p_inf_sq_values;
   arma::vec avg_clusterSize;
   arma::vec chi_values;
+  arma::vec binomial;
+  int num_of_bonds{0};
   double lnFacBond;
   void pushBinomialCoeff();
   void calculateConvolution();
