@@ -10,22 +10,22 @@ using namespace std;
 
 Activator::Activator(int N):N(N){
   n_sites = N*N;
-  p_inf_values.set_size(2*n_sites);
-  chi_values.set_size(2*n_sites);
-  avg_clusterSize.set_size(2*n_sites);
-  p_inf_sq_values.set_size(2*n_sites);
-  binomial.set_size(2*n_sites);
-  num_of_bonds = 2*n_sites;
+  p_inf_values.set_size(1.5*n_sites);
+  chi_values.set_size(1.5*n_sites);
+  avg_clusterSize.set_size(1.5*n_sites);
+  p_inf_sq_values.set_size(1.5*n_sites);
+  binomial.set_size(1.5*n_sites);
+  num_of_bonds = 1.5*n_sites;
 }
 
 
 void Activator::run_loops(int n_loops){
   #pragma omp parallel for
-  for (int k = 0; k < n_loops; k++){
-    SquareLattice* sq = new SquareLattice(N);
+  for (int k = 0; k < n_loops; k++){                                            //Number of times to average over
+    HoneycombLattice* sq = new HoneycombLattice(N);
     sq->generateNeighbors();
     sq->shuffleBonds();
-    for(int i= 0; i<sq->bonds.size(); i++){
+    for(int i= 0; i<sq->bonds.size(); i++){                                     //Activating one by one bond
       if(k==0){binomial(i) = sq->binomial_coeff(i);};
       avg_clusterSize(i) += sq->calcAverageClusterSize(sq->bonds[i]);
       p_inf_values(i) += sq->getPvalue();
@@ -37,7 +37,7 @@ void Activator::run_loops(int n_loops){
   p_inf_values /= n_loops;
   chi_values /= n_loops;
   avg_clusterSize /= n_loops;
-  calculateConvolution();
+  calculateConvolution();                                                       //Calculate convolution
 }
 
 
@@ -61,12 +61,12 @@ void Activator::calculateConvolution(){
     }
   }
   stringstream fname;
-  fname << folder << "p" << uid << ".csv";
+  fname << folder << "/" << "p" << uid << ".csv";
   convolution_p.save(fname.str().c_str(), arma::csv_ascii);
   fname.str("");
-  fname << folder << "chi" << uid << ".csv";
+  fname << folder<< "/" << "chi" << uid << ".csv";
   convolution_chi.save(fname.str().c_str(), arma::csv_ascii);
   fname.str("");
-  fname << folder <<"avg" << uid << ".csv";
+  fname << folder << "/"<<"avg" << uid << ".csv";
   convolution_avg.save(fname.str().c_str(), arma::csv_ascii);
 }
