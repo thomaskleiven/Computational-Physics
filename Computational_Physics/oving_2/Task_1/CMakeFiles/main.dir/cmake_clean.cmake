@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/main.dir/Main.cpp.o"
+  "CMakeFiles/main.dir/Activator.cpp.o"
   "CMakeFiles/main.dir/Lattice.cpp.o"
   "main.pdb"
   "main"

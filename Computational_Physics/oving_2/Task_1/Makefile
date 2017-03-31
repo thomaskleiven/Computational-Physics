@@ -123,6 +123,33 @@ main/fast:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
 
+Activator.o: Activator.cpp.o
+
+.PHONY : Activator.o
+
+# target to build an object file
+Activator.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Activator.cpp.o
+.PHONY : Activator.cpp.o
+
+Activator.i: Activator.cpp.i
+
+.PHONY : Activator.i
+
+# target to preprocess a source file
+Activator.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Activator.cpp.i
+.PHONY : Activator.cpp.i
+
+Activator.s: Activator.cpp.s
+
+.PHONY : Activator.s
+
+# target to generate assembly for a file
+Activator.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Activator.cpp.s
+.PHONY : Activator.cpp.s
+
 Lattice.o: Lattice.cpp.o
 
 .PHONY : Lattice.o
@@ -186,6 +213,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... main"
+	@echo "... Activator.o"
+	@echo "... Activator.i"
+	@echo "... Activator.s"
 	@echo "... Lattice.o"
 	@echo "... Lattice.i"
 	@echo "... Lattice.s"

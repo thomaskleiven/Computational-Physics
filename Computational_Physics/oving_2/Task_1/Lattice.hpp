@@ -1,3 +1,4 @@
+
 #ifndef LATTICE
 #define LATTICE
 
@@ -24,6 +25,10 @@ public:
   std::string uid;
   std::string folder;
   void run_loops(int n_loops);
+  arma::vec p_inf_values;
+  arma::vec p_inf_sq_values;
+  arma::vec chi_values;
+  arma::vec avg_clusterSize;
 
 protected:
   virtual void findNeighbor(int position) = 0;
@@ -59,10 +64,6 @@ protected:
 private:
   unsigned int count{0};
   std::vector<double> binomialCoeff;
-  arma::vec p_inf_values;
-  arma::vec p_inf_sq_values;
-  arma::vec chi_values;
-  arma::vec avg_clusterSize;
   double lnFacBond;
   void pushBinomialCoeff();
   void calculateConvolution();

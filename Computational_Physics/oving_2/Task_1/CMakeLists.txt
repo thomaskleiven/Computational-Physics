@@ -29,5 +29,5 @@ if (OPENMP_FOUND)
     set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
 endif()
 
-add_executable(main Main.cpp Lattice.cpp)
+add_executable(main Main.cpp Activator.cpp Lattice.cpp)
 target_link_libraries(main ${LIB})

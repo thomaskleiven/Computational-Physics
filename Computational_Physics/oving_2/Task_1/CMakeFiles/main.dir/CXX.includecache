@@ -6,9 +6,23 @@
 
 #IncludeRegexTransform: 
 
+/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_2/Task_1/Activator.cpp
+Activator.hpp
+/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_2/Task_1/Activator.hpp
+Lattice.hpp
+/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_2/Task_1/Lattice.hpp
+armadillo
+-
+
+/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_2/Task_1/Activator.hpp
+armadillo
+-
+
 /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_2/Task_1/Lattice.cpp
 Lattice.hpp
 /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_2/Task_1/Lattice.hpp
+Activator.hpp
+/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_2/Task_1/Activator.hpp
 armadillo
 -
 cmath
@@ -35,6 +49,8 @@ vector
 /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_2/Task_1/Main.cpp
 Lattice.hpp
 /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_2/Task_1/Lattice.hpp
+Activator.hpp
+/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_2/Task_1/Activator.hpp
 iostream
 -
 cstdlib

@@ -1,4 +1,5 @@
 #include "Lattice.hpp"
+#include "Activator.hpp"
 #include <armadillo>
 #include <cmath>
 #include <iostream>
@@ -17,10 +18,10 @@ using namespace std;
 Lattice::Lattice(int N):N(N), sites(N*N){
   n_sites = sites.size();
   fill(sites.begin(), sites.end(), -1);
-  p_inf_values.set_size(3*n_sites);
-  p_inf_sq_values.set_size(3*n_sites);
-  avg_clusterSize.set_size(3*n_sites);
-  chi_values.set_size(3*n_sites);
+  p_inf_values.set_size(2*n_sites);
+  p_inf_sq_values.set_size(2*n_sites);
+  avg_clusterSize.set_size(2*n_sites);
+  chi_values.set_size(2*n_sites);
 
   p_inf_values.fill(0);
   avg_clusterSize.fill(0);
@@ -34,16 +35,6 @@ void Lattice::generateNeighbors(){
     findNeighbor(i);
   }
 }
-
-void Lattice::activateBond(Bond &bond){
-  pushBinomialCoeff();                                                        //Calculate binomial coefficient after activating a bond
-  calcAverageClusterSize(bond);                                               //Calc avg cluster size
-  p_inf_values(num_activatedBonds) += getPvalue();                            //Calc p_inf value
-  p_inf_sq_values(num_activatedBonds) += pow(getPvalue(), 2);                  //Calc p_inf squared value
-  chi_values(num_activatedBonds) += getChi(num_activatedBonds);                //Calc chi value
-  num_activatedBonds++;
-}
-
 
 void Lattice::calcAverageClusterSize(Bond &bond){
   unsigned int index_rootnode_start = getRootNode(bond.startPos);
@@ -92,16 +83,28 @@ void Lattice::run_loops(int n_loops){
   p_inf_values /= n_loops;
   avg_clusterSize /= n_loops;
   chi_values /= n_loops;
-  calculateConvolution();
+  //calculateConvolution();
 }
 
 void Lattice::activateSites(){
   shuffleBonds();
   lnFacBond = gsl_sf_lnfact(bonds.size());
+  #pragma omp parallel for
   for(int i = 0; i<bonds.size(); i++){
     activateBond(bonds[i]);
   }
 }
+
+void Lattice::activateBond(Bond &bond){
+  pushBinomialCoeff();                                                        //Calculate binomial coefficient after activating a bond
+  calcAverageClusterSize(bond);                                               //Calc avg cluster size
+  p_inf_values(num_activatedBonds) = getPvalue();                            //Calc p_inf value
+  p_inf_sq_values(num_activatedBonds) = pow(getPvalue(), 2);                  //Calc p_inf squared value
+  chi_values(num_activatedBonds) = getChi(num_activatedBonds);                //Calc chi value
+  num_activatedBonds++;
+}
+
+
 
 int Lattice::getRootNode(int site){
   if(sites[site] < 0){
