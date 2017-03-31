@@ -10,12 +10,12 @@ using namespace std;
 
 Activator::Activator(int N):N(N){
   n_sites = N*N;
-  averaged_p_inf_values.set_size(2*n_sites);
-  averaged_chi_values.set_size(2*n_sites);
-  averaged_avg_clusterSize.set_size(2*n_sites);
-  averaged_p_inf_sq_values.set_size(2*n_sites);
+  p_inf_values.set_size(2*n_sites);
+  chi_values.set_size(2*n_sites);
+  avg_clusterSize.set_size(2*n_sites);
+  p_inf_sq_values.set_size(2*n_sites);
 
-  averaged_p_inf_values.fill(0);
+  p_inf_values.fill(0);
 }
 
 
@@ -24,19 +24,21 @@ void Activator::run_loops(int n_loops){
   for (int i = 0; i < n_loops; i++){
     SquareLattice* sq = new SquareLattice(N);
     sq->generateNeighbors();
-    sq->activateSites();
-    for (int k=0; k<averaged_p_inf_values.n_elem; k++){
-    averaged_p_inf_values[k] += sq->p_inf_values[k];
-    averaged_chi_values[k] += sq->chi_values[k];
-    averaged_p_inf_sq_values[k] += sq->p_inf_sq_values[k];
-    averaged_avg_clusterSize[k] += sq->avg_clusterSize[k];}
+    sq->shuffleBonds();
+    for(int i= 0; i<sq->bonds.size(); i++){
+      avg_clusterSize(i) += sq->calcAverageClusterSize(sq->bonds[i]);
+      p_inf_values(i) += sq->getPvalue();
+      p_inf_sq_values(i) += pow(sq->getPvalue(), 2);
+      chi_values(i) += sq->getChi(i, p_inf_values, p_inf_sq_values);
+    }
     delete sq;
   }
-  averaged_p_inf_values /= n_loops;
-  averaged_chi_values /= n_loops;
-  averaged_avg_clusterSize /= n_loops;
+  p_inf_values /= n_loops;
+  chi_values /= n_loops;
+  avg_clusterSize /= n_loops;
   calculateConvolution();
 }
+
 
 void Activator::calculateConvolution(){
   arma::vec p = arma::linspace(0.0, 1.0, 1E4);
@@ -46,7 +48,7 @@ void Activator::calculateConvolution(){
   convolution_p.fill(0);
   convolution_avg.fill(0);
   convolution_chi.fill(0);
-  unsigned int M = averaged_p_inf_values.n_elem;
+  unsigned int M = p_inf_values.n_elem;
   double lnFacBond = gsl_sf_lnfact(M);
   float percentage = 0;
 
@@ -58,18 +60,18 @@ void Activator::calculateConvolution(){
       double lnfac_n = gsl_sf_lnfact(n);
       double lnfac_M_n = gsl_sf_lnfact(M-n);
       //if(i == p.n_elem/10){binomialproba(n) = exp(lnFacBond - lnfac_n - lnfac_M_n + n*log(p(i))+(M - n)*log(1-p(i)));}
-      convolution_p(i) += averaged_p_inf_values(n)*(exp(lnFacBond - lnfac_n - lnfac_M_n + n*log(p(i)) + (M - n)*log(1-p(i))));
-      //convolution_avg(i) += averaged_avg_clusterSize(n)*exp(lnFacBond - lnfac_n - lnfac_M_n + n*log(p(i))+(M - n)*log(1-p(i)));
-      //convolution_chi(i) += averaged_chi_values(n)*(exp(lnFacBond - lnfac_n - lnfac_M_n + n*log(p(i))+(M - n)*log(1-p(i))));
+      convolution_p(i) += p_inf_values(n)*(exp(lnFacBond - lnfac_n - lnfac_M_n + n*log(p(i)) + (M - n)*log(1-p(i))));
+      convolution_avg(i) += avg_clusterSize(n)*exp(lnFacBond - lnfac_n - lnfac_M_n + n*log(p(i))+(M - n)*log(1-p(i)));
+      convolution_chi(i) += chi_values(n)*(exp(lnFacBond - lnfac_n - lnfac_M_n + n*log(p(i))+(M - n)*log(1-p(i))));
     }
   }
   stringstream fname;
-  fname << "p" << ".csv";
+  fname << folder << "p" << uid << ".csv";
   convolution_p.save(fname.str().c_str(), arma::csv_ascii);
   fname.str("");
-  fname << "chi" << ".csv";
+  fname << folder << "chi" << uid << ".csv";
   convolution_chi.save(fname.str().c_str(), arma::csv_ascii);
   fname.str("");
-  fname <<"avg" << ".csv";
+  fname << folder <<"avg" << uid << ".csv";
   convolution_avg.save(fname.str().c_str(), arma::csv_ascii);
 }
