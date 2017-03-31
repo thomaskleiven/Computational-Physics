@@ -15,8 +15,7 @@ Activator::Activator(int N):N(N){
   avg_clusterSize.set_size(2*n_sites);
   p_inf_sq_values.set_size(2*n_sites);
   binomial.set_size(2*n_sites);
-
-  p_inf_values.fill(0);
+  num_of_bonds = 2*n_sites;
 }
 
 
@@ -25,7 +24,6 @@ void Activator::run_loops(int n_loops){
   for (int k = 0; k < n_loops; k++){
     SquareLattice* sq = new SquareLattice(N);
     sq->generateNeighbors();
-    num_of_bonds = sq->bonds.size();
     sq->shuffleBonds();
     for(int i= 0; i<sq->bonds.size(); i++){
       if(k==0){binomial(i) = sq->binomial_coeff(i);};
