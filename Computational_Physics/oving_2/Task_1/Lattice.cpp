@@ -1,5 +1,4 @@
 #include "Lattice.hpp"
-#include "Activator.hpp"
 #include <armadillo>
 #include <cmath>
 #include <iostream>
@@ -11,22 +10,11 @@
 extern "C" double gsl_sf_lnfact(unsigned int n);
 extern "C" double gsl_sf_fact(unsigned int n);
 
-//#define DEBUG
-
 using namespace std;
 
 Lattice::Lattice(int N):N(N), sites(N*N){
   n_sites = sites.size();
   fill(sites.begin(), sites.end(), -1);
-  p_inf_values.set_size(2*n_sites);
-  p_inf_sq_values.set_size(2*n_sites);
-  avg_clusterSize.set_size(2*n_sites);
-  chi_values.set_size(2*n_sites);
-
-  p_inf_values.fill(0);
-  avg_clusterSize.fill(0);
-  p_inf_sq_values.fill(0);
-  chi_values.fill(0);
   average_s = n_sites;
 }
 
@@ -36,7 +24,8 @@ void Lattice::generateNeighbors(){
   }
 }
 
-void Lattice::calcAverageClusterSize(Bond &bond){
+
+double Lattice::calcAverageClusterSize(Bond &bond){
   unsigned int index_rootnode_start = getRootNode(bond.startPos);
   unsigned int index_rootnode_end = getRootNode(bond.neighbor);
   if(index_rootnode_start != index_rootnode_end){
@@ -52,59 +41,13 @@ void Lattice::calcAverageClusterSize(Bond &bond){
 
     if(sites[largest] < sites[largestCluster]){largestCluster = largest;}            //Check if new cluster now is larger than the previous largest cluster
 
-    //Check if largest cluster found and if smallest cluster is merged to largest
-    #ifdef DEBUG
-      for(int i = 0; i<sites.size(); i++){
-        if(sites[i] < sites[largestCluster]){
-          throw logic_error("Not largest cluster");}}
-
-      if(sites[largest] > sites[smallest]){throw logic_error("largest smaller than smallest");}
-
-      if(largest != getRootNode(largest)){throw logic_error("Wrong rootnode");}
-
-      if(largest == smallest){throw logic_error("Smallest and largest cannot be equal");}
-    #endif
-
     average_s += pow(sites[largest], 2);                                                          //Add new cluster size to average clustersize squared
 
     if(getPvalue() < 1.0){expected_s = (double)(average_s - pow(n_sites*getPvalue(), 2))/(n_sites*(1-getPvalue()));}
     else{expected_s = 0;}
   }
-  avg_clusterSize(num_activatedBonds) += expected_s;
+  return expected_s;
 }
-
-void Lattice::run_loops(int n_loops){
-  for (int i = 0; i < n_loops; i++){
-    num_activatedBonds = 0;
-    average_s = n_sites;
-    fill(sites.begin(), sites.end(), -1);
-    activateSites();
-  }
-  p_inf_values /= n_loops;
-  avg_clusterSize /= n_loops;
-  chi_values /= n_loops;
-  //calculateConvolution();
-}
-
-void Lattice::activateSites(){
-  shuffleBonds();
-  lnFacBond = gsl_sf_lnfact(bonds.size());
-  #pragma omp parallel for
-  for(int i = 0; i<bonds.size(); i++){
-    activateBond(bonds[i]);
-  }
-}
-
-void Lattice::activateBond(Bond &bond){
-  pushBinomialCoeff();                                                        //Calculate binomial coefficient after activating a bond
-  calcAverageClusterSize(bond);                                               //Calc avg cluster size
-  p_inf_values(num_activatedBonds) = getPvalue();                            //Calc p_inf value
-  p_inf_sq_values(num_activatedBonds) = pow(getPvalue(), 2);                  //Calc p_inf squared value
-  chi_values(num_activatedBonds) = getChi(num_activatedBonds);                //Calc chi value
-  num_activatedBonds++;
-}
-
-
 
 int Lattice::getRootNode(int site){
   if(sites[site] < 0){
@@ -118,8 +61,8 @@ double Lattice::getPvalue(){
   return (double)abs(sites[largestCluster])/sites.size();
 }
 
-double Lattice::getChi(int i){
-  return sites.size()*sqrt(p_inf_values(i) - p_inf_sq_values(i));
+double Lattice::getChi(int i, arma::vec &a, arma::vec &b){
+  return sites.size()*sqrt(a(i) - b(i));
 
 }
 
@@ -144,50 +87,9 @@ void Lattice::shuffleBonds(){
   random_shuffle (bonds.begin(), bonds.end());
 }
 
-void Lattice::pushBinomialCoeff(){
-  binomialCoeff.push_back(lnFacBond - gsl_sf_lnfact(num_activatedBonds) - gsl_sf_lnfact(bonds.size()-num_activatedBonds));
+double Lattice::binomial_coeff(int num_activatedBonds){
+  return gsl_sf_lnfact(bonds.size()) - gsl_sf_lnfact(num_activatedBonds) - gsl_sf_lnfact(bonds.size()-num_activatedBonds);
 }
-
-void Lattice::calculateConvolution(){
-  arma::vec p = arma::linspace(0.0, 1.0, 1E4);
-  arma::vec convolution_p( p.n_elem );
-  arma::vec convolution_chi( p.n_elem );
-  arma::vec convolution_avg( p.n_elem );
-  convolution_p.fill(0);
-  convolution_avg.fill(0);
-  convolution_chi.fill(0);
-  arma::vec binomialproba( p.n_elem );
-  binomialproba.set_size( bonds.size() );
-  unsigned int M = bonds.size();
-  float percentage = 0;
-
-  #pragma omp parallel for
-  for(int i = 0; i<p.n_elem;i++){
-    percentage += (1.0/(p.n_elem));
-    if(omp_get_thread_num() == 0){cout << "\r Percentage: " << percentage;}
-    for(int n=0;n<bonds.size(); n++){
-      double lnfac_n = gsl_sf_lnfact(n);
-      double lnfac_M_n = gsl_sf_lnfact(M-n);
-      //if(i == p.n_elem/10){binomialproba(n) = exp(lnFacBond - lnfac_n - lnfac_M_n + n*log(p(i))+(M - n)*log(1-p(i)));}
-      convolution_p(i) += p_inf_values(n)*(exp(lnFacBond - lnfac_n - lnfac_M_n + n*log(p(i)) + (M - n)*log(1-p(i))));
-      convolution_avg(i) += avg_clusterSize(n)*exp(lnFacBond - lnfac_n - lnfac_M_n + n*log(p(i))+(M - n)*log(1-p(i)));
-      convolution_chi(i) += chi_values(n)*(exp(lnFacBond - lnfac_n - lnfac_M_n + n*log(p(i))+(M - n)*log(1-p(i))));
-    }
-  }
-  stringstream fname;
-  fname <<folder << "p" << uid << ".csv";
-  convolution_p.save(fname.str().c_str(), arma::csv_ascii);
-  fname.str("");
-  fname << folder<< "chi" << uid << ".csv";
-  convolution_chi.save(fname.str().c_str(), arma::csv_ascii);
-  fname.str("");
-  fname <<folder<< "avg" << uid << ".csv";
-  convolution_avg.save(fname.str().c_str(), arma::csv_ascii);
-}
-
-
-
-
 
 void TriangularLattice::findNeighbor(int position){
   setCoordinates();
@@ -220,7 +122,6 @@ void TriangularLattice::setCoordinates(){
   for (int i = 0; i<N*N; i++){
         crd[i].x = i%N;
         crd[i].y = i/N;
-        cout << crd[i].x << " " << crd[i].y << endl;
     }
 }
 
@@ -255,19 +156,15 @@ void Lattice::saveGrid(const char* fname){
   }
   for (int i= 0; i<bonds.size(); i++){
     out << crd[bonds[i].startPos].x << "," << crd[bonds[i].startPos].y << "," << crd[bonds[i].neighbor].x << "," << crd[bonds[i].neighbor].y <<"\n";
-
-
     //Square
     //out << crd[bonds[i].startPos].x << "," << crd[bonds[i].startPos].y << "," << crd[bonds[i].neighbor].x << "," << crd[bonds[i].neighbor].y << "\n";
   }
   out.close();
-  cout << "Grid saved to file " << fname << endl;
 }
 
 
 
 void HoneycombLattice::findNeighbor(int position){
-  setCoordinates();
   Bond bond;
   Bond bond1;
   bond.startPos = position;
@@ -332,11 +229,6 @@ void DebugLattice::makeLattice(){
   generateNeighbors();
   saveGrid("HoneyLattice.csv");
 }
-
-void DebugLattice::activate(){
-    activateSites();
-}
-
 
 void DebugLattice::printBonds(){
   for (int i=0; i<bonds.size(); i++){

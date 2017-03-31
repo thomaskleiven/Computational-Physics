@@ -11,16 +11,18 @@ using namespace std;
 
 int main(int argc, char* argv[]){
   srand(time(0));
-
-  Activator act(200);
-  act.run_loops(50);
   #ifdef DEBUG
     DebugLattice debug(100);
     debug.makeLattice();
     debug.printBonds();
     debug.activateSites();
   #else
-    //if(argc != 3){cout << "Wrong number of arguemts" << endl;return 1;}
+    if(argc != 3){cout << "Wrong number of arguemts" << endl;return 1;}
+    Activator act(atoi(argv[1]));
+    act.uid = argv[1];
+    act.folder = argv[2];
+    act.run_loops(100);
+
     //SquareLattice solver(atoi(argv[1]));
     //TriangularLattice solver(atoi(argv[1]));
     //HoneycombLattice solver(atoi(argv[1]));

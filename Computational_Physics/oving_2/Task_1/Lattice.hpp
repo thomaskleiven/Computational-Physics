@@ -21,23 +21,18 @@ class Lattice{
 public:
   Lattice(int N);
   void generateNeighbors();
-  void activateSites();
-  std::string uid;
-  std::string folder;
-  void run_loops(int n_loops);
-  arma::vec p_inf_values;
-  arma::vec p_inf_sq_values;
-  arma::vec chi_values;
-  arma::vec avg_clusterSize;
+  std::vector<Bond> bonds;
+  double lnFacBond;
+  void shuffleBonds();
+  double getPvalue();
+  double calcAverageClusterSize(Bond &bond);
+  double getAverageClusterSize();
+  double getChi(int i, arma::vec &a, arma::vec &b);
+  double binomial_coeff(int num_activatedBonds);
 
 protected:
   virtual void findNeighbor(int position) = 0;
-  void shuffleBonds();
-  void calculateAverageClusterSize(int i);
-  void activateBond(Bond &bond);
   void save(std::vector<int> &vector);
-  void saveCoeff(std::vector<double> &vector);
-  void calcAverageClusterSize(Bond &bond);
   void getMainCluster();
   void buildNodeTable();
   void saveGrid(const char* fname);
@@ -46,27 +41,11 @@ protected:
   int largestCluster{0};
   int N{0};
   double average_s{0};
-  double lastValue{0};
-  int num{0};
-  double getPvalue();
-  double getAverageClusterSize();
-  double getChi(int i);
-  double pValue;
-  double pValueSquared;
-  double chi;
   double expected_s{0};
   int n_sites{0};
-  int bondsActivated{0};
   std::vector<Coordinate> crd;
-  std::vector<Bond> bonds;
   std::vector<int> sites;
   std::vector<int> mainCluster;
-private:
-  unsigned int count{0};
-  std::vector<double> binomialCoeff;
-  double lnFacBond;
-  void pushBinomialCoeff();
-  void calculateConvolution();
 };
 
 class SquareLattice: public Lattice{
