@@ -40,6 +40,7 @@ private:
   bool check{true};
   void checkOutput();
   Lattice *grid{NULL};
+  unsigned int rand_identifier{0};
 
 };
 

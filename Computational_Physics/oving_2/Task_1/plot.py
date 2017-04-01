@@ -17,12 +17,13 @@ for filename in files:
     data += np.loadtxt((path+"/"+filename), delimiter="\n")[40:-40]
 
 data /= len(files)
+
 np.savetxt(("averaged"+files[0]+".csv"), data, delimiter="\n")
 print "Averaged file saved"
 
 x = np.linspace(0.0,1.0,len(data))
 
-one = np.loadtxt((path+"/"+files[1]), delimiter="\n")[40:-40]
+one = np.loadtxt((path+"/"+"chi70_4563266.csv"), delimiter="\n")[40:-40]
 
 plt.figure(2)
 plt.plot(x, one)

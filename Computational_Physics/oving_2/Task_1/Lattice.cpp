@@ -44,11 +44,12 @@ double Lattice::calcAverageClusterSize(Bond &bond){
 
     if(sites[largest] < sites[largestCluster]){largestCluster = largest;}            //Check if new cluster now is larger than the previous largest cluster
 
-    average_s += pow(sites[largest], 2);                                                          //Add new cluster size to average clustersize squared
+    average_s += pow(sites[largest], 2);                                             //Add new cluster size to average clustersize squared
 
     if(getPvalue() < 1.0){expected_s = (double)(average_s - pow(n_sites*getPvalue(), 2))/(n_sites*(1-getPvalue()));}
     else{expected_s = 0;}
   }
+  
   return expected_s;
 }
 

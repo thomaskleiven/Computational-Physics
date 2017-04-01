@@ -12,6 +12,7 @@ using namespace std;
 
 Activator::Activator(int N, LatticeType_t lattice):N(N), lattice(lattice){
   n_sites = N*N;
+  rand_identifier = rand()%10000000;
   double n_bonds = 0;
   switch(lattice){
     case LatticeType_t::SQUARE:
@@ -30,7 +31,11 @@ Activator::Activator(int N, LatticeType_t lattice):N(N), lattice(lattice){
   avg_clusterSize.set_size(n_bonds);
   p_inf_sq_values.set_size(n_bonds);
   binomial.set_size(n_bonds);
-  p_val.set_size(n_bonds);
+
+  p_inf_sq_values.fill(0.0);
+  p_inf_values.fill(0.0);
+  avg_clusterSize.fill(0.0);
+
   num_of_bonds = n_bonds;
 }
 
@@ -61,6 +66,7 @@ void Activator::run_loops(int n_loops){
 
     if(id == 0){grid = sq;}
 
+
     //if((id == 0) && check){checkOutput();}
     sq->generateNeighbors();
     sq->shuffleBonds();
@@ -68,11 +74,11 @@ void Activator::run_loops(int n_loops){
       if(k==0){binomial(i) = sq->binomial_coeff(i);};
       avg_clusterSize(i) += sq->calcAverageClusterSize(sq->bonds[i]);
       p_inf_values(i) += sq->getPvalue();
-      p_inf_sq_values(i) += pow(sq->getPvalue(), 2);
     }
     if(id != 0){delete sq; sq = NULL;}
     count++;
   }
+
   p_inf_values /= n_loops;
   p_inf_sq_values /= n_loops;
   avg_clusterSize /= n_loops;
@@ -94,10 +100,10 @@ void Activator::calculateChi(arma::vec &convolution_p, arma::vec &convolution_p_
   arma::vec chi ( convolution_p.n_elem);
 
   for(int i = 0; i<chi.n_elem; i++){
-    chi(i) = n_sites*sqrt(convolution_p_inf_griduared(i) - pow(convolution_p(i),2));
+    chi(i) = sqrt(n_sites*n_sites*convolution_p_inf_griduared(i) -n_sites*n_sites*pow(convolution_p(i),2));
   }
   stringstream filename;
-  filename << grid->folder<< "/" << "chi" << uid << "_" <<rand()%10000000 << ".csv";
+  filename << grid->folder<< "/" << "chi" << uid << "_" << rand_identifier << ".csv";
   chi.save(filename.str().c_str(), arma::csv_ascii);
   filename.str("");
 }
@@ -108,6 +114,7 @@ void Activator::calculateConvolution(){
   arma::vec convolution_p( p.n_elem );
   arma::vec convolution_p_inf_griduared( p.n_elem );
   arma::vec convolution_avg( p.n_elem );
+  arma::vec p_sq = arma::pow(p_inf_values, 2);
   convolution_p.fill(0);
   convolution_avg.fill(0);
   convolution_p_inf_griduared.fill(0);
@@ -119,16 +126,16 @@ void Activator::calculateConvolution(){
     for(int n=0;n<num_of_bonds; n++){
       convolution_p(i) += p_inf_values(n)*(exp(binomial(n) + n*log(p(i)) + (num_of_bonds - n)*log(1-p(i))));
       convolution_avg(i) += avg_clusterSize(n)*exp(binomial(n) + n*log(p(i))+(num_of_bonds - n)*log(1-p(i)));
-      convolution_p_inf_griduared(i) += p_inf_sq_values(n)*(exp(binomial(n) + n*log(p(i))+(num_of_bonds - n)*log(1-p(i))));
+      convolution_p_inf_griduared(i) += p_sq(n)*(exp(binomial(n) + n*log(p(i))+(num_of_bonds - n)*log(1-p(i))));
     }
   }
 
   calculateChi(convolution_p, convolution_p_inf_griduared);
 
   stringstream fname;
-  fname << grid->folder << "/" << "p" << uid << "_" <<rand()%10000000 <<".csv";
+  fname << grid->folder << "/" << "p" << uid << "_" << rand_identifier <<".csv";
   convolution_p.save(fname.str().c_str(), arma::csv_ascii);
   fname.str("");
-  fname << grid->folder << "/"<<"avg" << uid << "_" <<rand()%10000000 <<".csv";
+  fname << grid->folder << "/"<<"avg" << uid << "_" << rand_identifier <<".csv";
   convolution_avg.save(fname.str().c_str(), arma::csv_ascii);
 }
