@@ -5,7 +5,6 @@ CMakeFiles/main.dir/Activator.cpp.o: Activator.cpp
 CMakeFiles/main.dir/Activator.cpp.o: Activator.hpp
 CMakeFiles/main.dir/Activator.cpp.o: Lattice.hpp
 
-CMakeFiles/main.dir/Lattice.cpp.o: Activator.hpp
 CMakeFiles/main.dir/Lattice.cpp.o: Lattice.cpp
 CMakeFiles/main.dir/Lattice.cpp.o: Lattice.hpp
 

@@ -277,7 +277,7 @@ CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding Armadillo
-FIND_PACKAGE_MESSAGE_DETAILS_Armadillo:INTERNAL=[/usr/lib64/libarmadillo.so][/usr/include][v7.600.2()]
+FIND_PACKAGE_MESSAGE_DETAILS_Armadillo:INTERNAL=[/usr/lib64/libarmadillo.so][/usr/include][v7.800.1()]
 //Details about finding OpenMP
 FIND_PACKAGE_MESSAGE_DETAILS_OpenMP:INTERNAL=[-fopenmp][-fopenmp][v()]
 //ADVANCED property for variable: OpenMP_CXX_FLAGS

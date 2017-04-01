@@ -29,6 +29,8 @@ public:
   double getAverageClusterSize();
   double getChi(int i, arma::vec &a, arma::vec &b);
   double binomial_coeff(int num_activatedBonds);
+  int getNumberOfBonds() const{return number_of_bonds;};
+  std::string folder;
 
 protected:
   virtual void findNeighbor(int position) = 0;
@@ -46,11 +48,16 @@ protected:
   std::vector<Coordinate> crd;
   std::vector<int> sites;
   std::vector<int> mainCluster;
+  unsigned int number_of_bonds{0};
 };
 
 class SquareLattice: public Lattice{
 public:
-  SquareLattice(int N): Lattice(N){};
+  SquareLattice(int N): Lattice(N){
+    number_of_bonds = bonds_per_site*N*N;
+    folder = "res_square/";
+  };
+  const static unsigned int bonds_per_site{2};
 protected:
   void findNeighbor(int position);
   void setCoordinates();
@@ -58,7 +65,11 @@ protected:
 
 class TriangularLattice: public Lattice{
 public:
-  TriangularLattice(int N): Lattice(N){};
+  TriangularLattice(int N): Lattice(N){
+    number_of_bonds = bonds_per_site*N*N;
+    folder = "res_tri/";
+  };
+  const static unsigned int bonds_per_site{3};
 protected:
   void findNeighbor(int position);
   void setCoordinates();
@@ -66,7 +77,11 @@ protected:
 
 class HoneycombLattice: public Lattice{
 public:
-  HoneycombLattice(int N): Lattice(N){};
+  HoneycombLattice(int N): Lattice(N){
+    number_of_bonds = bonds_per_site*N*N;
+    folder = "res_hon/";
+  };
+  static double bonds_per_site;
 protected:
   void setCoordinates();
   void findNeighbor(int position);

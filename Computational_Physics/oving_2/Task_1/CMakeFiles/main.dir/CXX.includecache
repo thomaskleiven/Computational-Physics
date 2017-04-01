@@ -13,6 +13,10 @@ Lattice.hpp
 /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_2/Task_1/Lattice.hpp
 armadillo
 -
+cstdlib
+-
+cassert
+-
 
 /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_2/Task_1/Activator.hpp
 armadillo
@@ -21,8 +25,6 @@ armadillo
 /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_2/Task_1/Lattice.cpp
 Lattice.hpp
 /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_2/Task_1/Lattice.hpp
-Activator.hpp
-/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_2/Task_1/Activator.hpp
 armadillo
 -
 cmath
@@ -58,5 +60,7 @@ cstdlib
 ctime
 -
 stdlib.h
+-
+stdexcept
 -
 

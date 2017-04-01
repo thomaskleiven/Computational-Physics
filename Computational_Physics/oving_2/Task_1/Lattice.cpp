@@ -12,6 +12,9 @@ extern "C" double gsl_sf_fact(unsigned int n);
 
 using namespace std;
 
+double HoneycombLattice::bonds_per_site = 1.5;
+
+
 Lattice::Lattice(int N):N(N), sites(N*N){
   n_sites = sites.size();
   fill(sites.begin(), sites.end(), -1);
@@ -92,7 +95,6 @@ double Lattice::binomial_coeff(int num_activatedBonds){
 }
 
 void TriangularLattice::findNeighbor(int position){
-  setCoordinates();
   Bond bond;
   Bond bond1;
   Bond bond2;
@@ -128,7 +130,6 @@ void TriangularLattice::setCoordinates(){
 
 
 void SquareLattice::findNeighbor(int position){
-  setCoordinates();
   Bond bond;
   Bond bond1;
   bond.startPos = position;
@@ -143,6 +144,7 @@ void SquareLattice::findNeighbor(int position){
 void SquareLattice::setCoordinates(){
   crd.resize(N*N);
   for (int i = 0; i<N*N; i++){
+    cout << "here" << endl;
     crd[i].x = i%N;
     crd[i].y = i/N;
   }
