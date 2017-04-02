@@ -97,7 +97,7 @@ void Activator::checkOutput(){
 }
 
 void Activator::calculateChi(arma::vec &convolution_p, arma::vec &convolution_p_inf_squared){
-  arma::vec chi ( convolution_p.n_elem);
+  arma::vec chi ( convolution_p.n_elem );
 
   for(int i = 0; i<chi.n_elem; i++){
     if(convolution_p_inf_squared(i)-pow(convolution_p(i),2) < 0.0){
