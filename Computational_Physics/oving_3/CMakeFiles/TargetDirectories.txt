@@ -1,0 +1,3 @@
+/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_3/CMakeFiles/rebuild_cache.dir
+/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_3/CMakeFiles/edit_cache.dir
+/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_3/CMakeFiles/main.dir

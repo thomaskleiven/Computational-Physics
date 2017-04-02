@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_3/Main.cpp
+Schrodinger.hpp
+/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_3/Schrodinger.hpp
+Potentials.hpp
+/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_3/Potentials.hpp
+
+/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_3/Potentials.hpp
+
+/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_3/Schrodinger.cpp
+Schrodinger.hpp
+/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_3/Schrodinger.hpp
+armadillo
+-
+cstdlib
+-
+cassert
+-
+
+/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_3/Schrodinger.hpp
+armadillo
+-
+Schrodinger.tpp
+/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_3/Schrodinger.tpp
+
+/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_3/Schrodinger.tpp
+
