@@ -1,30 +1,35 @@
 import numpy as np
+import matplotlib as mpl
+import sys
+from os import listdir
+from os.path import isfile, join
+mpl.rcParams['svg.fonttype'] = "none"
+mpl.rcParams['font.size'] = 18
 from matplotlib import pyplot as plt
-from scipy import stats
 
-data_70 = np.loadtxt('res_hon/p70.csv', delimiter='\n')[10:-10]
-data_300 = np.loadtxt('res_hon/p300.csv', delimiter='\n')[10:-10]
-data_400 = np.loadtxt('res_hon/p400.csv', delimiter='\n')[10:-10]
-data_500 = np.loadtxt('res_hon/p500.csv', delimiter='\n')[10:-10]
-data_600 = np.loadtxt('res_hon/p600.csv', delimiter='\n')[10:-10]
-data_700 = np.loadtxt('res_hon/p700.csv', delimiter='\n')[10:-10]
-data_800 = np.loadtxt('res_hon/p800.csv', delimiter='\n')[10:-10]
-data_900 = np.loadtxt('res_hon/p900.csv', delimiter='\n')[10:-10]
-data_1000= np.loadtxt('res_hon/p1000.csv', delimiter='\n')[10:-10]
-data_5000= np.loadtxt('res_hon/p1500.csv', delimiter='\n')[10:-10]
+#colors = ["#e41a1c", "#377eb8", "#4daf4a", "#984ea3", "#ff7f00", "#ffff33", "#a65628", "#f781bf"]
+colors = ["#1b9e77", "#d95f02", "#7570b3", "#e7298a", "#66a61e", "#e6ab02", "#a6761d", "#666666"]
+path = sys.argv[1]
+
+files = [f for f in listdir(path) if isfile(join(path, f))]
+
+data = np.zeros(len(files))
 
 fig = plt.figure()
 ax = fig.add_subplot(1,1,1)
-x = np.linspace(0.0, 1.0, len(data_900))
+count = 0
+for filename in files:
+    data = np.loadtxt(path+"/"+filename)
+    x = np.linspace(0.0, 1.0, len(data))
+    ax.plot(x, data, color=colors[count%len(colors)])
+    count += 1
 
-ax.plot(x, data_300)
-ax.plot(x, data_400)
-ax.plot(x, data_500)
-ax.plot(x, data_600)
-ax.plot(x, data_700)
-ax.plot(x, data_800)
-ax.plot(x, data_900)
-ax.plot(x, data_1000)
-ax.plot(x, data_5000)
 
+ax.spines["right"].set_visible(False)
+ax.spines["top"].set_visible(False)
+ax.xaxis.set_ticks_position("bottom")
+ax.yaxis.set_ticks_position("left")
+ax.set_xlabel("\$p\$")
+ax.set_ylabel("\$P_\infty\$")
+ax.legend(loc="lower right", frameon=False, labelspacing=0.05)
 plt.show()
