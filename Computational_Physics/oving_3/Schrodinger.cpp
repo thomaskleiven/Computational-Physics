@@ -2,16 +2,18 @@
 #include <armadillo>
 #include <cstdlib>
 #include <cassert>
+#include <sstream>
+#include <cmath>
+#include <complex>
 
-extern "C" void dpttrf_(int* n, double* diag, double* e, int* info);
-extern "C" void dpttrs_(int* n, int* nrhs, double* diag, double* subdiag, double* rhs, int* nx, int* info);
 extern "C" void dstevd_(char* JOBZ, int* N, double* D, double* E, double* Z,int* LDZ,double* WORK,int* LWORK, int* IWORK, int* LIWORK,int* INFO );
 
 
 
 using namespace std;
 
-Schrodinger::Schrodinger(int nx):nx(nx){
+Schrodinger::Schrodinger(int nx):nx(nx), IMUNIT (0.0, 1.0){
+  nx = nx;
   diagonal.set_size(nx);
   sub_diagonal.set_size(nx-1);
   diagonal.fill(0);
@@ -26,10 +28,26 @@ void Schrodinger::buildSubDiag(){
   }
 }
 
+double Schrodinger::trapezoidal(const arma::vec eigenvector){
+  double integral = 0;
+  for (int i = 1; i < eigenvector.n_elem; i++){
+    integral += 2*eigenvector(i);
+  }
+  integral += eigenvector(0);
+  integral += eigenvector(eigenvector.n_elem-1);
+  return integral/(2*eigenvector.n_elem);
+}
+
+void Schrodinger::setEigenvectorWithTime(arma::vec &eigenvector, double t, int eigenvalue){
+  complex_eigenvector = arma::conv_to<arma::cx_vec>::from (eigenvector);
+  complex_eigenvector*=exp(IMUNIT*diagonal(eigenvalue)*t);
+}
+
+
 void Schrodinger::eigenvalueSolver(){
 
   char mode[] = "V";
-  arma::mat orthonormal_eigenvectors(nx,nx);
+  eigenvectors.set_size(nx,nx);
   arma::vec liwork( nx );
   int LIWORK = 3+5*nx;
   int LWORK = 1 + 4*nx + nx*nx;
@@ -37,7 +55,20 @@ void Schrodinger::eigenvalueSolver(){
   int iwork[LIWORK];
   int info;
 
-  dstevd_(mode, &nx, diagonal.memptr(), sub_diagonal.memptr(), orthonormal_eigenvectors.memptr(), &nx, work.memptr(), &LWORK, iwork, &LIWORK, &info);
+  dstevd_(mode, &nx, diagonal.memptr(), sub_diagonal.memptr(), eigenvectors.memptr(), &nx, work.memptr(), &LWORK, iwork, &LIWORK, &info);
 
-  diagonal.save("eigenvalues.csv", arma::csv_ascii);
+  stringstream fname;
+  fname << "eigenvalues/eigenvales_" << nx << ".csv";
+  diagonal.save(fname.str().c_str(), arma::csv_ascii);
+  eigenvectors = eigenvectors.t();
+  fname.str("");
+  fname << "eigenvectors/eigenvector_" << nx << ".csv";
+  eigenvectors.save(fname.str().c_str(), arma::csv_ascii);
 }
+
+
+/*void Schrodinger::checkOrtogonality(){
+    for (int i = 0; i<eigvec.n_cols; i++){
+      cout << arma::dot(eigvec.col(i), eigvec.col(j)) << endl;
+    }
+}*/
