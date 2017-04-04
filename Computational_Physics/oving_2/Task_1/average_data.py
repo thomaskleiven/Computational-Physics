@@ -24,11 +24,7 @@ for param in params:
         data += np.loadtxt((path+"/"+filename), delimiter="\n")[40:-40]
 
     data /= len(files)
-<<<<<<< HEAD
     print "File averaged: ", len(files)
-=======
-    print len(files)
->>>>>>> 101b471f55c9ec883116e581b6261792ddfbda1e
 
     np.savetxt((param+"_averaged.csv"), data, delimiter="\n")
     print "File saved as %s.csv"%param
