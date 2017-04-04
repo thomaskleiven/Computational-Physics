@@ -4,15 +4,16 @@ import sys
 from os import listdir
 from os.path import isfile, join
 
-#params = ["avg100", "avg200", "avg300", "avg400", "avg500", "avg600", "avg700", "avg800", "avg900", "avg1000", "avg1500", "avg2000"]
-#params = ["p100", "p200", "p300", "p400", "p500", "p600", "p700", "p800", "p900", "p1000", "p1500", "p2000"]
-params = ["chi100", "chi200", "chi300", "chi400", "chi500", "chi600", "chi700", "chi800", "chi900", "chi1000", "chi1500", "chi2000"]
+#params = ["avg100_", "avg200_", "avg300_", "avg400_", "avg500_", "avg600_", "avg700_", "avg800_", "avg900_", "avg1000_", "avg1500_", "avg2000_"]
+#params = ["p100_", "p200_", "p300_", "p400_", "p500_", "p600_", "p700_", "p800_", "p900_", "p1000_", "p1500_", "p2000_"]
+params = ["chi100_", "chi200_", "chi300_", "chi400_", "chi500_", "chi600_", "chi700_", "chi800_", "chi900_", "chi1000_", "chi1500_", "chi2000_"]
 
 path = sys.argv[1]
 #param = sys.argv[2]
 
 i=0
 for param in params:
+    files = 0
     files = [f for f in listdir(path) if isfile(join(path, f)) and param in f]
     if(len(files) == 0):
         continue
@@ -23,6 +24,7 @@ for param in params:
         data += np.loadtxt((path+"/"+filename), delimiter="\n")[40:-40]
 
     data /= len(files)
+    print len(files)
 
     np.savetxt((param+"_averaged.csv"), data, delimiter="\n")
     print "File saved as %s.csv"%param

@@ -5,6 +5,7 @@ find_package(Armadillo REQUIRED)
 link_directories("/usr/lib64")
 
 #set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
+set (CMAKE -DCMAKE_BUILD_TYPE=Release)
 
 include_directories(${ARMADILLO_INCLUDE_DIRS})
 set(LIB ${ARMADILLO_LIBRARIES})

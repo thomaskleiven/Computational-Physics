@@ -1,7 +1,7 @@
 
 #ifndef LATTICE
 #define LATTICE
-
+#define ARMA_NO_DEBUG
 #include<armadillo>
 #include<vector>
 

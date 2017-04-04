@@ -138,7 +138,7 @@ void Activator::calculateConvolution(){
   calculateChi(convolution_p, convolution_p_inf_squared);
 
   stringstream fname;
-  fname << grid->folder << "/" << "p" << uid << "_" << rand_identifier <<".csv";
+  fname << grid->folder << "/" << "p_inf_squared" << uid << "_" << rand_identifier <<".csv";
   convolution_p_inf_squared.save(fname.str().c_str(), arma::csv_ascii);
   fname.str("");
   fname << grid->folder << "/" << "p" << uid << "_" << rand_identifier <<".csv";
