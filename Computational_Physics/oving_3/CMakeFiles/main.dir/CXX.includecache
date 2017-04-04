@@ -6,11 +6,19 @@
 
 #IncludeRegexTransform: 
 
+/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_3/InitialConditions.hpp
+
 /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_3/Main.cpp
 Schrodinger.hpp
 /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_3/Schrodinger.hpp
 Potentials.hpp
 /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_3/Potentials.hpp
+InitialConditions.hpp
+/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_3/InitialConditions.hpp
+stdlib.h
+-
+armadillo
+-
 
 /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_3/Potentials.hpp
 
@@ -23,9 +31,19 @@ cstdlib
 -
 cassert
 -
+sstream
+-
+cmath
+-
+complex
+-
 
 /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_3/Schrodinger.hpp
 armadillo
+-
+cmath
+-
+complex
 -
 Schrodinger.tpp
 /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_3/Schrodinger.tpp

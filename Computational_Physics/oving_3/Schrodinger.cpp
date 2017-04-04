@@ -56,19 +56,25 @@ void Schrodinger::eigenvalueSolver(){
   int info;
 
   dstevd_(mode, &nx, diagonal.memptr(), sub_diagonal.memptr(), eigenvectors.memptr(), &nx, work.memptr(), &LWORK, iwork, &LIWORK, &info);
+  //save(eigenvectors, diagonal);
+}
 
-  stringstream fname;
-  fname << "eigenvalues/eigenvales_" << nx << ".csv";
-  diagonal.save(fname.str().c_str(), arma::csv_ascii);
-  eigenvectors = eigenvectors.t();
-  fname.str("");
-  fname << "eigenvectors/eigenvector_" << nx << ".csv";
-  eigenvectors.save(fname.str().c_str(), arma::csv_ascii);
+void Schrodinger::save(arma::mat &eigenvectors, arma::vec &eigenvalues){
+
+    stringstream fname;
+    fname << "eigenvalues/eigenvales_" << nx << ".csv";
+    eigenvalues.save(fname.str().c_str(), arma::csv_ascii);
+    eigenvectors = eigenvectors.t();
+    fname.str("");
+    fname << "eigenvectors/eigenvector_" << nx << ".csv";
+    eigenvectors.save(fname.str().c_str(), arma::csv_ascii);
 }
 
 
-/*void Schrodinger::checkOrtogonality(){
-    for (int i = 0; i<eigvec.n_cols; i++){
-      cout << arma::dot(eigvec.col(i), eigvec.col(j)) << endl;
+void Schrodinger::checkOrtogonality(){
+    for (int i = 0; i<eigenvectors.n_cols; i++){
+      for (int j = 0; j<eigenvectors.n_cols; j++){
+        cout << arma::dot(eigenvectors.col(i), eigenvectors.col(j)) << endl;
+      }
     }
-}*/
+}

@@ -30,6 +30,7 @@ private:
   void buildDiag(const V &potential);
   void buildSubDiag();
   int nx{0};
+  void save(arma::mat &eigenvectors, arma::vec &eigenvalues);
   cdouble IMUNIT;
 
 };

@@ -19,7 +19,7 @@ void Schrodinger::buildDiag( const V &potential ){
 
 template<class Function>
 void Schrodinger::project( const Function &condition ){
-  double dx = 1.0/( eigenvectors.n_cols+1 );
+  double dx = 1.0/( eigenvectors.n_cols);
   alpha_coeff.set_size( eigenvectors.n_cols );
   alpha_coeff.fill(0);
   for (int i = 0; i < eigenvectors.n_cols; i++){
@@ -27,6 +27,10 @@ void Schrodinger::project( const Function &condition ){
     arma::vec eigenvector = eigenvectors.col(i);
     eigenvector *= condition(x);
     alpha_coeff(i) = trapezoidal(eigenvector);
+    if(i==0){
+      cout << eigenvector << endl;
+      cout << condition(x) << endl;
+    }
   }
 }
 
