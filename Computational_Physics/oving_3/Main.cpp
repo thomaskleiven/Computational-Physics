@@ -16,6 +16,7 @@ int main(int argc, char* argv[]){
   schrodinger.initDiagonals(freePartical);
   schrodinger.eigenvalueSolver();
   schrodinger.project(init);
+  schrodinger.checkOrtogonality();
   std::vector<arma::cx_vec> modes;
   arma::cx_vec solution;
   solution.set_size( schrodinger.alpha_coeff.n_elem );
