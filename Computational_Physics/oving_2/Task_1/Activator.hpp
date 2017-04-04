@@ -1,6 +1,7 @@
 #ifndef ACTIVATOR
 #define ACTIVATOR
 
+#define ARMA_NO_DEBUG
 #include<armadillo>
 
 enum class LatticeType_t{

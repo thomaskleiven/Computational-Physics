@@ -29,6 +29,7 @@ private:
   template<class V>
   void buildDiag(const V &potential);
   void buildSubDiag();
+  void save(arma::mat &eigenvectors, arma::vec &eigenvalues);
   int nx{0};
   void save(arma::mat &eigenvectors, arma::vec &eigenvalues);
   cdouble IMUNIT;

@@ -1,4 +1,5 @@
 #include "Lattice.hpp"
+#define ARMA_NO_DEBUG
 #include <armadillo>
 #include <cmath>
 #include <iostream>
@@ -49,7 +50,7 @@ double Lattice::calcAverageClusterSize(Bond &bond){
     if(getPvalue() < 1.0){expected_s = (double)(average_s - pow(n_sites*getPvalue(), 2))/(n_sites*(1-getPvalue()));}
     else{expected_s = 0;}
   }
-  
+
   return expected_s;
 }
 

@@ -21,7 +21,11 @@ count = 0
 for filename in files:
     data = np.loadtxt(path+"/"+filename)
     x = np.linspace(0.0, 1.0, len(data))
+<<<<<<< HEAD
     ax.plot(x, data, color=colors[count%len(colors)], label=filename[:6])
+=======
+    ax.plot(x, data, color=colors[count%len(colors)], label=filename)
+>>>>>>> 101b471f55c9ec883116e581b6261792ddfbda1e
     count += 1
 
 

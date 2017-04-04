@@ -27,10 +27,14 @@ void Schrodinger::project( const Function &condition ){
     arma::vec eigenvector = eigenvectors.col(i);
     eigenvector *= condition(x);
     alpha_coeff(i) = trapezoidal(eigenvector);
+<<<<<<< HEAD
     if(i==0){
       cout << eigenvector << endl;
       cout << condition(x) << endl;
     }
+=======
+    //cout << alpha_coeff(i) << endl;
+>>>>>>> 101b471f55c9ec883116e581b6261792ddfbda1e
   }
 }
 
