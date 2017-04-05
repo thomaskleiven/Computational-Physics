@@ -28,21 +28,21 @@ void Schrodinger::buildSubDiag(){
   }
 }
 
-double Schrodinger::trapezoidal(const arma::vec eigenvector){
+double Schrodinger::trapezoidal(const arma::vec &eigenvector){
   double integral = 0;
   for (int i = 1; i < eigenvector.n_elem; i++){
     integral += 2*eigenvector(i);
   }
   integral += eigenvector(0);
   integral += eigenvector(eigenvector.n_elem-1);
-  return integral/(2*eigenvector.n_elem);
+  return (double) integral/(2*eigenvector.n_elem);
 }
 
-void Schrodinger::setEigenvectorWithTime(arma::vec &eigenvector, double t, int eigenvalue){
+arma::cx_vec& Schrodinger::getEigenvectorWithTime(arma::vec &eigenvector, double t, int eigenvalue){
   complex_eigenvector = arma::conv_to<arma::cx_vec>::from (eigenvector);
-  complex_eigenvector*=exp(IMUNIT*diagonal(eigenvalue)*t);
+  complex_eigenvector *=exp(IMUNIT*diagonal(eigenvalue)*t);
+  return complex_eigenvector;
 }
-
 
 void Schrodinger::eigenvalueSolver(){
 
@@ -59,6 +59,24 @@ void Schrodinger::eigenvalueSolver(){
   //save(eigenvectors, diagonal);
 }
 
+double Schrodinger::getMaxEigenvalue(){
+  return arma::max(diagonal);
+}
+
+double Schrodinger::getMinEigenvalue(){
+  return arma::min(diagonal);
+}
+
+void Schrodinger::normalizeEigenvectors(){
+  for (int i = 0; i<eigenvectors.n_rows; i++){
+    arma::vec eigenvector = arma::pow(eigenvectors.col(i),2);
+    double n_factor = trapezoidal(eigenvector);
+    eigenvectors.col(i) /= sqrt(n_factor);
+  }
+  //arma::vec no = eigenvectors.col(0);
+  //cout << trapezoidal(arma::pow(arma::abs(no),2)) << endl;
+}
+
 void Schrodinger::save(arma::mat &eigenvectors, arma::vec &eigenvalues){
 
     stringstream fname;
@@ -68,13 +86,4 @@ void Schrodinger::save(arma::mat &eigenvectors, arma::vec &eigenvalues){
     fname.str("");
     fname << "eigenvectors/eigenvector_" << nx << ".csv";
     eigenvectors.save(fname.str().c_str(), arma::csv_ascii);
-}
-
-
-void Schrodinger::checkOrtogonality(){
-    for (int i = 0; i<eigenvectors.n_cols; i++){
-      for (int j = 0; j<eigenvectors.n_cols; j++){
-        cout << arma::dot(eigenvectors.col(i), eigenvectors.col(j)) << endl;
-      }
-    }
 }

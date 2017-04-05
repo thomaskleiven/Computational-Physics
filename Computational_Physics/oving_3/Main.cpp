@@ -3,34 +3,51 @@
 #include "InitialConditions.hpp"
 #include <stdlib.h>
 #include <armadillo>
+#include <cmath>
 
 using namespace std;
 
 int main(int argc, char* argv[]){
+  if(argc != 3){cout << "Wrong arguments" << endl; return 1;}
   FreeParticalPotential freePartical;
-  InitialCondition init;
+  Dirac dirac;
+  FirstEigenmode mode;
+  InitialCondition* impuls = 0;
 
-  if(argc != 2){cout << "Wrong arguments" << endl; return 1;}
+  string initial(argv[2]);
+  if(initial == "dirac"){
+    impuls = &dirac;
+  }else if(initial == "first_mode"){
+    impuls = &mode;
+  }else{
+    cout << "Unknown initial condition" << endl; return 1;
+  }
 
   Schrodinger schrodinger(atoi(argv[1]));
   schrodinger.initDiagonals(freePartical);
   schrodinger.eigenvalueSolver();
-  schrodinger.project(init);
-  schrodinger.checkOrtogonality();
-  std::vector<arma::cx_vec> modes;
+  schrodinger.normalizeEigenvectors();
+  schrodinger.project(*impuls);
   arma::cx_vec solution;
   solution.set_size( schrodinger.alpha_coeff.n_elem );
-  int nt = 7000;
-  double dt = 1.0/nt;
+  double nt = 100;
+  double dt = 5000*(1.0/schrodinger.getMaxEigenvalue());
+  arma::mat time_evolution(solution.n_elem, nt);
+  time_evolution.fill(0);
+  double sum_alpha_squared = arma::accu(arma::pow(schrodinger.alpha_coeff,2));
+
   for(int i = 0; i<nt; i++){
     double t = i*dt;
+    solution.fill(0.0);
     for(int j = 0; j < schrodinger.alpha_coeff.n_elem; j++){
       arma::vec eigenvector = schrodinger.eigenvectors.col(j);
-      schrodinger.setEigenvectorWithTime(eigenvector, t, j);
-      modes.push_back(schrodinger.complex_eigenvector);
-      solution += modes[j]*schrodinger.alpha_coeff(j);
+      solution += schrodinger.getEigenvectorWithTime(eigenvector, t, j)*schrodinger.alpha_coeff(j);
     }
+    time_evolution.col(i) = arma::pow(arma::abs(solution), 2)/sum_alpha_squared;
   }
-  arma::vec real_solution = arma::conv_to<arma::vec>::from(arma::pow(arma::abs(solution),2));
-  real_solution.save("solution.csv", arma::csv_ascii);
+
+  time_evolution = time_evolution.t();
+  time_evolution.save("time_evolution.csv", arma::csv_ascii);
+  arma::vec psi = arma::pow(arma::abs(solution), 2) / sum_alpha_squared;
+  psi.save("psi.csv", arma::csv_ascii);
 };

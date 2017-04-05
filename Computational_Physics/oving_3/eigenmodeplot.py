@@ -28,7 +28,7 @@ def errorScaling(eigvec_num):
     return steps, eigen_error
 
 def plotOneEigenvec(eigvec_num):
-    filename = path+files[eigvec_num]
+    filename = path+files[3]
     eigenvector = np.loadtxt(filename, delimiter=",")
     N = len(eigenvector[eigvec_num])
     dx = 1.0/N
@@ -37,12 +37,15 @@ def plotOneEigenvec(eigvec_num):
     plt.plot(eigenfunction(eigvec_num,x))
     plt.figure(1)
 
-plotOneEigenvec(3)
-
+plotOneEigenvec(0)
 
 steps, eigen_error = errorScaling(3)
 slope, intercept, rvalue, pvalue, stdr = stats.linregress(np.log(steps), np.log(eigen_error))
 print (slope)
+
+analytical = np.loadtxt("analyticalEigenvector.csv", delimiter=",");
+plt.figure(4)
+plt.plot(analytical)
 
 plt.figure(2)
 plt.plot(steps, np.exp(intercept)*steps**slope)
