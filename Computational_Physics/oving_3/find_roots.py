@@ -21,5 +21,5 @@ xopt = optimize.fmin(eigvecs, 271)
 print "Optimal x-value: ", xopt[0]
 
 #Find root
-res = optimize.brentq(eigvecs, 272.030991745, 273)
-print "Root: ", res
+root = optimize.brentq(eigvecs, 272.030991745, 273)
+print "Root: ", root

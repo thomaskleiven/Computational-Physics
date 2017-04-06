@@ -8,22 +8,34 @@
 
 extern "C" void dstevd_(char* JOBZ, int* N, double* D, double* E, double* Z,int* LDZ,double* WORK,int* LWORK, int* IWORK, int* LIWORK,int* INFO );
 
+#include <gsl/gsl_errno.h>
+#include <gsl/gsl_spline.h>
 
 
 using namespace std;
 
-Schrodinger::Schrodinger(int nx):nx(nx), IMUNIT (0.0, 1.0){
-  nx = nx;
+Schrodinger::Schrodinger(int nx): IMUNIT (0.0, 1.0){
   diagonal.set_size(nx);
   sub_diagonal.set_size(nx-1);
   diagonal.fill(0);
   sub_diagonal.fill(0);
-  dx = 1.0/nx;
+  dx = 1.0/(nx+1);
 }
 
 
+void Schrodinger::setInitialCondition(){
+  arma::mat eigvecs;
+  bool status = eigvecs.load("eigenvectors/eigenvector_with_potential_100.csv", arma::csv_ascii);
+  if(status == true){ cout << "Eigenvectors loaded ok" << endl;}else{cout << "Could not load eigenvectors" << endl;}
+  arma::vec eigenvector = eigvecs.col(0);
+  last_psi = arma::conv_to<arma::cx_vec>::from (eigenvector);
+}
+
+
+
+
 void Schrodinger::buildSubDiag(){
-  for (int i = 0; i < nx-1; i++){
+  for (int i = 0; i < sub_diagonal.n_elem; i++){
     sub_diagonal(i) = - 1.0/(dx*dx);
   }
 }
@@ -47,16 +59,16 @@ arma::cx_vec& Schrodinger::getEigenvectorWithTime(arma::vec &eigenvector, double
 void Schrodinger::eigenvalueSolver(){
 
   char mode[] = "V";
-  eigenvectors.set_size(nx,nx);
-  arma::vec liwork( nx );
-  int LIWORK = 3+5*nx;
-  int LWORK = 1 + 4*nx + nx*nx;
+  eigenvectors.set_size(diagonal.n_elem, diagonal.n_elem);
+  arma::vec liwork( diagonal.n_elem );
+  int LIWORK = 3+5*diagonal.n_elem;
+  int LWORK = 1 + 4*diagonal.n_elem + diagonal.n_elem*diagonal.n_elem;
   arma::vec work ( LWORK );
   int iwork[LIWORK];
   int info;
+  int v = diagonal.n_elem;
 
-  dstevd_(mode, &nx, diagonal.memptr(), sub_diagonal.memptr(), eigenvectors.memptr(), &nx, work.memptr(), &LWORK, iwork, &LIWORK, &info);
-  //save(eigenvectors, diagonal);
+  dstevd_(mode, &v, diagonal.memptr(), sub_diagonal.memptr(), eigenvectors.memptr(), &v, work.memptr(), &LWORK, iwork, &LIWORK, &info);
 }
 
 double Schrodinger::getMaxEigenvalue(){
@@ -73,17 +85,34 @@ void Schrodinger::normalizeEigenvectors(){
     double n_factor = trapezoidal(eigenvector);
     eigenvectors.col(i) /= sqrt(n_factor);
   }
-  //arma::vec no = eigenvectors.col(0);
-  //cout << trapezoidal(arma::pow(arma::abs(no),2)) << endl;
+  //save(eigenvectors, diagonal);;
 }
 
-void Schrodinger::save(arma::mat &eigenvectors, arma::vec &eigenvalues){
+double Schrodinger::interpolation(arma:: vec &eigenvector){
+  arma::vec x = arma::linspace(0.0, 1.0, eigenvector.n_elem);
+  gsl_interp_accel *acc = gsl_interp_accel_alloc();
+  gsl_spline *spline = gsl_spline_alloc (gsl_interp_cspline, eigenvector.n_elem);
+  gsl_spline_init (spline, x.memptr(), eigenvector.memptr(), eigenvector.n_elem);
+  double y{0};
+  for(double i = 0; i<x.n_elem; i++){
+    y = gsl_spline_eval(spline, x(i), acc);
+  }
+  return gsl_spline_eval_integ(spline, x(0), x(x.n_elem-1), acc);
+  //gsl_spline_free(spline);
+  //gsl_interp_accel_free(acc);
 
+
+}
+
+
+
+
+
+void Schrodinger::save(arma::mat &eigenvectors, arma::vec &eigenvalues){
     stringstream fname;
-    fname << "eigenvalues/eigenvales_" << nx << ".csv";
+    fname << "eigenvalues/eigenvales_with_potential_" << diagonal.n_elem << ".csv";
     eigenvalues.save(fname.str().c_str(), arma::csv_ascii);
-    eigenvectors = eigenvectors.t();
     fname.str("");
-    fname << "eigenvectors/eigenvector_" << nx << ".csv";
+    fname << "eigenvectors/eigenvector_with_potential_" << diagonal.n_elem << ".csv";
     eigenvectors.save(fname.str().c_str(), arma::csv_ascii);
 }

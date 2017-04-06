@@ -6,24 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_3/InitialConditions.hpp
-armadillo
--
-
-/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_3/Main.cpp
-Schrodinger.hpp
-/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_3/Schrodinger.hpp
-Potentials.hpp
-/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_3/Potentials.hpp
-InitialConditions.hpp
-/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_3/InitialConditions.hpp
-stdlib.h
--
-armadillo
--
-cmath
--
-
 /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_3/Potentials.hpp
 
 /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_3/Schrodinger.cpp
@@ -60,5 +42,15 @@ Schrodinger.tpp
 gsl/gsl_errno.h
 -
 gsl/gsl_spline.h
+-
+
+/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_3/Step_evolution.cpp
+Schrodinger.hpp
+/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_3/Schrodinger.hpp
+Potentials.hpp
+/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_3/Potentials.hpp
+armadillo
+-
+stdlib.h
 -
 

@@ -10,8 +10,10 @@ using namespace std;
 int main(int argc, char* argv[]){
   if(argc != 3){cout << "Wrong arguments" << endl; return 1;}
   FreeParticalPotential freePartical;
+  BarrierPotential barrier;
   Dirac dirac;
   FirstEigenmode mode;
+  FirstTwoEigenmode first_two_modes;
   InitialCondition* impuls = 0;
 
   string initial(argv[2]);
@@ -19,20 +21,25 @@ int main(int argc, char* argv[]){
     impuls = &dirac;
   }else if(initial == "first_mode"){
     impuls = &mode;
-  }else{
+  }else if(initial == "first_two"){
+    impuls = &first_two_modes;
+  }
+  else{
     cout << "Unknown initial condition" << endl; return 1;
   }
 
   Schrodinger schrodinger(atoi(argv[1]));
-  schrodinger.initDiagonals(freePartical);
+  //schrodinger.initDiagonals(freePartical);
+  schrodinger.initDiagonals( barrier );
   schrodinger.eigenvalueSolver();
+
   schrodinger.normalizeEigenvectors();
   schrodinger.project(*impuls);
   arma::cx_vec solution;
   solution.set_size( schrodinger.alpha_coeff.n_elem );
-  double nt = 100;
-  double dt = 5000*(1.0/schrodinger.getMaxEigenvalue());
-  arma::mat time_evolution(solution.n_elem, nt);
+  double nt = 150;
+  double dt = 0.002;
+  arma::mat time_evolution( solution.n_elem, nt );
   time_evolution.fill(0);
   double sum_alpha_squared = arma::accu(arma::pow(schrodinger.alpha_coeff,2));
 
@@ -50,4 +57,6 @@ int main(int argc, char* argv[]){
   time_evolution.save("time_evolution.csv", arma::csv_ascii);
   arma::vec psi = arma::pow(arma::abs(solution), 2) / sum_alpha_squared;
   psi.save("psi.csv", arma::csv_ascii);
+
+  return 0;
 };

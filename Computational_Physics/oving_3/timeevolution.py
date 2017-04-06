@@ -10,7 +10,7 @@ subprocess.Popen(["mkdir", "evolution"], stdout=subprocess.PIPE).communicate()[0
 
 i = 0
 for probability in probabilitifunctions:
-    plt.ylim([0,10])
+    plt.ylim([1E-7,10])
     plt.plot(probability)
     plt.savefig("evolution/img"+"%.d"%i+".png")
     plt.close()

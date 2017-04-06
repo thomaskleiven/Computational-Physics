@@ -1,0 +1,1 @@
+/usr/bin/c++    -fopenmp   CMakeFiles/stepEvolution.dir/Step_evolution.cpp.o CMakeFiles/stepEvolution.dir/Schrodinger.cpp.o  -o stepEvolution -rdynamic -larmadillo -llapack -lgsl 
