@@ -3,6 +3,7 @@
 #include <armadillo>
 #include <cmath>
 #include <complex>
+#include <sstream>
 typedef std::complex<double> cdouble;
 
 enum class InitialConditions_t{
@@ -24,6 +25,8 @@ public:
   template<class V>
   void setDiagForCrank(const V& potential);
   void CrankNicolsonScheme();
+  template<class init>
+  void setInitialCondition(const init& condition);
   double getMinEigenvalue();
   double getMaxEigenvalue();
   double dx;
@@ -36,7 +39,6 @@ private:
   template<class V>
   void buildDiag(const V &potential);
   void save(arma::mat &eigenvectors, arma::vec &eigenvalues);
-  void setInitialCondition();
   void buildSubDiag();
   void setSubDiagForCrank();
   double normalization_factor{1};

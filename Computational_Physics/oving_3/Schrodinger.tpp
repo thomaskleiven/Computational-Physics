@@ -6,6 +6,8 @@
 
 using namespace std;
 
+
+//Initialise diagonals for eigenvalue-problem
 template<class V>
 void Schrodinger::initDiagonals(const V &potential){
   buildDiag(potential);
@@ -13,6 +15,7 @@ void Schrodinger::initDiagonals(const V &potential){
 }
 
 
+//Build diagonal
 template<class V>
 void Schrodinger::buildDiag( const V &potential ){
   for (int i = 0; i < diagonal.n_elem; i++){
@@ -20,15 +23,24 @@ void Schrodinger::buildDiag( const V &potential ){
   }
 }
 
+//Set initial condition
+template<class init>
+void Schrodinger::setInitialCondition(const init& condition){
+  u_last.set_size( 100 );
+  for( int i=0; i<100; i++){
+    u_last(i) = condition((double)i/100);
+  }
+}
+
+//Build diagonal for Crank
 template<class V>
 void Schrodinger::setDiagForCrank( const V& potential ){
-  setInitialCondition();
   cdouble im (0.0,1.0);
   crank_diag_A.set_size( u_last.n_elem );
   crank_diag_B.set_size( u_last.n_elem );
   crank_sub_diag_A.set_size( u_last.n_elem - 1 );
   crank_sub_diag_B.set_size( u_last.n_elem - 1 );
-  double dt = 1E-6;
+  double dt = 1E-5;
   double del_x = 1.0/ u_last.n_elem;
 
   for( int i=0; i<u_last.n_elem; i++ ){
@@ -43,10 +55,9 @@ void Schrodinger::setDiagForCrank( const V& potential ){
 
 
 
-
+//Euler Scheme
 template<class V>
 void Schrodinger::euler(const V& potential){
-  //setInitialCondition();
   arma::cx_vec psi ( u_last.n_elem );
   arma::vec x = arma::linspace(0.0,1.0, u_last.n_elem);
   unsigned int nt = 80;
@@ -69,7 +80,7 @@ void Schrodinger::euler(const V& potential){
 
 
 
-
+//Project inital condition onto eigenstates
 template<class Function>
 void Schrodinger::project( const Function &condition ){
   alpha_coeff.set_size( eigenvectors.n_rows );

@@ -17,33 +17,21 @@ public:
 class Dirac: public InitialCondition{
 public:
   double operator()(double x) const override{
-    return exp(-pow(x-x0,2)/sigma)/sigma;
+    return exp(-pow(x-x0,2)/sigma)/0.4;
   };
   void setSigma(double newSigma){sigma = newSigma;};
   void setCenter(double x){
     x0 = x;
   };
 private:
-  double sigma{0.001};
-  double x0{0.5};
+  double sigma{0.01};
+  double x0{0.2};
 };
-
-class FirstEigenmodeWithPotential: public InitialCondition{
-public:
-  arma::mat eigvecs;
-  bool status = eigvecs.load("eigenvectors/eigenvector_with_potential_100.csv", arma::csv_ascii);
-  arma::vec eigenvector = eigvecs.col(0);
-  double operator()(double x) const override{
-    return eigenvector(x);
-  }
-};
-
 
 class FirstTwoEigenmode: public InitialCondition{
 public:
   arma::mat eigvecs;
-  bool status = eigvecs.load("eigenvectors/eigenvector_with_potential_5000.csv", arma::csv_ascii);
-  bool check(){if(status == true){std::cout << "Loaded ok" << std::endl;}else{std::cout << "Could not load" << std::endl; return 1;}}
+  bool status = eigvecs.load("eigenvectors/eigenvector_with_potential_1000.csv", arma::csv_ascii);
   arma::vec eigvec_n_one = eigvecs.col(0);
   arma::vec eigvec_n_two = eigvecs.col(2);
   double operator()(double x) const override{
