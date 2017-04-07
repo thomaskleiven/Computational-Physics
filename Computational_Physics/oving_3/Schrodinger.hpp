@@ -21,6 +21,9 @@ public:
   void normalizeEigenvectors();
   template<class V>
   void euler(const V &potential);
+  template<class V>
+  void setDiagForCrank(const V& potential);
+  void CrankNicolsonScheme();
   double getMinEigenvalue();
   double getMaxEigenvalue();
   double dx;
@@ -35,15 +38,22 @@ private:
   void save(arma::mat &eigenvectors, arma::vec &eigenvalues);
   void setInitialCondition();
   void buildSubDiag();
+  void setSubDiagForCrank();
   double normalization_factor{1};
   double interpolation(arma::vec &eigenvector);
   double trapezoidal(const arma::vec &eigenvector);
-  arma::cx_vec last_psi;
+  double *next_step_cast;
+  arma::cx_vec getComplexEigenvector();
+  arma::cx_vec u_last;
   arma::vec sub_diagonal;
   arma::vec total_solution;
   arma::cx_vec complex_eigenvector;
-  arma::cx_vec getComplexEigenvector();
   arma::mat normalized_eigvecs;
+  arma::cx_vec crank_diag_A;
+  arma::cx_vec crank_diag_B;
+  arma::cx_vec crank_sub_diag_A;
+  arma::cx_vec crank_sub_diag_B;
+  arma::cx_vec crank_super_diagonal_A;
   cdouble IMUNIT;
 
 };

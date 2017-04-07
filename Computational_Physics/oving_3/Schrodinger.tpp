@@ -21,27 +21,52 @@ void Schrodinger::buildDiag( const V &potential ){
 }
 
 template<class V>
-void Schrodinger::euler(const V& potential){
+void Schrodinger::setDiagForCrank( const V& potential ){
   setInitialCondition();
-  arma::cx_vec psi ( last_psi.n_elem );
-  arma::vec x = arma::linspace(0.0,1.0, last_psi.n_elem);
+  cdouble im (0.0,1.0);
+  crank_diag_A.set_size( u_last.n_elem );
+  crank_diag_B.set_size( u_last.n_elem );
+  crank_sub_diag_A.set_size( u_last.n_elem - 1 );
+  crank_sub_diag_B.set_size( u_last.n_elem - 1 );
+  double dt = 1E-6;
+  double del_x = 1.0/ u_last.n_elem;
+
+  for( int i=0; i<u_last.n_elem; i++ ){
+    crank_diag_A (i) =  1.0 + im*(dt/2.0) * (-2.0/(del_x*del_x) + potential(del_x*(i)));
+    crank_diag_B (i) =  1.0 - im*(dt/2.0) * (-2.0/(del_x*del_x) + potential(del_x*(i)));
+    if(i>0){
+      crank_sub_diag_A (i-1) = -im*(dt/2.0) * 1.0/(del_x*del_x);
+      crank_sub_diag_B (i-1) = im*(dt/2.0) * 1.0/(del_x*del_x);
+    }
+  }
+}
+
+
+
+
+template<class V>
+void Schrodinger::euler(const V& potential){
+  //setInitialCondition();
+  arma::cx_vec psi ( u_last.n_elem );
+  arma::vec x = arma::linspace(0.0,1.0, u_last.n_elem);
   unsigned int nt = 80;
   double dt = 1E-5;
   double del_x = 1.0 / x.n_elem;
   cdouble F (dt/(del_x*del_x),0.0);
-  cdouble im (0.0,1);
+  cdouble im (0.0,1.0);
 
   for ( int i = 0; i<nt; i++ ){
-    for ( int j = 1; j<last_psi.n_elem-1; j++ ){
-      psi(j) = last_psi(j) + im*F*(last_psi(j+1) - 2.0*last_psi(j) + last_psi(j-1)) + im*last_psi(j)*potential(x(j))*dt;
+    for ( int j = 1; j<u_last.n_elem-1; j++ ){
+      psi(j) = u_last(j) + im*F*(u_last(j+1) - 2.0*u_last(j) + u_last(j-1)) + im*u_last(j)*potential(x(j))*dt;
     }
-    psi(0) = last_psi(0);
-    psi(last_psi.n_elem-1) = last_psi(last_psi.n_elem-1);
-    last_psi = psi;
+    psi(0) = u_last(0);
+    psi(u_last.n_elem-1) = u_last(u_last.n_elem-1);
+    u_last = psi;
   }
   arma::vec result = arma::pow(arma::abs(psi),2);
   result.save("euler_scheme.csv", arma::csv_ascii);
 }
+
 
 
 
@@ -58,8 +83,6 @@ void Schrodinger::project( const Function &condition ){
       eigenvector(j) *= condition(x);
     }
     alpha_coeff(i) = trapezoidal(eigenvector);
-    //alpha_coeff(i) = interpolation(eigenvector);
-    //cout << alpha_coeff(i) << endl;
   }
 }
 

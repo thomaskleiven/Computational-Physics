@@ -28,6 +28,17 @@ private:
   double x0{0.5};
 };
 
+class FirstEigenmodeWithPotential: public InitialCondition{
+public:
+  arma::mat eigvecs;
+  bool status = eigvecs.load("eigenvectors/eigenvector_with_potential_100.csv", arma::csv_ascii);
+  arma::vec eigenvector = eigvecs.col(0);
+  double operator()(double x) const override{
+    return eigenvector(x);
+  }
+};
+
+
 class FirstTwoEigenmode: public InitialCondition{
 public:
   arma::mat eigvecs;

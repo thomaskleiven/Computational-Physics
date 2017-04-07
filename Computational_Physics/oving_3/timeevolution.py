@@ -4,7 +4,8 @@ import matplotlib.animation as animation
 from pylab import *
 import subprocess
 
-probabilitifunctions = np.loadtxt("time_evolution.csv", delimiter=",")
+probabilitifunctions = np.loadtxt("crankNicolsonScheme.csv", delimiter=",")
+probabilitifunctions = np.transpose(probabilitifunctions)
 #make folder
 subprocess.Popen(["mkdir", "evolution"], stdout=subprocess.PIPE).communicate()[0]
 
@@ -18,6 +19,6 @@ for probability in probabilitifunctions:
 
 
 #make movie
-subprocess.Popen(["ffmpeg", "-r", "10", "-i", "evolution/img%d.png",  "movie.mp4"], stdout=subprocess.PIPE).communicate()[0]
+subprocess.Popen(["ffmpeg", "-r", "13", "-i", "evolution/img%d.png",  "movie.mp4"], stdout=subprocess.PIPE).communicate()[0]
 #delete folder
 subprocess.Popen(["rm", "-r", "evolution"], stdout=subprocess.PIPE).communicate()[0]

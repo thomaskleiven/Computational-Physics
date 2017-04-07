@@ -11,7 +11,7 @@ public:
 class BarrierPotential{
 public:
   double operator()(double x) const{
-    if(((1.0/3) < x) && (x < (2.0/3))){return 1E3;}else{return 0;}
+    if(((1.0/3) < x) && (x < (2.0/3))){return 5E2;}else{return 0;}
   }
 };
 

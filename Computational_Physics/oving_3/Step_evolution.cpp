@@ -7,7 +7,9 @@ int main(){
   BarrierPotential barrier;
 
   Schrodinger step_evolution;
-  step_evolution.euler( barrier );
+  //step_evolution.euler( barrier );
+  step_evolution.setDiagForCrank( barrier );
+  step_evolution.CrankNicolsonScheme();
 
   return 0;
 }

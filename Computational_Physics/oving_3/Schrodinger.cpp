@@ -5,11 +5,12 @@
 #include <sstream>
 #include <cmath>
 #include <complex>
-
-extern "C" void dstevd_(char* JOBZ, int* N, double* D, double* E, double* Z,int* LDZ,double* WORK,int* LWORK, int* IWORK, int* LIWORK,int* INFO );
-
 #include <gsl/gsl_errno.h>
 #include <gsl/gsl_spline.h>
+
+extern "C" void dstevd_(char* JOBZ, int* N, double* D, double* E, double* Z,int* LDZ,double* WORK,int* LWORK, int* IWORK, int* LIWORK,int* INFO );
+extern "C" void zgttrf_(int* n, double* subdiag, double* diag, double* super_diag, double* DU2, int* IPIV, int* info);
+extern "C" void zgttrs_(char* TRANS, int* N, int* NRHS, double* DL, double* D, double* DU, double* DU2, int* IPIV, double* B, int* LDB, int* INFO);
 
 
 using namespace std;
@@ -27,11 +28,11 @@ void Schrodinger::setInitialCondition(){
   arma::mat eigvecs;
   bool status = eigvecs.load("eigenvectors/eigenvector_with_potential_100.csv", arma::csv_ascii);
   if(status == true){ cout << "Eigenvectors loaded ok" << endl;}else{cout << "Could not load eigenvectors" << endl;}
-  arma::vec eigenvector = eigvecs.col(0);
-  last_psi = arma::conv_to<arma::cx_vec>::from (eigenvector);
+  arma::vec u = eigvecs.col(0);
+  arma::vec s = eigvecs.col(2);
+  arma::vec o = (u+s)*1/(sqrt(2));
+  u_last = arma::conv_to<arma::cx_vec>::from (o);
 }
-
-
 
 
 void Schrodinger::buildSubDiag(){
@@ -39,6 +40,52 @@ void Schrodinger::buildSubDiag(){
     sub_diagonal(i) = - 1.0/(dx*dx);
   }
 }
+
+void Schrodinger::CrankNicolsonScheme(){
+  int info;
+  int IPIV[ u_last.n_elem ];
+  int nt = 60000;
+  int NRHS = 1;
+  int n = u_last.n_elem;
+  arma::cx_vec DU2( u_last.n_elem );
+  arma::cx_vec u = u_last;
+  arma::mat results(u_last.n_elem, 100);
+  results.fill(0);
+  int counter = 0;
+
+  crank_super_diagonal_A = crank_sub_diag_A;
+
+  double *super_diag = reinterpret_cast<double*>(crank_super_diagonal_A.memptr());
+  double *subdiag = reinterpret_cast<double*>(crank_sub_diag_A.memptr());
+  double *diag = reinterpret_cast<double*>(crank_diag_A.memptr());
+  double *DU2_cast = reinterpret_cast<double*>(DU2.memptr());
+
+
+
+  //Compute factorisation
+  zgttrf_(&n, subdiag, diag, super_diag, DU2_cast, IPIV, &info);
+  for(int i = 0; i<nt; i++){
+    u_last = u;
+    for(int j=0; j<u_last.n_elem-2; j++){
+      u(j+1) = crank_sub_diag_B(j)*u_last(j) + crank_diag_B(j+1)*u_last(j+1) + crank_sub_diag_B(j+1)*u_last(j+2);
+    }
+    u(0) = crank_diag_B(0)*u_last(0) + crank_sub_diag_B(0)*u_last(1);
+    u(u.n_elem-1) = crank_diag_B(crank_diag_B.n_elem-1)*u_last(u.n_elem-1) + u_last(u.n_elem-2)*crank_sub_diag_B(crank_sub_diag_B.n_elem-2);
+
+    //Solve the system Ax = Bb
+    char TRANS[] = "N";
+    double *u_cast = reinterpret_cast<double*>(u.memptr());
+    zgttrs_(TRANS, &n, &NRHS, subdiag, diag, super_diag, DU2_cast, IPIV, u_cast, &n, &info);
+
+    if((i*nt%100) == 0){
+      arma::vec result = arma::pow(arma::abs(u),2);
+      results.insert_cols(counter++, result);
+    }
+
+  }
+  results.save("crankNicolsonScheme.csv", arma::csv_ascii);
+}
+
 
 double Schrodinger::trapezoidal(const arma::vec &eigenvector){
   double integral = 0;
