@@ -10,10 +10,15 @@ extern "C" double gsl_sf_fact(unsigned int n);
 
 using namespace std;
 
+//Constructor
 Activator::Activator(int N, LatticeType_t lattice):N(N), lattice(lattice){
+  //Number of sites
   n_sites = N*N;
+  //Random uid
   rand_identifier = rand()%10000000;
   double n_bonds = 0;
+
+  //Switch lattice type
   switch(lattice){
     case LatticeType_t::SQUARE:
         n_bonds = SquareLattice::bonds_per_site*N*N;
@@ -25,6 +30,7 @@ Activator::Activator(int N, LatticeType_t lattice):N(N), lattice(lattice){
         n_bonds = HoneycombLattice::bonds_per_site*N*N;
         break;
   }
+  //Set size of p_inf, chi, avg_clustersize
   p_inf_values.set_size(n_bonds);
   chi_values.set_size(n_bonds);
   chi_values.fill(0);
@@ -32,6 +38,7 @@ Activator::Activator(int N, LatticeType_t lattice):N(N), lattice(lattice){
   p_inf_sq_values.set_size(n_bonds);
   binomial.set_size(n_bonds);
 
+  //Fill with zeros
   p_inf_sq_values.fill(0.0);
   p_inf_values.fill(0.0);
   avg_clusterSize.fill(0.0);
@@ -39,14 +46,17 @@ Activator::Activator(int N, LatticeType_t lattice):N(N), lattice(lattice){
   num_of_bonds = n_bonds;
 }
 
+//Destructor
 Activator::~Activator(){
   delete grid;
 }
 
 
+//Loops to get averages of average clustersize and p_infinity
 void Activator::run_loops(int n_loops){
+  //Parallelize for loop
   #pragma omp parallel for
-  for (int k = 0; k < n_loops; k++){                                            //Number of times to average over
+  for (int k = 0; k < n_loops; k++){
     Lattice *sq = NULL;
     unsigned int id = omp_get_thread_num();
     if(id==0){delete grid;}
@@ -66,11 +76,11 @@ void Activator::run_loops(int n_loops){
 
     if(id == 0){grid = sq;}
 
-
-    //if((id == 0) && check){checkOutput();}
+    //Generate lattice
     sq->generateNeighbors();
     sq->shuffleBonds();
-    for(int i= 0; i<sq->bonds.size(); i++){                                     //Activating one by one bond
+    //Activating one by one bond
+    for(int i= 0; i<sq->bonds.size(); i++){
       if(k==0){binomial(i) = sq->binomial_coeff(i);};
       avg_clusterSize(i) += sq->calcAverageClusterSize(sq->bonds[i]);
       p_inf_values(i) += sq->getPvalue();
@@ -79,12 +89,15 @@ void Activator::run_loops(int n_loops){
     count++;
   }
 
+  //Averegings
   p_inf_values /= n_loops;
   p_inf_sq_values /= n_loops;
   avg_clusterSize /= n_loops;
-  calculateConvolution();                                                     //Calculate convolution
+  //Calculate convolution
+  calculateConvolution();
 }
 
+//Check if output dest. exist
 void Activator::checkOutput(){
   assert(grid!=NULL);
   check = false;
@@ -96,6 +109,8 @@ void Activator::checkOutput(){
   out.close();
 }
 
+
+//Calculate chi from averaged convolution of p_infinity and p_infinity_squared
 void Activator::calculateChi(arma::vec &convolution_p, arma::vec &convolution_p_inf_squared){
   arma::vec chi ( convolution_p.n_elem );
 
@@ -107,6 +122,7 @@ void Activator::calculateChi(arma::vec &convolution_p, arma::vec &convolution_p_
       sub = sqrt(sub);
       chi(i) = sub*n_sites;}
   }
+  //Set filenmane with UID
   stringstream filename;
   filename << grid->folder<< "/" << "chi" << uid << "_" << rand_identifier << ".csv";
   chi.save(filename.str().c_str(), arma::csv_ascii);
@@ -114,6 +130,7 @@ void Activator::calculateChi(arma::vec &convolution_p, arma::vec &convolution_p_
 }
 
 
+//Calculate convolution
 void Activator::calculateConvolution(){
   arma::vec p = arma::linspace(0.0, 1.0, 3E4);
   arma::vec convolution_p( p.n_elem );
@@ -135,8 +152,10 @@ void Activator::calculateConvolution(){
     }
   }
 
+  //Calculate chi
   calculateChi(convolution_p, convolution_p_inf_squared);
 
+  //Set filename with uid
   stringstream fname;
   fname << grid->folder << "/" << "p_inf_squared" << uid << "_" << rand_identifier <<".csv";
   convolution_p_inf_squared.save(fname.str().c_str(), arma::csv_ascii);

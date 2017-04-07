@@ -13,15 +13,13 @@ path = sys.argv[1]
 
 files = [f for f in listdir(path) if isfile(join(path, f))]
 
-data = np.zeros(len(files))
 
 fig = plt.figure()
 ax = fig.add_subplot(1,1,1)
 count = 0
 for filename in files:
     data = np.loadtxt(path+"/"+filename)
-    x = np.linspace(0.0, 1.0, len(data))s
-    ax.plot(x, data, color=colors[count%len(colors)], label=filename[:6])
+    x = np.linspace(0.0, 1.0, len(data))
     ax.plot(x, data, color=colors[count%len(colors)], label=filename)
     count += 1
 

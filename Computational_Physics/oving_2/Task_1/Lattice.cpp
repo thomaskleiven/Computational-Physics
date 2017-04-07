@@ -16,12 +16,14 @@ using namespace std;
 double HoneycombLattice::bonds_per_site = 1.5;
 
 
+//Constructor
 Lattice::Lattice(int N):N(N), sites(N*N){
   n_sites = sites.size();
   fill(sites.begin(), sites.end(), -1);
   average_s = n_sites;
 }
 
+//Generate bond between neighboring sites in lattice
 void Lattice::generateNeighbors(){
   for(int i = 0; i < sites.size(); i++){
     findNeighbor(i);
@@ -29,6 +31,7 @@ void Lattice::generateNeighbors(){
 }
 
 
+//Calculate average cluster size
 double Lattice::calcAverageClusterSize(Bond &bond){
   unsigned int index_rootnode_start = getRootNode(bond.startPos);
   unsigned int index_rootnode_end = getRootNode(bond.neighbor);
@@ -54,6 +57,7 @@ double Lattice::calcAverageClusterSize(Bond &bond){
   return expected_s;
 }
 
+//Get root node
 int Lattice::getRootNode(int site){
   if(sites[site] < 0){
     return site;
@@ -62,15 +66,18 @@ int Lattice::getRootNode(int site){
   }
 }
 
+//Get p_infinity value
 double Lattice::getPvalue(){
   return (double)abs(sites[largestCluster])/sites.size();
 }
 
+//Get chi value
 double Lattice::getChi(int i, arma::vec &a, arma::vec &b){
   return sites.size()*sqrt(a(i) - b(i));
 
 }
 
+//Get index and size of largest cluster
 void Lattice::getMainCluster(){
   for (int i = 0; i<sites.size(); i++){
     if(sites[i] == largestCluster){
@@ -82,20 +89,24 @@ void Lattice::getMainCluster(){
   mainCluster.push_back(largestCluster);
 }
 
+//Save cluster to file
 void Lattice::save(vector<int> &vector){
   ofstream output_file("sites.csv");
   ostream_iterator<int> output_iterator(output_file, "\n");
   copy(vector.begin(), vector.end(), output_iterator);
 }
 
+//Shuffle the list of bond
 void Lattice::shuffleBonds(){
   random_shuffle (bonds.begin(), bonds.end());
 }
 
+//Calcluate the binomial coeff. for convolution
 double Lattice::binomial_coeff(int num_activatedBonds){
   return gsl_sf_lnfact(bonds.size()) - gsl_sf_lnfact(num_activatedBonds) - gsl_sf_lnfact(bonds.size()-num_activatedBonds);
 }
 
+//Generate triangular lattice
 void TriangularLattice::findNeighbor(int position){
   Bond bond;
   Bond bond1;
@@ -130,7 +141,7 @@ void TriangularLattice::setCoordinates(){
 }
 
 
-
+//Generate square lattice
 void SquareLattice::findNeighbor(int position){
   Bond bond;
   Bond bond1;
@@ -167,7 +178,7 @@ void Lattice::saveGrid(const char* fname){
 }
 
 
-
+//Generate the Honeycomb
 void HoneycombLattice::findNeighbor(int position){
   Bond bond;
   Bond bond1;
@@ -228,7 +239,7 @@ bool HoneycombLattice::checkIfFirstRow(int position){if(position/N == 0){return 
 
 
 
-/////////////////////////////////////////////////////////
+/////////////////////////DEBUG////////////////////////////////
 void DebugLattice::makeLattice(){
   generateNeighbors();
   saveGrid("HoneyLattice.csv");
