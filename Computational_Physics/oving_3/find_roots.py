@@ -6,6 +6,7 @@ v0 = 1000
 
 p = np.linspace(0.0, 1.0, 10000)
 
+#Callable function
 def eigvecs(x):
     k = np.sqrt(x)
     kappa = np.sqrt(v0-x)
@@ -17,9 +18,9 @@ def eigvecs(x):
     return second - (1.0/first)*third*fourth
 
 #Find minimum
-xopt = optimize.fmin(eigvecs, 271)
+xopt = optimize.fmin(eigvecs, 271) #Function, initial guess
 print "Optimal x-value: ", xopt[0]
 
 #Find root
-root = optimize.brentq(eigvecs, 272.030991745, 273)
+root = optimize.brentq(eigvecs, 272.030991745, 273) #Function, inital guess
 print "Root: ", root

@@ -10,13 +10,16 @@ files = [f for f in listdir(path) if isfile(join(path, f))]
 eigen_error = np.zeros(len(files))
 steps = np.zeros(len(files))
 
-
+#Analytical eigenfunction
 def eigenfunction(n,x):
     return np.sqrt(2)*np.sin((n+1)*np.pi*x)
 
+#Squared error, numerical vs. analytical
 def error(numerical, analytical):
     return np.sum(np.abs(np.abs(numerical) - np.abs(analytical)))**2
 
+
+#Errorscaling as a function of discretisation for a given eigenvector
 def errorScaling(eigvec_num):
     for i in range(0,len(files)):
         eigenvector = np.loadtxt(("eigenvectors/"+files[i]), delimiter=",")
@@ -26,6 +29,7 @@ def errorScaling(eigvec_num):
         steps[i] = N
         eigen_error[i] = error(np.sqrt(N)*eigenvector[eigvec_num], eigenfunction(eigvec_num,x))
     return steps, eigen_error
+
 
 def plotOneEigenvec(eigvec_num):
     filename = path+files[3]
@@ -39,13 +43,12 @@ def plotOneEigenvec(eigvec_num):
 
 plotOneEigenvec(0)
 
+#Errorscaling for a given eigenvector
 steps, eigen_error = errorScaling(3)
+
+#Linear regression
 slope, intercept, rvalue, pvalue, stdr = stats.linregress(np.log(steps), np.log(eigen_error))
 print (slope)
-
-analytical = np.loadtxt("analyticalEigenvector.csv", delimiter=",");
-plt.figure(4)
-plt.plot(analytical)
 
 plt.figure(2)
 plt.plot(steps, np.exp(intercept)*steps**slope)
