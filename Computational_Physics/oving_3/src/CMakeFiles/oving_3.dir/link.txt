@@ -1,0 +1,2 @@
+/usr/bin/ar qc liboving_3.a  CMakeFiles/oving_3.dir/Schrodinger.cpp.o
+/usr/bin/ranlib liboving_3.a

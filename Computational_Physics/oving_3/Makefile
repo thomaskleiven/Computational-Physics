@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /home/tkleiven/Documents/Skole/6_semester/Computational_Physi
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
@@ -77,6 +66,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -111,114 +111,97 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named stepEvolution
+# Target rules for targets named Step_evolution.out
 
 # Build rule for target.
-stepEvolution: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 stepEvolution
-.PHONY : stepEvolution
+Step_evolution.out: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Step_evolution.out
+.PHONY : Step_evolution.out
 
 # fast build rule for target.
-stepEvolution/fast:
-	$(MAKE) -f CMakeFiles/stepEvolution.dir/build.make CMakeFiles/stepEvolution.dir/build
-.PHONY : stepEvolution/fast
+Step_evolution.out/fast:
+	$(MAKE) -f CMakeFiles/Step_evolution.out.dir/build.make CMakeFiles/Step_evolution.out.dir/build
+.PHONY : Step_evolution.out/fast
 
 #=============================================================================
-# Target rules for targets named main
+# Target rules for targets named main.out
 
 # Build rule for target.
-main: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 main
-.PHONY : main
+main.out: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 main.out
+.PHONY : main.out
 
 # fast build rule for target.
-main/fast:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
-.PHONY : main/fast
+main.out/fast:
+	$(MAKE) -f CMakeFiles/main.out.dir/build.make CMakeFiles/main.out.dir/build
+.PHONY : main.out/fast
 
-Main.o: Main.cpp.o
+#=============================================================================
+# Target rules for targets named oving_3
 
-.PHONY : Main.o
+# Build rule for target.
+oving_3: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 oving_3
+.PHONY : oving_3
 
-# target to build an object file
-Main.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Main.cpp.o
-.PHONY : Main.cpp.o
+# fast build rule for target.
+oving_3/fast:
+	$(MAKE) -f src/CMakeFiles/oving_3.dir/build.make src/CMakeFiles/oving_3.dir/build
+.PHONY : oving_3/fast
 
-Main.i: Main.cpp.i
+bin/Main.o: bin/Main.cpp.o
 
-.PHONY : Main.i
-
-# target to preprocess a source file
-Main.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Main.cpp.i
-.PHONY : Main.cpp.i
-
-Main.s: Main.cpp.s
-
-.PHONY : Main.s
-
-# target to generate assembly for a file
-Main.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Main.cpp.s
-.PHONY : Main.cpp.s
-
-Schrodinger.o: Schrodinger.cpp.o
-
-.PHONY : Schrodinger.o
+.PHONY : bin/Main.o
 
 # target to build an object file
-Schrodinger.cpp.o:
-	$(MAKE) -f CMakeFiles/stepEvolution.dir/build.make CMakeFiles/stepEvolution.dir/Schrodinger.cpp.o
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Schrodinger.cpp.o
-.PHONY : Schrodinger.cpp.o
+bin/Main.cpp.o:
+	$(MAKE) -f CMakeFiles/main.out.dir/build.make CMakeFiles/main.out.dir/bin/Main.cpp.o
+.PHONY : bin/Main.cpp.o
 
-Schrodinger.i: Schrodinger.cpp.i
+bin/Main.i: bin/Main.cpp.i
 
-.PHONY : Schrodinger.i
+.PHONY : bin/Main.i
 
 # target to preprocess a source file
-Schrodinger.cpp.i:
-	$(MAKE) -f CMakeFiles/stepEvolution.dir/build.make CMakeFiles/stepEvolution.dir/Schrodinger.cpp.i
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Schrodinger.cpp.i
-.PHONY : Schrodinger.cpp.i
+bin/Main.cpp.i:
+	$(MAKE) -f CMakeFiles/main.out.dir/build.make CMakeFiles/main.out.dir/bin/Main.cpp.i
+.PHONY : bin/Main.cpp.i
 
-Schrodinger.s: Schrodinger.cpp.s
+bin/Main.s: bin/Main.cpp.s
 
-.PHONY : Schrodinger.s
+.PHONY : bin/Main.s
 
 # target to generate assembly for a file
-Schrodinger.cpp.s:
-	$(MAKE) -f CMakeFiles/stepEvolution.dir/build.make CMakeFiles/stepEvolution.dir/Schrodinger.cpp.s
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Schrodinger.cpp.s
-.PHONY : Schrodinger.cpp.s
+bin/Main.cpp.s:
+	$(MAKE) -f CMakeFiles/main.out.dir/build.make CMakeFiles/main.out.dir/bin/Main.cpp.s
+.PHONY : bin/Main.cpp.s
 
-Step_evolution.o: Step_evolution.cpp.o
+bin/Step_evolution.o: bin/Step_evolution.cpp.o
 
-.PHONY : Step_evolution.o
+.PHONY : bin/Step_evolution.o
 
 # target to build an object file
-Step_evolution.cpp.o:
-	$(MAKE) -f CMakeFiles/stepEvolution.dir/build.make CMakeFiles/stepEvolution.dir/Step_evolution.cpp.o
-.PHONY : Step_evolution.cpp.o
+bin/Step_evolution.cpp.o:
+	$(MAKE) -f CMakeFiles/Step_evolution.out.dir/build.make CMakeFiles/Step_evolution.out.dir/bin/Step_evolution.cpp.o
+.PHONY : bin/Step_evolution.cpp.o
 
-Step_evolution.i: Step_evolution.cpp.i
+bin/Step_evolution.i: bin/Step_evolution.cpp.i
 
-.PHONY : Step_evolution.i
+.PHONY : bin/Step_evolution.i
 
 # target to preprocess a source file
-Step_evolution.cpp.i:
-	$(MAKE) -f CMakeFiles/stepEvolution.dir/build.make CMakeFiles/stepEvolution.dir/Step_evolution.cpp.i
-.PHONY : Step_evolution.cpp.i
+bin/Step_evolution.cpp.i:
+	$(MAKE) -f CMakeFiles/Step_evolution.out.dir/build.make CMakeFiles/Step_evolution.out.dir/bin/Step_evolution.cpp.i
+.PHONY : bin/Step_evolution.cpp.i
 
-Step_evolution.s: Step_evolution.cpp.s
+bin/Step_evolution.s: bin/Step_evolution.cpp.s
 
-.PHONY : Step_evolution.s
+.PHONY : bin/Step_evolution.s
 
 # target to generate assembly for a file
-Step_evolution.cpp.s:
-	$(MAKE) -f CMakeFiles/stepEvolution.dir/build.make CMakeFiles/stepEvolution.dir/Step_evolution.cpp.s
-.PHONY : Step_evolution.cpp.s
+bin/Step_evolution.cpp.s:
+	$(MAKE) -f CMakeFiles/Step_evolution.out.dir/build.make CMakeFiles/Step_evolution.out.dir/bin/Step_evolution.cpp.s
+.PHONY : bin/Step_evolution.cpp.s
 
 # Help Target
 help:
@@ -226,19 +209,17 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
-	@echo "... stepEvolution"
 	@echo "... edit_cache"
-	@echo "... main"
-	@echo "... Main.o"
-	@echo "... Main.i"
-	@echo "... Main.s"
-	@echo "... Schrodinger.o"
-	@echo "... Schrodinger.i"
-	@echo "... Schrodinger.s"
-	@echo "... Step_evolution.o"
-	@echo "... Step_evolution.i"
-	@echo "... Step_evolution.s"
+	@echo "... rebuild_cache"
+	@echo "... Step_evolution.out"
+	@echo "... main.out"
+	@echo "... oving_3"
+	@echo "... bin/Main.o"
+	@echo "... bin/Main.i"
+	@echo "... bin/Main.s"
+	@echo "... bin/Step_evolution.o"
+	@echo "... bin/Step_evolution.i"
+	@echo "... bin/Step_evolution.s"
 .PHONY : help
 
 

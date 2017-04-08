@@ -1,4 +1,7 @@
-/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_3/CMakeFiles/rebuild_cache.dir
-/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_3/CMakeFiles/stepEvolution.dir
 /home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_3/CMakeFiles/edit_cache.dir
-/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_3/CMakeFiles/main.dir
+/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_3/CMakeFiles/rebuild_cache.dir
+/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_3/CMakeFiles/Step_evolution.out.dir
+/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_3/CMakeFiles/main.out.dir
+/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_3/src/CMakeFiles/edit_cache.dir
+/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_3/src/CMakeFiles/rebuild_cache.dir
+/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_3/src/CMakeFiles/oving_3.dir
