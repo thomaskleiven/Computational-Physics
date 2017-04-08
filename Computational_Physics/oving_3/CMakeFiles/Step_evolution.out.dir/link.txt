@@ -1,0 +1,1 @@
+/usr/bin/c++    -fopenmp   CMakeFiles/Step_evolution.out.dir/bin/Step_evolution.cpp.o  -o Step_evolution.out -rdynamic -larmadillo -llapack -lgsl src/liboving_3.a 
