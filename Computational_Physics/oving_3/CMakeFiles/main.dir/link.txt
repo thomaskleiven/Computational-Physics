@@ -1,1 +1,0 @@
-/usr/bin/c++    -fopenmp   CMakeFiles/main.dir/Main.cpp.o CMakeFiles/main.dir/Schrodinger.cpp.o  -o main -rdynamic -larmadillo -llapack -lgsl 
