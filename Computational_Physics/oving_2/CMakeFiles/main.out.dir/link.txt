@@ -1,0 +1,1 @@
+/usr/bin/c++    -fopenmp   CMakeFiles/main.out.dir/bin/Main.cpp.o  -o main.out -rdynamic -larmadillo -llapack -lgsl src/liboving_2.a 
