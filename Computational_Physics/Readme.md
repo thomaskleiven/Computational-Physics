@@ -1,4 +1,4 @@
-TFY4235/FY8904 : Computational Physics (spring 2017)
+**TFY4235/FY8904 : Computational Physics (spring 2017)**
 
 Content:
 Linear algebra, finite difference methods, partial/ordinary differential equations, 
