@@ -1,6 +1,0 @@
-/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_2/CMakeFiles/edit_cache.dir
-/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_2/CMakeFiles/rebuild_cache.dir
-/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_2/CMakeFiles/main.out.dir
-/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_2/src/CMakeFiles/edit_cache.dir
-/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_2/src/CMakeFiles/rebuild_cache.dir
-/home/tkleiven/Documents/Skole/6_semester/Computational_Physics/oving_2/src/CMakeFiles/oving_2.dir
