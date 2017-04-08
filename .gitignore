@@ -8,6 +8,13 @@
 *.so
 *.csv
 *.geojsonv
+*.out
+*.cmake
+
+#Specific files#
+#################
+CMakeCache.txt
+
 
 # Packages #
 ############
