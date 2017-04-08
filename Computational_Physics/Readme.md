@@ -6,12 +6,13 @@ integral equations, optimization, linear programming, wavelet analysis,
 Monte Carlo methods, quantum mechanics
 
 
-Required Libraries:
 
-GSL - minimizations routines
 
-BLAS - required by GSL
 
-LAPACK - Linear Algebra Package
+# Required Libraries:
 
-ARMADILLO - C++ linear algebra library
+**GSL** - minimizations routines
+
+**LAPACK** - Linear Algebra Package
+
+**ARMADILLO** - C++ linear algebra library
