@@ -6,7 +6,7 @@ import subprocess
 
 
 
-probabilitifunctions = np.loadtxt("time_evolution.csv", delimiter=",")
+probabilitifunctions = np.loadtxt("../crankNicolsonScheme.csv", delimiter=",")
 probabilitifunctions = np.transpose(probabilitifunctions)
 
 #make folder
