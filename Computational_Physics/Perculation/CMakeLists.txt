@@ -34,7 +34,7 @@ if (OPENMP_FOUND)
 endif()
 
 add_subdirectory( src )
-set( LIB ${LIB} oving_2 )
+set( LIB ${LIB} Perculation )
 
 add_executable( main.out bin/Main.cpp )
 target_link_libraries( main.out ${LIB} )
