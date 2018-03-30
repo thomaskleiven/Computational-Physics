@@ -1,1 +1,0 @@
-/usr/bin/c++      CMakeFiles/animate.dir/Animation.cpp.o CMakeFiles/animate.dir/TimeEvolution.cpp.o  -o animate -rdynamic -larmadillo -llapack -lsfml-system -lsfml-window -lsfml-graphics -lsfml-network -lsfml-audio /usr/local/lib/libvisa.so /usr/local/lib/libpei.so -lfltk -lfltk_gl -lfltk_forms -Wl,-rpath,/usr/local/lib 
